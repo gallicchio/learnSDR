@@ -19,12 +19,16 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 ## Directions
 
-1. Audio cards typically have a maximum sampling rate of 48 kHz. We will design the SDR to sample at a multiple of this frequency, so that we can down-sample the output of the radio to produce an output at 48 kHz.
-2. 
-In this project you will use the PlutoSDR to send and receive an audio frequency sine wave signal using a carrier frequency of 3.5 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**. So far, this repeats [Lesson 8](lesson08.md), but now we will send the received signal through a low-pass filter, removing unwanted high frequencies and slowing the data rate by a factor of 50. 
+1. Audio cards typically have a maximum sampling rate of 48 kHz. We will design the SDR to sample at a multiple of this frequency, so that we can down-sample the output of the radio to produce an output at 48 kHz. Set the `samp_rate` to 2.4 MS/s so that when you decimate by a factor of 50, you get 48 kHz.
 
-2. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the Tx antenna. Label the traces in the time sink with **Tx** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
-3. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **RX** or **receive**.
+2. Set up four **QT GUI Range**s: `tone_freq`, `tx_gain`, `rx_gain`, and `audio_gain`. Defaults and ranges are shown in the tables below.
+
+3. Set up a **Signal Source** to generate a cosine at `tone_freq`. Remember that when the source is set to generate a complex output, the cosine really means $$e^{i \, 2\pi f t}$$. Connect it to a **PlutoSDR Sink** and also display the output with a **QT GUI Time Sink**. You'll need to configure the PlutoSDR to use the right local oscillator frequency and link to the `tx_gain` slider. Make sure to label the traces in the time sink, since you will have many plots.
+
+4. Add a **PlutoSDR Source** to receive the signal, display the output in the usual way, and also send the output to a **Low Pass Filter** (LPF), which will roll off frequencies above 1 kHz and reduce the sample rate to the desired 48 kHz.
+
+5. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the signal before sending it into the **Audio Sink**.
+
 
 ## Parameters
 
