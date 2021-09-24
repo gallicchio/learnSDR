@@ -1,4 +1,4 @@
-# Lesson 8 --- Transmit and Receive from Pluto
+# Lesson 8 --- Transmit and Receive from a PlutoSDR
 
 In this project you will use a software-defined radio to send and receive a sine wave signal with frequency in the kHz range using a carrier frequency of 2.4 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**.
 
