@@ -6,8 +6,6 @@ In this project you will use a software-defined radio to send and receive a sine
 2. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **RX** or **receive**.
 
 
-
-
 ## Equipment
 
 - Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
