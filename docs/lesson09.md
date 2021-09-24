@@ -6,6 +6,11 @@ For speeds that are small compared to the speed of light $$c$$, the frequency of
 \begin{equation}
   f_{\rm Rx} = f_{\rm Tx} \times \left(1+\frac{2 v}{c} \right)
 \end{equation}
+The frequency shift for a 3.5 GHz carrier wave for a speed of 3 m/s would be
+\begin{equation}
+  \Delta f = 2\frac{3~\mathrm{m/s}}{3 \times 10^8~\mathrm{m/s}} (3.5 \times 10^9~\mathrm{Hz}) = 70~\mathrm{Hz}
+\end{equation}
+so we ought to be able to hear this shift, provided that we can block out the much stronger unshifted signal that goes straight from the transmit antenna to the receive antenna. We'll use a notch reject filter to do that.
 
 In this project you will use the PlutoSDR to send and receive an audio frequency sine wave signal using a carrier frequency of 3.5 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**. So far, this repeats [Lesson 8](lesson08.md), but now we will send the received signal through a low-pass filter, removing unwanted high frequencies and slowing the data rate by a factor of 50. The goal of the project is to hear the Dopplertake the small signal
 
