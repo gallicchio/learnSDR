@@ -23,19 +23,34 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 2. 
 In this project you will use the PlutoSDR to send and receive an audio frequency sine wave signal using a carrier frequency of 3.5 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**. So far, this repeats [Lesson 8](lesson08.md), but now we will send the received signal through a low-pass filter, removing unwanted high frequencies and slowing the data rate by a factor of 50. 
 
-2. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the TX antenna. Label the traces in the time sink with **TX** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
+2. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the Tx antenna. Label the traces in the time sink with **Tx** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
 3. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **RX** or **receive**.
 
 ## Parameters
 
 | Parameter            | Value or Range               |
 | ----------------     | --------------:              |
-| sample rate          | 2.084MS/s                    |
-| tone frequency range | -100 kHz to 100 kHz          |
-| RX gain              | 0 to 70 with a default of 64 |
-| RX gain mode         | manual                       |
-| Pluto LO frequency   | 2.4 GHz                      |
-| TX attenuation       | 10 dB                        |
+| sample rate          | 2.4 MS/s                     |
+| tone frequency range | -1 kHz to 1 kHz, default 500 |
+| Rx gain              | 0 to 70, default 64          |
+| Rx gain mode         | manual                       |
+| Pluto LO frequency   | 3.5 GHz                      |
+| Tx gain              | 0 to 100, default 40         |
+| Tx attenuation       | 10 dB                        |
+| audio gain           | 0 to 100, default 50         |
+
+
+## Filter properties
+
+| Parameter                 | Value or Range          |
+| -----------------         | ----------------------: |
+| LPF decimation            | 50                      |
+| LPF cutoff frequency      | 1 kHz                   |
+| LPF transition width      | 250 Hz                  |
+| LPF window                | Hamming                 |
+| BRF low cutoff frequency  | tone - 5 Hz             |
+| BRF high cutoff frequency | tone + 5 Hz             |
+| BRF window                | Hamming                 |
 
 
 
