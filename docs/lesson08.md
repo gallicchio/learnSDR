@@ -4,12 +4,13 @@ In this project you will use a software-defined radio to send and receive a sine
 
 1. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the TX antenna. Label the traces in the time sink with **TX** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
 2. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **RX** or **receive**.
-3. 
+
+
 
 
 ## Equipment
 
-- Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto-web.png)
+- Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
 
 
 
@@ -29,3 +30,8 @@ In this project you will use a software-defined radio to send and receive a sine
 
 
 [Lesson 8 flow diagram](figs/lesson08-pluto.png)
+
+## Things to explore
+
+- How does the orientation of the two antennas affect the strength of the received signal?
+- If you place your hand near the Pluto, does it change the observed frequency signal?
