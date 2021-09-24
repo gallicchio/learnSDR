@@ -39,7 +39,7 @@ In this project you will use the PlutoSDR to send and receive an audio frequency
 
 
 
-[Lesson 8 flow diagram](figs/lesson08-pluto.png)
+[Lesson 9 flow diagram](figs/lesson09-flowdiagram.png)
 
 ## Things to explore
 
