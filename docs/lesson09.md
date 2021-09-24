@@ -4,7 +4,7 @@ When a radio wave bounces off a moving target, its frequency shifts. This shift 
 
 For speeds that are small compared to the speed of light $$c$$, the frequency of a wave that reflects from a surface moving at speed $$v$$ away from the transmitter is
 \begin{equation}
-  f_{\rm Rx} = f_{\rm Tx} \times \frac{2 v}{c}
+  f_{\rm Rx} = f_{\rm Tx} \times \left(1+\frac{2 v}{c} \right)
 \end{equation}
 
 In this project you will use the PlutoSDR to send and receive an audio frequency sine wave signal using a carrier frequency of 3.5 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**. So far, this repeats [Lesson 8](lesson08.md), but now we will send the received signal through a low-pass filter, removing unwanted high frequencies and slowing the data rate by a factor of 50. The goal of the project is to hear the Dopplertake the small signal
