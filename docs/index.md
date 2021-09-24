@@ -1,3 +1,3 @@
-# Top of the day
+# Learning GNURadio 
 
-This is just a silly testing file.
+These pages accompany the videos that Jason is developing. 
