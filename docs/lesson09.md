@@ -1,8 +1,14 @@
-# Lesson 9 --- Transmit and Receive from a PlutoSDR
+# Lesson 9 --- Pluto Doppler RADAR
 
-In this project you will use a software-defined radio to send and receive a sine wave signal with frequency in the kHz range using a carrier frequency of 2.4 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**.
+When a radio wave bounces off a moving target, its frequency shifts. This shift is called the *Doppler effect*. Our goal in this project is to build a flow diagram in GNU Radio that will transmit a pure tone in the audible range, and then receive the shifted waves that have bounced from a hand or other object that is moved towards or away from the antenna.
 
-1. Screw in the two antennas to the Pluto's Tx and Rx ports, taking care not to damage the central pin of the SMA connectors. A good technique is to hold the antenna steady with one hand and gently rotate the screw until tight with the other hand.
+For speeds that are small compared to the speed of light $$c$$, the frequency of a wave that reflects from a surface moving at speed $$v$$ away from the transmitter is
+\begin{equation}
+  f_{\rm Rx} = f_{\rm Tx} \times \frac{2 v}{c}
+\end{equation}
+
+In this project you will use the PlutoSDR to send and receive an audio frequency sine wave signal using a carrier frequency of 3.5 GHz. Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**. So far, this repeats [Lesson 8](lesson08.md), but now we will send the received signal through a low-pass filter, removing unwanted high frequencies and slowing the data rate by a factor of 50. The goal of the project is to hear the Dopplertake the small signal
+
 2. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the TX antenna. Label the traces in the time sink with **TX** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
 3. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **RX** or **receive**.
 
