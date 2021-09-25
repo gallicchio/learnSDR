@@ -64,5 +64,3 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 ## Things to explore
 
-- How does the orientation of the two antennas affect the strength of the received signal?
-- If you place your hand near the Pluto, does it change the observed frequency signal?
