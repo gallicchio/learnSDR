@@ -6,7 +6,7 @@ Pay attention to the colored background of parameters. If the background is gree
 
 Variables: center_freq
 
-The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){target=_blank}. 902 to 928 MHz is the ISM band (industrial, scientific, and medical).
+The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){:target="_blank"}. 902 to 928 MHz is the ISM band (industrial, scientific, and medical).
 
 
 ## Equipment
