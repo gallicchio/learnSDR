@@ -29,7 +29,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 5. Run your flow diagram and find a value of Tx attenuation that produces an undistorted sine wave on the Rx plot. Note the value, so you can update the corresponding range slider's default. Then look at the LPF frequency plot as you move your hand towards or away from the Pluto. When your hand isn't moving, you should see the strong peak at `tone_freq`, but when you move your hand, you might notice distortions in that peak, corresponding to frequencies immediately above or below `tone_freq`.
 
-6. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the signal before sending it into the **Audio Sink**.
+6. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the signal before sending it into the **Audio Sink**. 
 
 
 ## Parameters
@@ -55,6 +55,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 | LPF window                | Hamming                 |
 | BRF low cutoff frequency  | tone - 5 Hz             |
 | BRF high cutoff frequency | tone + 5 Hz             |
+| BRF transition width      | 5 Hz                    |
 | BRF window                | Hamming                 |
 
 
