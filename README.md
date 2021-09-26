@@ -1,2 +1,3 @@
-# doctesting
-Just making sure I understand how this all works
+# Learning Software-Defined Radios
+
+![GNU Radio](figs/gnuradio.png)
