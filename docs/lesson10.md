@@ -1,4 +1,8 @@
-# Lesson 10 --- Tx from Pluto, Rx on RTL-SDR
+# Lesson 10 --- Tx from PlutoSDR, Rx on RTL-SDR
+
+In the previous lessons, we used the PlutoSDR as both a transmitter and a receiver. Now we will use the PlutoSDR to transmit signals and the RTL-SDR to receive them. Each of these devices has an internal clock, but the clocks are not perfect and they will not be synchronized between the two devices. This means that when one "thinks" it is outputting a pure sine wave at 915 MHz, it may actually produce a wave at 915.001 MHz or 914.9994 MHz or some other slightly shifted frequency. The same goes for the receiver clock which is used to generate the local oscillator that beats with the incoming signal to generate the difference-frequency signal that actually carries the modulation sent by the PlutoSDR. Furthermore, each clock may drift over time, as the device's temperature changes. As we develop this lesson, we should bear in mind that differences between the clocks may introduce unanticipated effects.
+
+The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){:target="_blank"}. 902 to 928 MHz is the ISM band (industrial, scientific, and medical).
 
 Things to watch for: difference in clock rates and sample rates between devices
 
@@ -6,8 +10,14 @@ Pay attention to the colored background of parameters. If the background is gree
 
 Variables: center_freq
 
-The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){:target="_blank"}. 902 to 928 MHz is the ISM band (industrial, scientific, and medical).
+Sliders: tx_attenuation 0-100, default 10
+rf_gain: 0 70, default 10
 
+
+
+meaning of sending a constant
+
+Measure the frequency offset between the two clocks; check temperature dependence.
 
 ## Equipment
 
@@ -52,3 +62,21 @@ The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](http
 
 Note: *Depending on your hardware, you may find that displaying all the plots causes errors. You may find that disabling ones that arise earlier in the chain that you are not observing frees up enough computing power to avoid the errors.*
 
+Plotting what you are sending and receiving on the same plot: can 
+
+Play with the transmission
+
+OOK from Pluto to RTL-SDR
+
+Making data from various sources: list the data explicitly with a Vector Source
+sps = samples per symbol (sets 100 samples per symbol)
+
+How to convert from signal back to bits: amplitude of the complex number. Shows with a constellation plot.
+
+threshold: then keep 1 in N where N is sps
+
+Homework:
+
+transmit other bit patterns
+how fast can you go
+how far away can you put the transmitter and receiver?
