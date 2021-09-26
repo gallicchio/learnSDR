@@ -1,3 +1,3 @@
 # Learning Software-Defined Radios
 
-![GNU Radio](figs/gnuradio.png)
+![GNU Radio](docs/figs/gnuradio.png)
