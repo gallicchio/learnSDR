@@ -6,7 +6,7 @@ Pay attention to the colored background of parameters. If the background is gree
 
 Variables: center_freq
 
-The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency). 902 to 928 MHz is the ISM band (industrial, scientific, and medical).
+The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){target=_blank}. 902 to 928 MHz is the ISM band (industrial, scientific, and medical).
 
 
 ## Equipment
@@ -51,12 +51,4 @@ The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](http
 ## Things to explore
 
 Note: *Depending on your hardware, you may find that displaying all the plots causes errors. You may find that disabling ones that arise earlier in the chain that you are not observing frees up enough computing power to avoid the errors.*
-
-1. Can you hear the chirped sound from your computer's sound card when you move your hand rapidly towards or away from the PlutoSDR? What you hear probably lags behind the motion of your hand, since the PlutoSDR needs to send a lot of data over the USB to the computer for processing and filtering before it can be sent to the audio card.
-
-2. In principle, you should be able to hear the shift over a range of tone frequencies. Play around a bit and figure out what frequency produces the best audio signal.
-
-3. How does the LPF cutoff frequency affect the performance of your radio? Do you get a clearer signal with a smaller transition width on the BRF?
-
-4. Is it easier to hear the Doppler shifted frequencies, or see them in the frequency output of the BRF?
 
