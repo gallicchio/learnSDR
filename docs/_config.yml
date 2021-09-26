@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
 logo: /figs/gnuradio.png
 title: Learning SDR
-logo: /images/phys-logo.png
+logo: /docs/images/phys-logo.png
 description: Harvey Mudd College
 show_downloads: false
 google_analytics:
