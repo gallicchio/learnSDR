@@ -20,8 +20,11 @@ Measure the frequency offset between the two clocks; check temperature dependenc
 
 ## Equipment
 
-- Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
-- RTL-SDR, ![blah](figs/RTL-SDR.png)
+- Analog devices ADALM-PLUTO software-defined radio 
+<center>![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)</center>
+- RTL-SDR
+
+<center>![blah](figs/RTL-SDR.png)</center>
 
 ## Directions
 
