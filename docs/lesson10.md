@@ -5,19 +5,6 @@ In the previous lessons, we used the PlutoSDR as both a transmitter and a receiv
 The PlutoSDR can transmit at higher frequencies than the RTL-SDR can receive. We have already operated the PlutoSDR at 2.4 GHz and 3.5 GHz. These frequencies are above the [500 kHz -- 1.75 GHz than the RTL-SDR can handle](https://www.rtl-sdr.com/about-rtl-sdr/). A frequency in the industrial, scientific, and medical (ISM) band from 902 to 928 MHz will work with both devices, so that is what we will use. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){:target="_blank"} for more information on different bands within the UHF range (300 MHz to 3 GHz).
 
 
-Pay attention to the colored background of parameters. If the background is green, the value has to be an integer. If you run into problems, just surround the expression you have with `int()`.
-
-Variables: center_freq
-
-Sliders: tx_attenuation 0-100, default 10
-rf_gain: 0 70, default 10
-
-
-
-meaning of sending a constant
-
-Measure the frequency offset between the two clocks; check temperature dependence.
-
 ## Equipment
 
 - Analog devices ADALM-PLUTO software-defined radio 
@@ -30,9 +17,29 @@ Measure the frequency offset between the two clocks; check temperature dependenc
 ![blah](figs/RTL-SDR.png)
 {: refdef}
 
-## Directions
+## Variables and Ranges
+
+| Name            | Value or Range      | Default                       |
+| --------------- | ------------------- | ------------------------------ |
+| `center_freq`   | 915 MHz or thereabouts       |                          |
+| `samp_rate`     | 1 MS/s |
+| `signal_freq`   | -100 kHz to 100 kHz |  20 kHz |
+| `tx_attenuation` | 0 to 100 | 10 |
+| `rx_gain` | 0 to 70 | 10 |
 
 
+Pay attention to the colored background of parameters. If the background is green, the value has to be an integer. If you run into problems, just surround the expression you have with `int()`.
+
+Variables: center_freq
+
+Sliders: tx_attenuation 0-100, default 10
+rf_gain: 0 70, default 10
+
+
+
+meaning of sending a constant
+
+Measure the frequency offset between the two clocks; check temperature dependence.
 
 
 ## Parameters
