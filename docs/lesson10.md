@@ -12,7 +12,7 @@ The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](http
 ## Equipment
 
 - Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
-- need the RTL-SDR, too
+- RTL-SDR, ![blah](figs/RTL-SDR.png)
 
 ## Directions
 
@@ -23,11 +23,11 @@ The RTL-SDR can go lower. See [allocations of the ultrahigh frequency band](http
 
 | Parameter            | Value or Range               |
 | ----------------     | --------------:              |
-| sample rate          | 2.4 MS/s                     |
+| sample rate          | 1 MS/s                       |
 | tone frequency range | -1 kHz to 1 kHz, default 500 |
 | Rx gain              | 0 to 70, default 64          |
 | Rx gain mode         | manual                       |
-| Pluto LO frequency   | 3.5 GHz                      |
+| Pluto LO frequency   | 915 MHz                      |
 | Tx attenuation       | 0 to 100, default TBD        |
 | audio gain           | 0 to 100, default 50         |
 
