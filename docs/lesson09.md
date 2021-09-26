@@ -29,7 +29,9 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 5. Run your flow diagram and find a value of Tx attenuation that produces an undistorted sine wave on the Rx plot. Note the value, so you can update the corresponding range slider's default. Then look at the LPF frequency plot as you move your hand towards or away from the Pluto. When your hand isn't moving, you should see the strong peak at `tone_freq`, but when you move your hand, you might notice distortions in that peak, corresponding to frequencies immediately above or below `tone_freq`.
 
-6. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the signal before sending it into the **Audio Sink**. 
+6. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the weak signal that comes from the reflected wave. As usual, send the output also to time and frequency sinks, so you can see how effectively the band reject filter removes the strong unshifted signal at the Tx frequency.
+
+7. To hear the Doppler shifted signal, you'll need to send the output of the BRF after it gets multiplied by the audio gain into an **Audio Sink**. There is a small problem: the audio sink doesn't understand a complex signal, so we need to convert the signal using a **Complex to Real** block before sending it into the **Audio Sink**. You'll need to set the sample rate of the audio sink to match the 48 kHz of the input signal.
 
 
 ## Parameters
@@ -66,4 +68,13 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 ## Things to explore
 
-1. 
+Note: Depending on your hardware, you may find that displaying all the plots causes errors. You may find that disabling ones that arise earlier in the chain that you are not observing frees up enough computing power to avoid the errors.
+
+1. Can you hear the chirped sound from your computer's sound card when you move your hand rapidly towards or away from the PlutoSDR? What you hear probably lags behind the motion of your hand, since the PlutoSDR needs to send a lot of data over the USB to the computer for processing and filtering before it can be sent to the audio card.
+
+2. In principle, you should be able to hear the shift over a range of tone frequencies. Play around a bit and figure out what frequency produces the best audio signal.
+
+3. How does the LPF cutoff frequency affect the performance of your radio? Do you get a clearer signal with a smaller transition width on the BRF?
+
+4. Is it easier to hear the Doppler shifted frequencies, or see them in the frequency output of the BRF?
+
