@@ -43,13 +43,12 @@ Pay attention to the colored background of parameters. If the background is gree
 
 2. Add a **RTL-SDR Source**, which will listen for a signal at `center_freq` for us initially to display, to check for strength and distortion, but which we will eventually want to process to decode the information (bits) broadcast by the PlutoSDR. Add the usual time and frequency sinks to display the output of the RTL-SDR and run the flow diagram. 
 - Does the **RTL-SDR** report the same signal that the **PlutoSDR** claims to send?
-- If not, how different are the frequencies of the two devices? 
-- Can you figure out a way to eliminate that discrepancy?
+- If not, how different are the frequencies of the two devices? Hint: if you send in a signal at 0 Hz, what should you expect to receive?
+- Is the frequency difference dependent on the temperature of the devices? You might be able to cool one or warm the other to check for a shift in the received frequency.
+- Assuming that the devices have attained stable temperatures, can you figure out a way to eliminate their frequency difference?
+- Try changing the default number of points in the QT GUI Time Sink by 2, 4, 8, or 16. Does changing the **FFT Size** change the frequency shift between the two devices?
 
-
-
-Measure the frequency offset between the two clocks; check temperature dependence.
-
+3. We have now successfully transmitted a signal from the PlutoSDR to the RTL-SDR, albeit with some undesired frequency shifts that arise because the device clocks are independent and unsynchronized.
 
 
 [Lesson 10 flow diagram](figs/lesson10-flowdiagram.png)
