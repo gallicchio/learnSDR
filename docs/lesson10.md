@@ -41,7 +41,10 @@ Pay attention to the colored background of parameters. If the background is gree
 
 1. Set up the PlutoSDR to transmit a complex cosine wave at `center_freq`, along with the usual **QT GUI Time Sink** and **QT QUI Frequency Sink** blocks to show the TX signal. Link up the TX attenuation to the corresponding slider, to enable you to adjust the strength of the transmitted signal.
 
-2. Add a STL-SDR source, which will listen for a signal at `center_freq`, and 
+2. Add a **RTL-SDR Source**, which will listen for a signal at `center_freq` for us initially to display, to check for strength and distortion, but which we will eventually want to process to decode the information (bits) broadcast by the PlutoSDR. Add the usual time and frequency sinks to display the output of the RTL-SDR and run the flow diagram. 
+- Does the **RTL-SDR** report the same signal that the **PlutoSDR** claims to send?
+- If not, how different are the frequencies of the two devices? 
+- Can you figure out a way to eliminate that discrepancy?
 
 
 
