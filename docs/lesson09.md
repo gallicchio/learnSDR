@@ -66,7 +66,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 [Lesson 9 flow diagram](figs/lesson09-flowdiagram.png)
 
-## Things to explore
+## Things to Explore
 
 Note: *Depending on your hardware, you may find that displaying all the plots causes errors. You may find that disabling ones that arise earlier in the chain that you are not observing frees up enough computing power to avoid the errors.*
 

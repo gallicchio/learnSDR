@@ -33,7 +33,7 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 
 [Lesson 8 flow diagram](figs/lesson08-flowdiagram.png)
 
-## Things to explore
+## Things to Explore
 
 - How does the orientation of the two antennas affect the strength of the received signal?
 - What happens when you set the tone frequency to 0? When you crank up the gain?
