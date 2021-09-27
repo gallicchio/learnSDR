@@ -4,11 +4,11 @@ In this project you will use a software-defined radio to send and receive a sine
 
 Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**.
 
-1. Screw in the two antennas to the Pluto's Tx and Rx ports, taking care not to damage the central pin of the SMA connectors. A good technique is to hold the antenna steady with one hand and gently rotate the screw until tight with the other hand. Orient the two antennas roughly parallel with each other.
+1. Screw in the two antennas to the Pluto's TX and RX ports, taking care not to damage the central pin of the SMA connectors. A good technique is to hold the antenna steady with one hand and gently rotate the screw until tight with the other hand. Orient the two antennas roughly parallel with each other.
 
-2. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the Tx antenna. Label the traces in the time sink with **Tx** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
+2. The signal source should put out a complex cosine wave with an adjustable frequency tied to a range slider. Connect it to a time sink to visualize its output and also to the PlutoSDR sink, which will combine that signal with the carrier wave and broadcast it through the TX antenna. Label the traces in the time sink with **TX** or **transmit** so we can distinguish them from the received signal. See the parameter table below for the values to use in the PlutoSDR sink.
 
-3. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **Rx** or **receive**.
+3. The PlutoSDR source needs to operate at the same frequency as the sink. Connect the PlutoSDR Source to a time sink and a frequency sink. Label the time sink traces with **RX** or **receive**.
 
 
 ## Equipment
@@ -23,10 +23,10 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 | ----------------     | --------------:                        |
 | sample rate          | 2.084 MS/s                             |
 | tone frequency range | -100 kHz to 100 kHz, default of 50 kHz |
-| Rx gain              | 0 to 70, default of 64                 |
-| Rx gain mode         | manual                                 |
+| RX gain              | 0 to 70, default of 64                 |
+| RX gain mode         | manual                                 |
 | Pluto LO frequency   | 2.4 GHz                                |
-| Tx attenuation       | 10 dB                                  |
+| TX attenuation       | 10 dB                                  |
 
 
 
@@ -39,4 +39,4 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 - What happens when you set the tone frequency to 0? When you crank up the gain?
 - If you place your hand near the Pluto, does it change the observed frequency signal?
 - When the gain is high enough to cause noticeable distortion in the received signal, how do the distortions show up in the frequency plot (sink)?
-- What happens if you leave the Tx frequency at 2.4 GHz, but you change the Rx frequency to 2.41 GHz?
+- What happens if you leave the TX frequency at 2.4 GHz, but you change the Rx frequency to 2.41 GHz?

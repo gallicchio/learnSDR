@@ -4,7 +4,7 @@ When a radio wave bounces off a moving target, its frequency shifts. This shift 
 
 For speeds that are small compared to the speed of light $$c$$, the frequency of a wave that reflects from a surface moving at speed $$v$$ toward the transmitter is
 \begin{equation}
-  f_{\rm Rx} = f_{\rm Tx} \times \left(1+2\frac{v}{c} \right)
+  f_{\rm RX} = f_{\rm TX} \times \left(1+2\frac{v}{c} \right)
 \end{equation}
 The frequency shift for a 3.5 GHz carrier wave for a speed of 3 m/s would be
 \begin{equation}
@@ -27,7 +27,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 4. Add a **PlutoSDR Source** to receive the signal, display the output in the usual way (don't forget the labels), and also send the output to a **Low Pass Filter** (LPF), which will roll off frequencies above 1 kHz and reduce the sample rate to the desired 48 kHz. Display the output of the LPF in the usual with (labeled) time and frequency sinks. You may find it helpful to increase the number of points used in the frequency sink by a modest power of 2 to increase the resolution.
 
-5. Run your flow diagram and find a value of Tx attenuation that produces an undistorted sine wave on the Rx plot. Note the value, so you can update the corresponding range slider's default. Then look at the LPF frequency plot as you move your hand towards or away from the Pluto. When your hand isn't moving, you should see the strong peak at `tone_freq`, but when you move your hand, you might notice distortions in that peak, corresponding to frequencies immediately above or below `tone_freq`.
+5. Run your flow diagram and find a value of Tx attenuation that produces an undistorted sine wave on the RX plot. Note the value, so you can update the corresponding range slider's default. Then look at the LPF frequency plot as you move your hand towards or away from the Pluto. When your hand isn't moving, you should see the strong peak at `tone_freq`, but when you move your hand, you might notice distortions in that peak, corresponding to frequencies immediately above or below `tone_freq`.
 
 6. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the weak signal that comes from the reflected wave. As usual, send the output also to time and frequency sinks, so you can see how effectively the band reject filter removes the strong unshifted signal at the Tx frequency.
 
@@ -40,10 +40,10 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 | ----------------     | --------------:              |
 | sample rate          | 2.4 MS/s                     |
 | tone frequency range | -1 kHz to 1 kHz, default 500 |
-| Rx gain              | 0 to 70, default 64          |
-| Rx gain mode         | manual                       |
+| RX gain              | 0 to 70, default 64          |
+| RX gain mode         | manual                       |
 | Pluto LO frequency   | 3.5 GHz                      |
-| Tx attenuation       | 0 to 100, default TBD        |
+| TX attenuation       | 0 to 100, default TBD        |
 | audio gain           | 0 to 100, default 50         |
 
 
