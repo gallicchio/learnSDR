@@ -1,4 +1,4 @@
-# Lesson 10 --- Tx from PlutoSDR, Rx on RTL-SDR
+# Lesson 10 --- TX from PlutoSDR, RX on RTL-SDR
 
 In the previous lessons, we used the PlutoSDR as both a transmitter and a receiver. Now we will use the PlutoSDR to transmit signals and the RTL-SDR to receive them. Each of these devices has an internal clock, but the clocks are not perfect and they will not be synchronized between the two devices. This means that when one "thinks" it is outputting a pure sine wave at 915 MHz, it may actually produce a wave at 915.001 MHz or 914.9994 MHz or some other slightly shifted frequency. The same goes for the receiver clock which is used to generate the local oscillator that beats with the incoming signal to generate the difference-frequency signal that actually carries the modulation sent by the PlutoSDR. Furthermore, each clock may drift over time, as the device's temperature changes. As we develop this lesson, we should bear in mind that differences between the clocks may introduce unanticipated effects.
 
@@ -28,47 +28,20 @@ The PlutoSDR can transmit at higher frequencies than the RTL-SDR can receive. We
 | `rx_gain`        | 0 to 70                | 10        |
 | `sps`            | 100                    |           |
 
+The value of `sps` won't be needed in the first half of the lesson, but will arise in the second half when we modulate the carrier signal to send a stream of logical bits (zeros and ones).
+
+Pay attention to the colored background of parameters. If the background is green, the value has to be an integer. This is particularly true of the PlutoSDR. If you run into problems, just surround the expression you have with `int()`.
+
+## Directions
+
+1. Set up the PlutoSDR to transmit a complex cosine wave at `center_freq`, along with the usual **QT GUI Time Sink** and **QT QUI Frequency Sink** blocks to show the TX signal.
+
+2. 
 
 
-Pay attention to the colored background of parameters. If the background is green, the value has to be an integer. If you run into problems, just surround the expression you have with `int()`.
-
-Variables: center_freq
-
-Sliders: tx_attenuation 0-100, default 10
-rf_gain: 0 70, default 10
-
-
-
-meaning of sending a constant
 
 Measure the frequency offset between the two clocks; check temperature dependence.
 
-
-## Parameters
-
-| Parameter            | Value or Range               |
-| ----------------     | --------------:              |
-| sample rate          | 1 MS/s                       |
-| tone frequency range | -1 kHz to 1 kHz, default 500 |
-| Rx gain              | 0 to 70, default 64          |
-| Rx gain mode         | manual                       |
-| Pluto LO frequency   | 915 MHz                      |
-| Tx attenuation       | 0 to 100, default TBD        |
-| audio gain           | 0 to 100, default 50         |
-
-
-## Filter properties
-
-| Parameter                 | Value or Range          |
-| -----------------         | ----------------------: |
-| LPF decimation            | 50                      |
-| LPF cutoff frequency      | 2 * tone                |
-| LPF transition width      | 250 Hz                  |
-| LPF window                | Hamming                 |
-| BRF low cutoff frequency  | tone - 5 Hz             |
-| BRF high cutoff frequency | tone + 5 Hz             |
-| BRF transition width      | 5 Hz                    |
-| BRF window                | Hamming                 |
 
 
 [Lesson 10 flow diagram](figs/lesson10-flowdiagram.png)
@@ -80,6 +53,8 @@ Note: *Depending on your hardware, you may find that displaying all the plots ca
 Plotting what you are sending and receiving on the same plot: can 
 
 Play with the transmission
+
+meaning of sending a constant
 
 OOK from Pluto to RTL-SDR
 
