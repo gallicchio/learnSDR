@@ -39,9 +39,9 @@ Pay attention to the colored background of parameters. If the background is gree
 
 ## Directions
 
-1. Set up the PlutoSDR to transmit a complex cosine wave at `center_freq`, along with the usual **QT GUI Time Sink** and **QT QUI Frequency Sink** blocks to show the TX signal.
+1. Set up the PlutoSDR to transmit a complex cosine wave at `center_freq`, along with the usual **QT GUI Time Sink** and **QT QUI Frequency Sink** blocks to show the TX signal. Link up the TX attenuation to the corresponding slider, to enable you to adjust the strength of the transmitted signal.
 
-2. 
+2. Add a STL-SDR source, which will listen for a signal at `center_freq`, and 
 
 
 
