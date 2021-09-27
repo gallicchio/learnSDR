@@ -19,13 +19,15 @@ The PlutoSDR can transmit at higher frequencies than the RTL-SDR can receive. We
 
 ## Variables and Ranges
 
-| Name            | Value or Range      | Default                       |
-| --------------- | ------------------- | ------------------------------ |
-| `center_freq`   | 915 MHz or thereabouts       |                          |
-| `samp_rate`     | 1 MS/s |
-| `signal_freq`   | -100 kHz to 100 kHz |  20 kHz |
-| `tx_attenuation` | 0 to 100 | 10 |
-| `rx_gain` | 0 to 70 | 10 |
+| Name             | Value or Range         | Default   |
+| ---------------  | -------------------    | --------- |
+| `center_freq`    | 915 MHz or thereabouts |           |
+| `samp_rate`      | 1 MS/s                 |           |
+| `signal_freq`    | -100 kHz to 100 kHz    | 20 kHz    |
+| `tx_attenuation` | 0 to 100               | 10        |
+| `rx_gain`        | 0 to 70                | 10        |
+| `sps`            | 100                    |           |
+
 
 
 Pay attention to the colored background of parameters. If the background is green, the value has to be an integer. If you run into problems, just surround the expression you have with `int()`.
