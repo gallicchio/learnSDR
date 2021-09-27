@@ -48,7 +48,7 @@ Pay attention to the colored background of parameters. If the background is gree
 - Assuming that the devices have attained stable temperatures, can you figure out a way to eliminate their frequency difference?
 - Try changing the default number of points in the QT GUI Time Sink by 2, 4, 8, or 16. Does changing the **FFT Size** change the frequency shift between the two devices?
 
-3. We have now successfully transmitted a signal from the PlutoSDR to the RTL-SDR, albeit with some undesired frequency shifts that arise because the device clocks are independent and unsynchronized.
+3. We have now successfully transmitted a carrier wave from the PlutoSDR to the RTL-SDR, albeit with some undesired frequency shifts that arise because the device clocks are independent and unsynchronized. However, a pure sine wave carries no information content. To send something "interesting," we need to modulate the carrier wave in some fashion. In this lesson, we will use a simple (and inefficient!) approach to this task to send a repeating sequence of ones and zeros by multiplying the carrier wave by 0 to send a 0 bit and 1 to send a 1 bit.
 
 
 [Lesson 10 flow diagram](figs/lesson10-flowdiagram.png)
