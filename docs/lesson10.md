@@ -50,7 +50,7 @@ Pay attention to the colored background of parameters. If the background is gree
 
 3. We have now successfully transmitted a carrier wave from the PlutoSDR to the RTL-SDR, albeit with some undesired frequency shifts that arise because the device clocks are independent and unsynchronized. However, a pure sine wave carries no information content. To send something "interesting," we need to modulate the carrier wave in some fashion. In this lesson, we will use a simple (and inefficient!) approach to this task to send a repeating sequence of ones and zeros by multiplying the carrier wave by 0 to send a 0 bit and 1 to send a 1 bit. 
 
-In subsequent lessons, we will learn more sophisticated approaches. For the present, we will specify the binary digits to send in a **Vector Source** which we will pipe through a **Repeat** block to send each digit 100 times before switching to the next digit in the code. Use a **Multiply** block to combine the **Signal Source** with the repeated vector source to produce the signal that you send to the **PlutoSDR Sink** (and the corresponding GUI displays).
+In subsequent lessons, we will learn more sophisticated approaches. For the present, we will specify the binary digits to send in a **Vector Source** which we will pipe through a **Repeat** block to send each digit 100 times before switching to the next digit in the code. Use a **Multiply** block to combine the **Signal Source** with the repeated vector source to produce the signal that you send to the **PlutoSDR Sink** (and the corresponding GUI displays). Run the flow diagram and compare the signals being sent via the PlutoSDR and the signal received by the RTL-SDR. Do they appear similar?
 
 
 [Lesson 10 flow diagram](figs/lesson10-flowdiagram.png)
