@@ -6,11 +6,23 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 
 A very useful way to visualize this process is to represent complex numbers with their real part along the $$x$$ axis and their imaginary part along the $$y$$ axis. This same addition problem is illustrated in the following figure.
 
-![Addition of complex numbers](figs/complex-addition.png){: width="200px" height="200px"}
+![Addition of complex numbers](figs/complex-addition.png){: width="300px" height="300px"}
+
+## Multiplying Complex Numbers
+
+You can multiply two complex numbers just the way you would algebraic expressions:
+\begin{align}
+  (a+b)\times(c+d) &= ac + bd + ad + bc \\
+  (2+1i) \times (3+4i) &= 2\times3 + (1i)\times(4i) + 2\times4 i + 1i\times 3\\
+  &= (6-4) + (8+3)i = 2 + 11 i
+\end{align}
+where we have used that $$i^2=-1$$.
 
 ## Polar Form
 
-## Multiplying Complex Numbers
+![Addition of complex numbers](figs/complex-polar.png){: width="300px" height="300px"}
+
+
 
 ## Euler's Identity
 
