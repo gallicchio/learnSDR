@@ -61,6 +61,18 @@ Why is this so great? Well, because when you multiply exponentials, you just add
   z_1 \times z_2 = r_1 e^{i \phi_1} \times r_2 e^{i \phi_2} = r_1 r_2 e^{i(\phi_1+\phi_2)}
 \end{equation}
 
+- The magnitude of the product of the two complex numbers is the product of their magnitudes
+- The phase of the product of two complex numbers is the sum of their phases
+
+Put another way, complex multiplication rotates and stretches complex numbers.
+
+**Exercise:** If $$z_1 = 3 e^{i 30°}$$ and $$z_2 = 4 e^{i 60°}$$, what is $$z_1 z_2$$? Work it out first in polar form, then try it in rectangular $$(x + iy)$$ form. You'll see why we love the polar version!
+<details>
+<summary markdown='span'> Click to expand </summary>
+
+$$z_1 z_2 = 12 e^{i 90°} = 12 i$$
+</details>
+
 ## Complex Sinusoids
 
 ## Illustrations in GNU Radio
