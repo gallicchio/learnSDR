@@ -23,6 +23,13 @@ Similarly,
 \end{equation}
 where we have used that $$i^2=-1$$. This is just the approach the computer uses, but we will see that multiplication gets simpler when we use polar form for complex numbers.
 
+Do you see why I changed the order in "FOIL"?
+<details>
+<summary markdown='span'> Click to expand </summary>
+
+The product of the *lasts* yields a real number, since $$i^2=-1$$, so it helps to put it next to the product of the *firsts*, which is also real.
+</details>
+
 ## Polar Form
 
 The polar form of a complex number uses the "length" of the number and its orientation angle with respect to the real axis to specify the number, rather than its real and imaginary components. To express the complex number $$4 + 3i$$ in polar form, examine the figure below.
