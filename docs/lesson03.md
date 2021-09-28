@@ -27,7 +27,7 @@ Do you see why I changed the order in "FOIL"?
 <details>
 <summary markdown='span'> Click to expand </summary>
 
-The product of the *lasts* yields a real number, since $$i^2=-1$$, so it helps to put it next to the product of the *firsts*, which is also real.
+The product of the *lasts* yields a real number, since $$i^2=-1$$, so it helps to put it next to the product of the *firsts*, which is also real. The *outsides* and the *insides* yield imaginary terms.
 </details>
 
 ## Polar Form
@@ -42,7 +42,7 @@ Using the Pythagorean theorem, we can compute the length of the hypotenuse, whic
 \end{equation}
 We could also express the phase angle $$\phi$$ using the definition of tangent, which is opposite over adjacent:
 \begin{equation}
-  \tan\phi = \frac{3}{4} \qquad \phi = \arctan(3/4) \approx 36.9°
+  \tan\phi = \frac{3}{4} \qquad\text{or}\qquad \phi = \arctan(3/4) \approx 36.9°
 \end{equation}
 
 ## Euler's Identity
