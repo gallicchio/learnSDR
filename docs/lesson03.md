@@ -6,17 +6,17 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 
 A very useful way to visualize this process is to represent complex numbers with their real part along the $$x$$ axis and their imaginary part along the $$y$$ axis. This same addition problem is illustrated in the following figure.
 
-![Addition of complex numbers](figs/complex-addition.png){: width="300px" height="300px"}
+![Addition of complex numbers](figs/complex-addition.png){: width="400px" height="400px"}
 
 ## Multiplying Complex Numbers
 
-You can multiply two complex numbers just the way you would algebraic expressions:
+You can multiply two complex numbers just the way you would algebraic expressions (using FOIL, but I will change the order to FLOI for "firsts-lasts-outside-inside"):
 \begin{equation}
   (a+b)\times(c+d) = ac + bd + ad + bc 
 \end{equation}
 Similarly,
 \begin{equation}
-  (2+1i) \times (3+4i) = 2\times3 + (1i)\times(4i) + 2\times4 i + 1i\times 3
+  (2+1i) \times (3+4i) = (2\times3) + (1i\times 4i) + (2\times4 i) + (1i\times 3)
 \end{equation}
 \begin{equation}
   = (6-4) + (8+3)i = 2 + 11 i
@@ -25,7 +25,7 @@ where we have used that $$i^2=-1$$. This is just the approach the computer uses,
 
 ## Polar Form
 
-![Addition of complex numbers](figs/complex-polar.png){: width="300px" height="300px"}
+![Polar form of complex numbers](figs/complex-polar.png){: width="400px" height="400px"}
 
 
 
