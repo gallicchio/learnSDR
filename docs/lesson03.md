@@ -25,9 +25,18 @@ where we have used that $$i^2=-1$$. This is just the approach the computer uses,
 
 ## Polar Form
 
+The polar form of a complex number uses the "length" of the number and its orientation angle with respect to the real axis to specify the number, rather than its real and imaginary components. To express the complex number $$4 + 3i$$ in polar form, examine the figure below.
+
 ![Polar form of complex numbers](figs/complex-polar.png){: width="400px" height="400px"}
 
-
+Using the Pythagorean theorem, we can compute the length of the hypotenuse, which is the magnitude $$r$$ of the number:
+\begin{equation}
+  r = \sqrt{4^2 + 3^2} = \sqrt{25} = 5
+\end{equation}
+We could also express the phase angle $$\phi$$ using the definition of tangent, which is opposite over adjacent:
+\begin{equation}
+  \tan\phi = \frac{3}{4} \qquad \phi = \arctan(3/4)
+\end{equation}
 
 ## Euler's Identity
 
