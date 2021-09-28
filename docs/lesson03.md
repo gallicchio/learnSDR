@@ -56,6 +56,11 @@ If you have learned about Taylor series, you can probably show that this is true
   z = r e^{i\phi}
 \end{equation}
 
+Why is this so great? Well, because when you multiply exponentials, you just add the exponents. So, if we have numbers $$z_1 = r_1 e^{i \phi_1}$$ and $$z_2 = r_2 e^{i \phi_2}$$, their product is
+\begin{equation}
+  z_1 \times z_2 = r_1 e^{i \phi_1} \times r_2 e^{i \phi_2} = r_1 r_2 e^{i(\phi_1+\phi_2)}
+\end{equation}
+
 ## Complex Sinusoids
 
 ## Illustrations in GNU Radio
