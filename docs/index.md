@@ -2,7 +2,8 @@
 
 These pages accompany the videos that Jason is developing.
 
-- [Lesson 4 --- ? ](lesson04.md)
+- [Lesson 3 --- Complex Numbers in SDR](lesson03.md)
+- [Lesson 4 --- What's Inside a Software-Defined Radio?](lesson04.md)
 - [Lesson 5 --- ? ](lesson05.md)
 - [Lesson 6 --- ? ](lesson06.md)
 - [Lesson 7 --- ? ](lesson07.md)
