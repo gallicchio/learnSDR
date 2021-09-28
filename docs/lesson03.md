@@ -42,10 +42,19 @@ Using the Pythagorean theorem, we can compute the length of the hypotenuse, whic
 \end{equation}
 We could also express the phase angle $$\phi$$ using the definition of tangent, which is opposite over adjacent:
 \begin{equation}
-  \tan\phi = \frac{3}{4} \qquad \phi = \arctan(3/4)
+  \tan\phi = \frac{3}{4} \qquad \phi = \arctan(3/4) \approx 36.9°
 \end{equation}
 
 ## Euler's Identity
+
+There is a most beautiful mathematical relationship known as **Euler's identity** that makes expressing complex numbers in polar form incredibly useful. It is
+\begin{equation}
+  e^{i\phi} = \cos\phi + i \sin\phi
+\end{equation}
+If you have learned about Taylor series, you can probably show that this is true, but if you haven't, don't worry. We will just use Euler's identity to express the complex number $$z = 4 + 3i$$ as
+\begin{equation}
+  z = r e^{i\phi}
+\end{equation}
 
 ## Complex Sinusoids
 
