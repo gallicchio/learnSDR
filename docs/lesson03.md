@@ -6,7 +6,7 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 
 A very useful way to visualize this process is to represent complex numbers with their real part along the $$x$$ axis and their imaginary part along the $$y$$ axis. This same addition problem is illustrated in the following figure.
 
-![Addition of complex numbers](figs/complex-addition.png)
+![Addition of complex numbers](figs/complex-addition.png){: width="200px" height="200px"}
 
 ## Polar Form
 
