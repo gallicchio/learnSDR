@@ -11,11 +11,16 @@ A very useful way to visualize this process is to represent complex numbers with
 ## Multiplying Complex Numbers
 
 You can multiply two complex numbers just the way you would algebraic expressions:
-\begin{align}
-  (a+b)\times(c+d) &= ac + bd + ad + bc \\
-  (2+1i) \times (3+4i) &= 2\times3 + (1i)\times(4i) + 2\times4 i + 1i\times 3\\
-  &= (6-4) + (8+3)i = 2 + 11 i
-\end{align}
+\begin{equation}
+  (a+b)\times(c+d) = ac + bd + ad + bc 
+\end{equation}
+Similarly,
+\begin{equation}
+  (2+1i) \times (3+4i) = 2\times3 + (1i)\times(4i) + 2\times4 i + 1i\times 3
+\end{equation}
+\begin{equation}
+  = (6-4) + (8+3)i = 2 + 11 i
+\end{equation}
 where we have used that $$i^2=-1$$. This is just the approach the computer uses, but we will see that multiplication gets simpler when we use polar form for complex numbers.
 
 ## Polar Form
