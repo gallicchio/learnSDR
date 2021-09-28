@@ -16,7 +16,7 @@ You can multiply two complex numbers just the way you would algebraic expression
   (2+1i) \times (3+4i) &= 2\times3 + (1i)\times(4i) + 2\times4 i + 1i\times 3\\
   &= (6-4) + (8+3)i = 2 + 11 i
 \end{align}
-where we have used that $$i^2=-1$$.
+where we have used that $$i^2=-1$$. This is just the approach the computer uses, but we will see that multiplication gets simpler when we use polar form for complex numbers.
 
 ## Polar Form
 
