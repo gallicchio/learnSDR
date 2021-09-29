@@ -86,7 +86,10 @@ What does a signal of the form $$A e^{i\;2\pi f t}$$ look like? According to Eul
 \end{equation}
 In other words, the real part is a cosine wave with amplitude $$A$$ and frequency $$f$$. The imaginary part is a sine wave with the same amplitude and frequency. By default, GNU Radio shows the real part in blue and the imaginary part in red. So, a plot of a pure "cosine" wave, when passed to a **QT GUI Time Sink** appears as in the figure below.
 
+{:refdef: style="text-align: center;"}
 ![Complex cosine wave in GNU Radio](figs/complex-cosine.png)
+{: refdef}
+
 
 Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red (imag) part starts at 0 and rises with increasing time. What is the frequency of this source?
 <details>
