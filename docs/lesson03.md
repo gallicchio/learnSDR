@@ -6,7 +6,10 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 
 A very useful way to visualize this process is to represent complex numbers with their real part along the $$x$$ axis and their imaginary part along the $$y$$ axis. This same addition problem is illustrated in the following figure.
 
+{:refdef: style="text-align: center;"}
 ![Addition of complex numbers](figs/complex-addition.png){: width="400px" height="400px"}
+{: refdef}
+
 
 ## Multiplying Complex Numbers
 
@@ -34,7 +37,9 @@ The product of the *lasts* yields a real number, since $$i^2=-1$$, so it helps t
 
 The polar form of a complex number uses the "length" of the number and its orientation angle with respect to the real axis to specify the number, rather than its real and imaginary components. To express the complex number $$4 + 3i$$ in polar form, examine the figure below.
 
+{:refdef: style="text-align: center;"}
 ![Polar form of complex numbers](figs/complex-polar.png){: width="400px" height="400px"}
+{: refdef}
 
 Using the Pythagorean theorem, we can compute the length of the hypotenuse, which is the magnitude $$r$$ of the number:
 \begin{equation}
