@@ -75,10 +75,50 @@ $$z_1 z_2 = 12 e^{i 90°} = 12 i$$
 
 ## Complex Sinusoids
 
+What does a signal of the form $$A e^{i\;2\pi f t}$$ look like? According to Euler's identity, it is
+\begin{equation}
+  A e^{i\;2\pi f t} = A \cos(2\pi f t) + i A \sin(2\pi f t)
+\end{equation}
+In other words, the real part is a cosine wave with amplitude $$A$$ and frequency $$f$$. The imaginary part is a sine wave with the same amplitude and frequency. By default, GNU Radio shows the real part in blue and the imaginary part in red. So, a plot of a pure "cosine" wave, when passed to a **QT GUI Time Sink** appears as in the figure below.
+
+![Complex cosine wave in GNU Radio](figs/complex-cosine.png)
+
+Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red (imag) part starts at 0 and rises with increasing time. What is the frequency of this source?
+<details>
+<summary markdown='span'> Click to expand </summary>
+
+The period of the wave is 1 ms, so the frequency is 1 kHz.
+</details>
+
+## Negative Frequencies
+
+*Yes, but why do we care? Real electrical signals are **real**, aren't they?* Well, yes, they are. As you can verify from Euler's identity,
+\begin{equation}
+  \cos \phi = \frac{1}{2} (e^{i\phi} + e^{-i\phi})
+\end{equation}
+for any phase $$\phi$$, including $$\phi = 2\pi f t$$. That is, a real cosine wave is composed of equal parts of positive and negative frequencies:
+\begin{equation}
+  \cos(2\pi f t) = \frac{1}{2} ( e^{i\,2\pi f t} + e^{-i \,2\pi f t})
+\end{equation}
+
+When a software-defined radio *mixes* such a wave with a high-frequency carrier, it multiplies the cosine wave by a signal of the form $$2 e^{-i 2\pi f_0 t}$$. That produces
+\begin{equation}
+  2\cos(2\pi f t) e^{-i 2\pi f_0 t} = [ e^{i\,2\pi (f-f_0) t} + e^{-i \,2\pi (f+f_0) t}]
+\end{equation}
+The first term oscillates at the difference frequency $$f - f_0$$. For frequencies $$f$$ close to the carrier frequency, the difference frequency will be *much* lower in frequency. The second term oscillates at almost twice the carrier frequency. Passing the result through a **low-pass filter**, which strongly attenuates high frequencies, effectively removes the second term, leaving just $$ e^{i\,2\pi (f-f_0) t} $$, which is clearly a **complex sinusoidal signal**. Thus, the frequency shifting done by a software-defined radio necessarily generates complex signals.
+
 ## Illustrations in GNU Radio
 
 - time sinks
 - frequency sinks
 - constellation plots
 
-## Negative Frequencies
+
+
+## Homework
+
+1. The Taylor series for the exponential function is
+\begin{equation}
+  e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\end{equation}
+where $$n! = n (n-1) (n-2) \cdots (2) (1)$$ is the factorial of $$n$$.
