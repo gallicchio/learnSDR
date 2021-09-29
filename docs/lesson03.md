@@ -115,10 +115,29 @@ The first term oscillates at the difference frequency $$f - f_0$$. For frequenci
 
 
 
-## Homework
+## Exercises
 
 1. The Taylor series for the exponential function is
-\begin{equation}
+\begin{equation}\label{eq:exposeries}
   e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
 \end{equation}
-where $$n! = n (n-1) (n-2) \cdots (2) (1)$$ is the factorial of $$n$$.
+where $$3! = 3\times 2\times 1 = 6$$ and $$n! = n (n-1) (n-2) \cdots (2) (1)$$ is the factorial of $$n$$. 
+
+    a. Using this expression, show that $$\frac{d e^x}{dx} = e^x$$, an important property of the exponential function.
+
+    b. The Taylor series for sine and cosine are
+    \begin{equation}
+      \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots
+    \end{equation}
+    \begin{equation}
+      \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots
+    \end{equation}
+    Use these three Taylor series to show Euler's identity,
+    \begin{equation}
+      e^{i\phi} = \cos\phi + i \sin\phi
+    \end{equation}
+    by substituting $$i\phi$$ for $$x$$ in the Taylor series for the exponential, Eq. (\ref{eq:exposeries}).
+
+
+
+
