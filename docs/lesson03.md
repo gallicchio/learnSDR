@@ -113,13 +113,15 @@ When a software-defined radio *mixes* such a wave with a high-frequency carrier,
 \begin{equation}
   2\cos(2\pi f t) e^{-i 2\pi f_0 t} = [ e^{i\,2\pi (f-f_0) t} + e^{-i \,2\pi (f+f_0) t}]
 \end{equation}
-The first term oscillates at the difference frequency $$f - f_0$$. For frequencies $$f$$ close to the carrier frequency, the difference frequency will be *much* lower in frequency. The second term oscillates at almost twice the carrier frequency. Passing the result through a **low-pass filter**, which strongly attenuates high frequencies, effectively removes the second term, leaving just $$ e^{i\,2\pi (f-f_0) t} $$, which is clearly a **complex sinusoidal signal**. Thus, the frequency shifting done by a software-defined radio necessarily generates complex signals.
+The first term oscillates at the difference frequency $$f - f_0$$. For frequencies $$f$$ close to the carrier frequency $$f_0$$, the difference frequency will be *much* lower. The second term oscillates at almost twice the carrier frequency. Passing the result through a **low-pass filter**, which strongly attenuates high frequencies, effectively removes the second term, leaving just $$ e^{i\,2\pi (f-f_0) t} $$, which is clearly a **complex sinusoidal signal**. Thus, the frequency shifting done by a software-defined radio necessarily generates complex signals.
 
 ## Illustrations in GNU Radio
 
 - time sinks
 - frequency sinks
 - constellation plots
+
+Testing.
 
 
 
