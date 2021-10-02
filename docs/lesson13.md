@@ -1,1 +1,1 @@
-# Lesson 13 --- QPTSK Naive with no Pulse Shaping
+# Lesson 13 --- ture Phase Shift Keying (QPSK)
