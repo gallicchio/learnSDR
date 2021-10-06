@@ -8,11 +8,19 @@ So far, we have thought of discrete bits of information as square pulses: 0 or 1
 
  Unfortunately, sharp transitions in time require enormous bandwidth in frequency, meaning that we make very inefficient use of a precious and finite resource. We now need to spend a bit of time exploring the relationship between signals in the time and frequency domains to see how we can effectively transmit binary information without wasting so much frequency bandwidth.
 
-<details>
-<summary markdown='span'> Click to expand </summary>
+ Cutting to the chase, the frequency distribution of a square pulse dies out very slowly, as illustrated in the following figure:
 
+ {:refdef: style="text-align: center;"}
+ ![clean sinc](figs/clean-sinc.png){: width="600px;"}
+ {: refdef}
+ 
+ The left figure shows the amplitude as a function of frequency $$f$$ shift with respect to the carrier frequency. The right figure shows the power in decibels, illustrating the very large bandwidth associated with the sudden transitions in binary phase-shift keying.
+
+<details markdown="block">
+<summary markdown="span"> Details for computing the bandwidth (click to expand) </summary>
 
 When we make an abrupt transition from one phase to another, the carrier wave various **discontinuously**. While this is simple in the time domain---pulses are square and clean---it comes at a great price in frequency bandwidth. Recall the Fourier relation between a pulse in time and its representation in frequency:
+
 \begin{equation}\label{eq:FFT1}
   g(f) = \int_{-\infty}^{\infty} g(t) e^{-i\,2\pi f t} \, dt
 \end{equation}
@@ -33,7 +41,6 @@ g(f) = \frac{\sin[2\pi (f-f_0) T_s]}{2\pi (f-f_0) T_s} T_s = T_s \, \mathrm{sinc
 The function $$\frac{\sin \theta}{\theta}$$ is called $$\mathrm{sinc}(\theta)$$.
 
 ![Sinc function](figs/sinc.png)
-
 
 This spectrum is very broad---it uses way more bandwidth $$\Delta f$$ than the sample period suggests should be necessary: $$\Delta f \approx \frac{1}{T_s}$$.
 

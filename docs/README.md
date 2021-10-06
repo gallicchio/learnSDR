@@ -9,3 +9,9 @@ Take a look a the raw markdown file for how to format the "\<details>" tag.
 </details>
 
 To adjust the size of an image, you can use \'{: width="400px" height="400px"}\'
+
+To center it,
+
+{:refdef: style="text-align: center;"}
+![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
+{: refdef}
