@@ -14,7 +14,7 @@ So far, we have thought of discrete bits of information as square pulses: 0 or 1
  ![clean sinc](figs/clean-sinc.png){: width="600px;"}
  {: refdef}
  
- The left figure shows the amplitude as a function of frequency $$f$$ shift with respect to the carrier frequency. The right figure shows the power in decibels, illustrating the very large bandwidth associated with the sudden transitions in binary phase-shift keying.
+ The left figure shows the amplitude as a function of frequency $$f$$ shift with respect to the carrier frequency. The amplitude is a **sinc** function ($$\mathrm{sinc} \,\theta = \frac{\sin\theta}{\theta}$$). The right figure shows the power in decibels, illustrating the very large bandwidth associated with the sudden transitions in binary phase-shift keying.
 
 <details markdown="block">
 <summary markdown="span"> Details for computing the bandwidth (click to expand) </summary>
@@ -46,8 +46,33 @@ This spectrum is very broad---it uses way more bandwidth $$\Delta f$$ than the s
 
 </details>
 
+## Keeping the bandwidth low
 
-The reason is the sharp transitions from one state to another. If we could round off the edges of the pulses to make a smooth transition from 1 to 0 or 1 to --1, we would allow the frequency spectrum to die off much more rapidly, requiring much less bandwidth. That's exactly what we'll do, except that instead of thinking about the pulse in time, we will think about the pulse in "frequency space" to have the top-hat shape. By the symmetry of the Fourier transform (Eqs. (1)--(2)), a top-hat shape in frequency will produce a **sinc** function in the time domain.
+If we are willing to tolerate some messiness in the signal as a function of time, we can use a lot less bandwidth, which means that nearby channels won't interfere with one another. In fact, the Fourier-transform relationship between the profile of a signal in time and its profile in frequency is symmetric: if we want a narrow spectrum with sharp cutoffs in frequency, we could use the kind of square shape shown above in top graphs, but then the shape in time would be the slowly decaying **sinc** function. That would be difficult to work with because each bit would stretch a very long time.
 
- but with smoothed edges defined by a half-period of a cosine function to make the transition from 1 to 0. By the symmetry of the Fourier transform, the  
+The solution is to make the edges not so sharp, which we can do using a _raised cosine_ function to smooth the transition from 0 to 1 and back down, as illustrated below.
 
+{:refdef: style="text-align: center;"}
+![raised cosine spectrum](figs/rc_of_t.png)
+{: refdef}
+
+The **raised cosine** function takes a parameter $$\alpha$$ that describes how suddenly the transition is made: on the positive side it goes from $$\frac{1-\alpha}{2T}$$ to $$\frac{1+\alpha}{2T}$$, and symmetrically on the negative frequency side.
+
+If we use the raised cosine spectra illustrated in the figure, what do the signals (pulses) look like in the time domain? 
+
+{:refdef: style="text-align: center;"}
+![Raised cosine pulses in time](figs/raised-cosine.png)
+{: refdef}
+
+As expected, the sharper the edge in the spectrum (i.e., the smaller $$\alpha$$), the wider the tails of the pulse.
+
+
+## Nyquist ISI criterion
+
+**Much more importantly**, every pulse shape shares the property of the **sinc** function that the value is zero at every nonzero multiple of the sample time $$T_s$$. This means that a sample pulse centered at $$t = 0$$ and would add nothing to the signal of a pulse that is sent $$t = T_s$$ later. For all signal pulses sent at the regular interval $$T_s$$, every one vanishes at $$t = 0$$ _except_ the one sent at $$t = 0$$. This results in no **intersymbol interference** (ISI). The **Nyquist ISI criterion** is a demand on the pulse shape $$h(nT_s)$$ that it have the property that
+\begin{equation}
+  h(n T_s) = \begin{cases}
+    1; n = 0 \\
+    0; n \ne 0
+  \end{cases}
+\end{equation}
