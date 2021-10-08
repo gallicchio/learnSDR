@@ -71,4 +71,28 @@ As expected, the sharper the edge in the spectrum (i.e., the smaller $$\alpha$$)
 
 **Much more importantly**, every pulse shape shares the property of the **sinc** function that the value is zero at every nonzero multiple of the sample time $$T_s$$. This means that a sample pulse centered at $$t = 0$$ and would add nothing to the signal of a pulse that is sent $$t = T_s$$ later. For all signal pulses sent at the regular interval $$T_s$$, every one vanishes at $$t = 0$$ _except_ the one sent at $$t = 0$$. This results in no **intersymbol interference** (ISI). The **Nyquist ISI criterion** is a demand on the pulse shape $$h(nT_s)$$ that it have the property that
 $$ h(n T_s) = 1 \text{ if } n = 0 $$ and 0 if $$ n \ne 0$$.
-asdf
+
+The **sinc** function,
+\begin{equation}
+  h(t) = \frac{\sin(\pi t/T_s)}{\pi t/T_s}
+\end{equation}
+ produced by a sharp bandwidth cutoff satisfies the Nyquist ISI criterion, since the numerator vanishes for all $$t = n T_s$$ for nonzero integer $$n$$. _Crucially_, this property is also true for raised cosine spectra, as illustrated in the figure below for which $$ \alpha = 0.1 $$.
+
+ {:refdef: style="text-align: center;"}
+ ![Raised cosine pulses satisify the Nyquist ISI criterion, alpha = 0.1](figs/raised-cosine-alpha-10.png){: width="400px;"}
+{: refdef}
+{:refdef: style="text-align: center; font-style: italic;"}
+ Notice that the only nonzero pulse at $$t = 0$$ comes from the green pulse.
+ {: refdef}
+ 
+ 
+
+ {:refdef: class="myfig"}
+ ![Raised cosine pulses satisify the Nyquist ISI criterion, alpha = 0.1](figs/raised-cosine-alpha-10.png){: width="400px;"}
+{: refdef}
+
+{:refdef: class="mycap"}
+ Notice that the only nonzero pulse at $$t = 0$$ comes from the green pulse.
+ {: refdef}
+ 
+ 
