@@ -72,3 +72,40 @@ sample rate nfilts*samp_rate
 symbol rate: samp_rate/sps
 Excess BW: alpha
 num taps: 11*sps*nfilts [spans 11 symbols]
+
+
+
+Carrier Phase Synchronization with a Costas Loop
+
+By end of today, we have all the tools:
+timing synchronizations
+carrier phase synchronization
+
+No matter how good your clocks, you have to deal with frequency offsets and phase offsets
+
+Simplified diagram from last time 
+
+Symbol Sync block using a polyphase filterbank, MF
+Now we look at the Costas loop
+clocks matched to something like a part per billion
+
+How does the Costas loop do its thing producing (at least for BPSK) to a purely real?
+
+1. If we knew theta, we could "derotate" by ze^{-i\theta}
+2. If we can estimate θ, we can drive it to zero with a control loop
+
+data: z = x + iy = e^{i\phi}
+a = a_I + i a_Q = e^{i \phi_a}
+
+$$z a^* = e^{i(\phi - \phi_a)} $$
+$$\theta = \arg(z)$$
+
+For small values of θ, we can use the small-angle approximation. We're going to use $$\theta \approx \Im(z a^*)$$.
+
+Costas loop needs to know the number of constellation points
+
+constellation.arity() gives the order
+
+
+Resolving phase ambiguity and differential encoding
+
