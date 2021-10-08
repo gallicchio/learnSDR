@@ -13,6 +13,7 @@ A very useful way to visualize this process is to represent complex numbers with
 {: refdef}
 
 
+
 ## Multiplying Complex Numbers
 
 You can multiply two complex numbers just the way you would algebraic expressions (using FOIL, but I will change the order to FLOI for "firsts-lasts-outside-inside"):
@@ -101,6 +102,8 @@ The period of the wave is 1 ms, so the frequency is 1 kHz.
 </details>
 
 ## Negative Frequencies
+
+[ ![video](figs/03-negative-frequencies.jpg)](https://youtu.be/n9_N8KhuojM){:target="_blank"}
 
 *Yes, but why do we care? Real electrical signals are **real**, aren't they?* Well, yes, they are. As you can verify from Euler's identity,
 \begin{equation}
