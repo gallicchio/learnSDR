@@ -78,7 +78,7 @@ How to convert from signal back to bits: amplitude of the complex number. Shows 
 
 threshold: then keep 1 in N where N is sps
 
-Homework:
+## Homework
 
 transmit other bit patterns
 how fast can you go

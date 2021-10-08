@@ -16,7 +16,6 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 - Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
 
 
-
 ## Parameters
 
 | Parameter            | Value or Range                         |

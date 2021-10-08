@@ -14,6 +14,17 @@ need to investigate ways to slowly adjust
 
 This one didn't work well.
 
+<details markdown='block'>
+<summary markdown='span'> The finished flow diagram </summary>
+
+{:refdef: .center}
+![BPSK flow diagram](figs/BPSK-flowdiagram.png)
+{: refdef}
+
+</details>
+
+
+
 Homework:
 
 1. Square the incoming signal to adjust the slider and zero out the frequency difference. 
