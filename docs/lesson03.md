@@ -30,7 +30,8 @@ Similarly,
 where we have used that $$i^2=-1$$. This is just the approach the computer uses, but we will see that multiplication gets simpler when we use polar form for complex numbers.
 
 Do you see why I changed the order in "FOIL"?
-<details>
+
+<details markdown='block'>
 <summary markdown='span'> Click to expand </summary>
 
 The product of the *lasts* yields a real number, since $$i^2=-1$$, so it helps to put it next to the product of the *firsts*, which is also real. The *outsides* and the *insides* yield imaginary terms.
@@ -103,7 +104,7 @@ The period of the wave is 1 ms, so the frequency is 1 kHz.
 
 ## Negative Frequencies
 
-[ ![video](figs/03-negative-frequencies.jpg)](https://youtu.be/n9_N8KhuojM){:target="_blank"}
+[ ![video](figs/video/03-negative-frequencies.jpg)](https://youtu.be/n9_N8KhuojM){:target="_blank"}
 
 *Yes, but why do we care? Real electrical signals are **real**, aren't they?* Well, yes, they are. As you can verify from Euler's identity,
 \begin{equation}
