@@ -2,6 +2,8 @@
 
 These pages accompany the videos that Jason is developing. The ones in bold are more elaborate
 
+- [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
+- [Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver](lesson02.md)
 - **[Lesson 3 --- Complex Numbers in SDR](lesson03.md)**
 - [Lesson 4 --- What's Inside a Software-Defined Radio?](lesson04.md)
 - **[Lesson 5 --- On-Off Keying with Adafruit Keyfob 4-Button RF Remote Control](lesson05.md)**
