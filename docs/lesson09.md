@@ -1,83 +1,89 @@
-# Lesson 9 --- Pluto Doppler RADAR
+# Lesson 10 --- TX from PlutoSDR, RX on RTL-SDR
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eyZUqw49Plw " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bzR7VfjtZyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-When a radio wave bounces off a moving target, its frequency shifts. This shift is called the *Doppler effect*. The faster the target moves, the greater the frequency shift. Our goal in this project is to build a flow diagram in GNU Radio that will transmit a pure tone in the audible range, and then receive the shifted waves that have bounced from a hand or other object that is moved towards or away from the antenna.
+In the previous lessons, we used the PlutoSDR as both a transmitter and a receiver. Now we will use the PlutoSDR to transmit signals and the RTL-SDR to receive them. Each of these devices has an internal clock, but the clocks are not perfect and they will not be synchronized between the two devices. This means that when one "thinks" it is outputting a pure sine wave at 915 MHz, it may actually produce a wave at 915.001 MHz or 914.9994 MHz or some other slightly shifted frequency. The same goes for the receiver clock which is used to generate the local oscillator that beats with the incoming signal to generate the difference-frequency signal that actually carries the modulation sent by the PlutoSDR. Furthermore, each clock may drift over time, as the device's temperature changes. As we develop this lesson, we should bear in mind that differences between the clocks may introduce unanticipated effects.
 
-For speeds that are small compared to the speed of light $$c$$, the frequency of a wave that reflects from a surface moving at speed $$v$$ toward the transmitter is
-\begin{equation}
-  f_{\rm RX} = f_{\rm TX} \times \left(1+2\frac{v}{c} \right)
-\end{equation}
-The frequency shift for a 3.5 GHz carrier wave for a speed of 3 m/s would be
-\begin{equation}
-  \Delta f = 2\frac{3~\mathrm{m/s}}{3 \times 10^8~\mathrm{m/s}} (3.5 \times 10^9~\mathrm{Hz}) = 70~\mathrm{Hz}
-\end{equation}
-so we ought to be able to hear this shift, provided that we can block out the much stronger unshifted signal that goes straight from the transmit antenna to the receive antenna. We'll use a narrow-band reject filter to do that. Finally, we will convert the complex output to a real signal that we can send to an audio sink, which will allow us to hear the shifted tone.
+The PlutoSDR can transmit at higher frequencies than the RTL-SDR can receive. We have already operated the PlutoSDR at 2.4 GHz and 3.5 GHz. These frequencies are above the [500 kHz -- 1.75 GHz than the RTL-SDR can handle](https://www.rtl-sdr.com/about-rtl-sdr/). A frequency in the industrial, scientific, and medical (ISM) band from 902 to 928 MHz will work with both devices, so that is what we will use. See [allocations of the ultrahigh frequency band](https://en.wikipedia.org/wiki/Ultra_high_frequency){:target="_blank"} for more information on different bands within the UHF range (300 MHz to 3 GHz).
 
 
 ## Equipment
 
-- Analog devices ADALM-PLUTO software-defined radio ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
+<details>
+<summary markdown='span'> Click to show the equipment list </summary>
+- Analog devices ADALM-PLUTO software-defined radio 
+{:refdef: style="text-align: center;"}
+![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
+{: refdef}
+- RTL-SDR
+
+{:refdef: style="text-align: center;"}
+![blah](figs/RTL-SDR.png)
+{: refdef}
+
+</details>
+
+
+## Variables and Ranges
+
+| Name             | Value or Range         | Default   |
+| ---------------  | -------------------    | --------- |
+| `center_freq`    | 915 MHz or thereabouts |           |
+| `samp_rate`      | 1 MS/s                 |           |
+| `signal_freq`    | -100 kHz to 100 kHz    | 20 kHz    |
+| `tx_attenuation` | 0 to 100               | 10        |
+| `rx_gain`        | 0 to 70                | 10        |
+| `sps`            | 100                    |           |
+
+The value of `sps` won't be needed in the first half of the lesson, but will arise in the second half when we modulate the carrier signal to send a stream of logical bits (zeros and ones).
+
+Pay attention to the colored background of parameters. If the background is green, the value has to be an integer. This is particularly true of the PlutoSDR. If you run into problems, just surround the expression you have with `int()`.
 
 ## Directions
 
-1. Audio cards typically have a maximum sampling rate of 48 kHz. We will design the SDR to sample at a multiple of this frequency, so that we can down-sample the output of the radio to produce an output at 48 kHz. Set the `samp_rate` to 2.4 MS/s so that when you decimate by a factor of 50 after filtering, you get 48 kHz.
+1. Set up the PlutoSDR to transmit a complex cosine wave at `center_freq`, along with the usual **QT GUI Time Sink** and **QT QUI Frequency Sink** blocks to show the TX signal. Link up the TX attenuation to the corresponding slider, to enable you to adjust the strength of the transmitted signal.
 
-2. Set up four **QT GUI Range**s: `tone_freq`, `tx_gain`, `rx_gain`, and `audio_gain`. Defaults and ranges are shown in the tables below.
+2. Add a **RTL-SDR Source**, which will listen for a signal at `center_freq` for us initially to display, to check for strength and distortion, but which we will eventually want to process to decode the information (bits) broadcast by the PlutoSDR. Add the usual time and frequency sinks to display the output of the RTL-SDR and run the flow diagram. 
+- Does the **RTL-SDR** report the same signal that the **PlutoSDR** claims to send?
+- If not, how different are the frequencies of the two devices? Hint: if you send in a signal at 0 Hz, what should you expect to receive?
+- Is the frequency difference dependent on the temperature of the devices? You might be able to cool one or warm the other to check for a shift in the received frequency.
+- Assuming that the devices have attained stable temperatures, can you figure out a way to eliminate their frequency difference?
+- Try changing the default number of points in the QT GUI Time Sink by 2, 4, 8, or 16. Does changing the **FFT Size** change the frequency shift between the two devices?
 
-3. Set up a **Signal Source** to generate a cosine at `tone_freq`. Remember that when the source is set to generate a complex output, the cosine really means $$e^{i \, 2\pi f t}$$. Connect it to a **PlutoSDR Sink** and also display the output with a **QT GUI Time Sink**. You'll need to configure the PlutoSDR to use the right local oscillator frequency and link to the `tx_gain` slider. Make sure to label the traces in the time sink, since you will have many plots.
+3. We have now successfully transmitted a carrier wave from the PlutoSDR to the RTL-SDR, albeit with some undesired frequency shifts that arise because the device clocks are independent and unsynchronized. However, a pure sine wave carries no information content. To send something "interesting," we need to modulate the carrier wave in some fashion. In this lesson, we will use a simple (and inefficient!) approach to this task to send a repeating sequence of ones and zeros by multiplying the carrier wave by 0 to send a 0 bit and 1 to send a 1 bit. 
 
-4. Add a **PlutoSDR Source** to receive the signal, display the output in the usual way (don't forget the labels), and also send the output to a **Low Pass Filter** (LPF), which will roll off frequencies above 1 kHz and reduce the sample rate to the desired 48 kHz. Display the output of the LPF in the usual with (labeled) time and frequency sinks. You may find it helpful to increase the number of points used in the frequency sink by a modest power of 2 to increase the resolution.
+    In subsequent lessons, we will learn more sophisticated approaches. For the present, we will specify the binary digits to send in a **Vector Source** which we will pipe through a **Repeat** block to send each digit 100 times before switching to the next digit in the code. Use a **Multiply** block to combine the **Signal Source** with the repeated vector source to produce the signal that you send to the **PlutoSDR Sink** (and the corresponding GUI displays). Edit the **Vector Source** to send a vector with a distinct pattern of zeros and ones. Then, run the flow diagram and compare the signals being sent via the PlutoSDR and the signal received by the RTL-SDR. Do they appear similar? Can you identify the pattern of binary digits that you chose to send?
 
-5. Run your flow diagram and find a value of Tx attenuation that produces an undistorted sine wave on the RX plot. Note the value, so you can update the corresponding range slider's default. Then look at the LPF frequency plot as you move your hand towards or away from the Pluto. When your hand isn't moving, you should see the strong peak at `tone_freq`, but when you move your hand, you might notice distortions in that peak, corresponding to frequencies immediately above or below `tone_freq`.
+4. Add a **QT GUI Constellation Sink** to the output of the **RTL-SDR Source** to display the signal on the complex plane. Does it look like a "circle"? When the bit is 1, the signal should move around the unit circle on the complex plane, but when it is zero, it should collapse to the origin. Of course, there will be noise in the real signal, so the points would trace out a perfect circle or a pure point at the origin. Nonetheless, can you see the basic pattern? Our next task is to turn this observation into decoded binary bits.
 
-6. Before sending the output of the LPF to an **Audio Sink**, we need to strip out the strong peak at `tone_freq`. Set up a **Band Reject Filter** (BRF), and then use a **Multiply Constant** block tied to `audio_gain` to boost the weak signal that comes from the reflected wave. As usual, send the output also to time and frequency sinks, so you can see how effectively the band reject filter removes the strong unshifted signal at the Tx frequency.
-
-7. To hear the Doppler shifted signal, you'll need to send the output of the BRF after it gets multiplied by the audio gain into an **Audio Sink**. There is a small problem: the audio sink doesn't understand a complex signal, so we need to convert the signal using a **Complex to Real** block before sending it into the **Audio Sink**. You'll need to set the sample rate of the audio sink to match the 48 kHz of the input signal.
-
-
-## Parameters
-
-| Parameter            | Value or Range               |
-| ----------------     | --------------:              |
-| sample rate          | 2.4 MS/s                     |
-| tone frequency range | -1 kHz to 1 kHz, default 500 |
-| RX gain              | 0 to 70, default 64          |
-| RX gain mode         | manual                       |
-| Pluto LO frequency   | 3.5 GHz                      |
-| TX attenuation       | 0 to 100, default TBD        |
-| audio gain           | 0 to 100, default 50         |
+5. Use a **Complex to Mag** block to convert the output of the **RTL-SDR** source into a real number representing its amplitude. Run the flow diagram and adjust the gains and attenuations to produce a signal that seems to faithfully reproduce the information you are aiming to broadcast. Then install a **Threshold** block to trigger when the signal makes a transition between the "0" state and the "1" state. You can set both the low and high threshold to the same value. Then, it is helpful to undo the *repeat* operation that we applied to the output of the vector source to produce the pure digital information that we aimed to transmit. Use a **Keep 1 in N** block with *N* set to the same value you used in the Repeat block and send the output to a time sink.
 
 
-## Filter properties
-
-| Parameter                 | Value or Range          |
-| -----------------         | ----------------------: |
-| LPF decimation            | 50                      |
-| LPF cutoff frequency      | 2 * tone                |
-| LPF transition width      | 250 Hz                  |
-| LPF window                | Hamming                 |
-| BRF low cutoff frequency  | tone - 5 Hz             |
-| BRF high cutoff frequency | tone + 5 Hz             |
-| BRF transition width      | 5 Hz                    |
-| BRF window                | Hamming                 |
-
-
-
-
-
-[Lesson 9 flow diagram](figs/flow/lesson09-flowdiagram.png)
+[Lesson 10 flow diagram](figs/flow/lesson10-flowdiagram.png)
 
 ## Things to Explore
 
 Note: *Depending on your hardware, you may find that displaying all the plots causes errors. You may find that disabling ones that arise earlier in the chain that you are not observing frees up enough computing power to avoid the errors.*
 
-1. Can you hear the chirped sound from your computer's sound card when you move your hand rapidly towards or away from the PlutoSDR? What you hear probably lags behind the motion of your hand, since the PlutoSDR needs to send a lot of data over the USB to the computer for processing and filtering before it can be sent to the audio card.
+Plotting what you are sending and receiving on the same plot: can 
 
-2. In principle, you should be able to hear the shift over a range of tone frequencies. Play around a bit and figure out what frequency produces the best audio signal.
+Play with the transmission
 
-3. How does the LPF cutoff frequency affect the performance of your radio? Do you get a clearer signal with a smaller transition width on the BRF?
+meaning of sending a constant
 
-4. Is it easier to hear the Doppler shifted frequencies, or see them in the frequency output of the BRF?
+OOK from Pluto to RTL-SDR
+
+Making data from various sources: list the data explicitly with a Vector Source
+sps = samples per symbol (sets 100 samples per symbol)
+
+How to convert from signal back to bits: amplitude of the complex number. Shows with a constellation plot.
+
+threshold: then keep 1 in N where N is sps
+
+## Homework
+
+- transmit other bit patterns
+- how fast can you go
+- how far away can you put the transmitter and receiver?
