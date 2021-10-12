@@ -4,9 +4,6 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GIdATdJi8jA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ODU-PvH1_Hg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 In this project you will use a software-defined radio to send and receive a sine wave signal with frequency in the kilohertz range using a carrier frequency of 2.4 GHz. You will be able to control the attenuation of the transmitted signal, as well as the gain on the received signal. If the received signal is too strong, you will notice distortion of the sinusoidal oscillation in a time sink.
 
 Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency Sinks**, the blocks you'll need are a **Signal Source**, **PlutoSDR Sink**, and **PlutoSDR Source**.
