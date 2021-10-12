@@ -4,14 +4,15 @@ These pages accompany the videos that Jason is developing. The ones in bold are 
 
 - [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
 - [Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver](lesson02.md)
-- **[Lesson 3 --- Complex Numbers in SDR](lesson03.md)**
+- **[Lesson 3a --- Complex Numbers in SDR](lesson03a.md)**
+- **[Lesson 3b --- Negative Frequencies](lesson03b.md)**
 - [Lesson 4 --- What's Inside a Software-Defined Radio?](lesson04.md)
 - **[Lesson 5 --- On-Off Keying with Adafruit Keyfob 4-Button RF Remote Control](lesson05.md)**
 - [Lesson 6 --- Sampling](lesson06.md)
 - [Lesson 7 --- Frequency Spectrum, Fourier Transform, and FFT](lesson07.md)
-- **[Lesson 8a --- Transmit and Receive from a PlutoSDR](lesson08.md)**
-- **[Lesson 8b --- Pluto Doppler RADAR](lesson09.md)**
-- **[Lesson 9 --- Tx from Pluto, Rx on RTL-SDR](lesson10.md)**
+- **[Lesson 8a --- Transmit and Receive from a PlutoSDR](lesson08a.md)**
+- **[Lesson 8b --- Pluto Doppler RADAR](lesson08b.md)**
+- **[Lesson 9 --- Tx from Pluto, Rx on RTL-SDR](lesson09.md)**
 - [Lesson 10 --- On-Off Keying (OOK) from Pluto to RTL SDR](lesson10.md)
 - **[Lesson 11 --- Amplitude-Shift Keying (ASK) from Pluto to SDR](lesson11.md)**
 - [Lesson 12 --- PSK (BPSK) Phase-Shift Keying](lesson12.md)
