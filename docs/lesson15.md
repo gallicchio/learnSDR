@@ -1,5 +1,9 @@
 # Lesson 15 --- Pulse Shaping and Nyquist Criteria
 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JeW1HfTGnEE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 So far, we have thought of discrete bits of information as square pulses: 0 or 1, which we can map into a phase of 1 or -1 in **binary phase-shift keying**.
 
 {:refdef: .center}
