@@ -88,3 +88,4 @@ The **sinc** function,
 {:refdef: .mycap}
  Notice that the only nonzero contribution at $$t = 0$$ comes from the green pulse, whose amplitude there is 1.
  {: refdef}
+?

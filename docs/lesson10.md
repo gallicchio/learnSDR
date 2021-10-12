@@ -57,7 +57,7 @@ Pay attention to the colored background of parameters. If the background is gree
 5. Use a **Complex to Mag** block to convert the output of the **RTL-SDR** source into a real number representing its amplitude. Run the flow diagram and adjust the gains and attenuations to produce a signal that seems to faithfully reproduce the information you are aiming to broadcast. Then install a **Threshold** block to trigger when the signal makes a transition between the "0" state and the "1" state. You can set both the low and high threshold to the same value. Then, it is helpful to undo the *repeat* operation that we applied to the output of the vector source to produce the pure digital information that we aimed to transmit. Use a **Keep 1 in N** block with *N* set to the same value you used in the Repeat block and send the output to a time sink.
 
 
-[Lesson 10 flow diagram](figs/lesson10-flowdiagram.png)
+[Lesson 10 flow diagram](figs/flow/lesson10-flowdiagram.png)
 
 ## Things to Explore
 
@@ -80,6 +80,6 @@ threshold: then keep 1 in N where N is sps
 
 ## Homework
 
-transmit other bit patterns
-how fast can you go
-how far away can you put the transmitter and receiver?
+- transmit other bit patterns
+- how fast can you go
+- how far away can you put the transmitter and receiver?

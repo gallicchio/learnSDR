@@ -23,7 +23,7 @@ Last time we used on-off keying as a way of modulating a carrier sinusoidal wave
 </details>
 
 
-[ ![video](figs/ASK-video.jpg)](https://youtu.be/rkFP5tsIfMg){:target="_blank"}
+[ ![video](figs/video/ASK-video.jpg)](https://youtu.be/rkFP5tsIfMg){:target="_blank"}
 
 ## Setting up the flow diagram
 
@@ -49,12 +49,12 @@ Finally, since we only care about the magnitude of the values we receive, you ca
 <details markdown='block'>
 <summary markdown='span'> The ASK flow diagram </summary>
 
-![ASK.grc flow diagram](figs/ASK-flow.png)
+![ASK.grc flow diagram](figs/flow/ASK-flow.png)
 
 </details>
 
 {:refdef: .center}
-![ASK in operation](figs/ASK-running.png)
+![ASK in operation](figs/run/ASK-running.png)
 {: refdef}
 
 {:refdef: .mycap}
@@ -63,7 +63,7 @@ The ASK flow diagram in operation.
 
 
 {:refdef: .center}
-![ASK in operation, bottom part](figs/ASK-running-2.png)
+![ASK in operation, bottom part](figs/run/ASK-running-2.png)
 {: refdef}
 
 

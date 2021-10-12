@@ -64,7 +64,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 
 
-[Lesson 9 flow diagram](figs/lesson09-flowdiagram.png)
+[Lesson 9 flow diagram](figs/flow/lesson09-flowdiagram.png)
 
 ## Things to Explore
 

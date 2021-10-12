@@ -106,6 +106,13 @@ Costas loop needs to know the number of constellation points
 
 constellation.arity() gives the order
 
+----------
 
 Resolving phase ambiguity and differential encoding
 
+Two techniques to handle.
+1. send a unique word with a lot of transitions; Costas loop will lock. Then ask did I get the right sign (BPSK) or the right one of 4 phases (QPSK).
+2. Differential encoding
+
+for BPSK, start in some state. To send 0, stay in the state. To send a 1, switch states.
+**

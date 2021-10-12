@@ -3,7 +3,7 @@
 
 Bandwidth is $$2/T_s$$, where $$T_s$$ is the symbol time.
 
-Raised cosine: smooth the transition
+Raised cosine: smooth the transition 
 
 sinc x: no intersymbol interference (ISI)
 Nyquist ISI criterion
