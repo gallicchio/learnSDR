@@ -4,6 +4,8 @@ Last time, we used a vector of values to modulate the amplitude of the carrier w
 
 [ ![video](figs/video/PSK-video.jpg)](https://youtu.be/EHQcuFuQA5w){:target="_blank"}
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EHQcuFuQA5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Start with your flow graph from the previous lesson, save a copy with the name BPSK, and then work on the following modifications.
 
 As before, we will use a **Vector Source** to supply a string of values, only this time our input will be a string of binary digits in a pattern that we will repeat over and over. You can pick whatever pattern you like, but it is helpful to pick something that you can readily recognize in the output (e.g., (0,1,0,1,0,0,1,1,1,1)).
