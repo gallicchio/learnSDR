@@ -24,6 +24,21 @@ These pages accompany the videos that Jason is developing. The ones in bold are 
 - [Lesson 18 --- Symbol Timing Recovery and Synchronization](lesson18.md)
 - [Lesson 19 --- Carrier Phase Synchronization with a Costas Loop](lesson19.md)
 - [Lesson 20 --- Resolving the Phase Ambiguity and Differential Encoding](lesson20.md)
+- Lesson 21 --- Full PSK or QPSK modem with carrier and timing recovery
+- Lesson 24 --- Equalization (skip for GNUradio 3.8 because everything changes in 3.9)
+- Lesson 25 --- Orthogonal Frequency-Division Multiplexing (OFDM) (Too advanced?)
+- Lesson 26 --- Frequency Shift Keying (FSK) Pluto to RTL-SDR
+- Lesson 27 --- Minimum-Shift Keying (MSK) and Gaussian-MSK (GMSK)
+- Lesson 28 --- Noise (meant to talk about this earlier but it broke the flow)
+- Lesson 29 --- Filtering (meant to talk about this earlier but it broke the flow)
+- Lesson 30 --- Correlation
+- Lesson 31 --- Chirps in radar and LoRa
+- Lesson 32 --- Linear Feedback Shift Registers (LFSRs) and Gold Codes
+- Lesson 33 --- Spread spectrum and Code-Division Multiple Access (CDMA)
+- Lesson 34 --- GPS outside (slide Doppler by hand and see code correlation)
+- Lesson 35 --- MIMO Phased array of 2 antennas into a B210
+- Lesson 36 --- Direction Finding
+
 
 
 
