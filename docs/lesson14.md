@@ -78,7 +78,12 @@ As expected, the sharper the edge in the spectrum (i.e., the smaller $$\alpha$$)
 ## Nyquist ISI criterion
 
 **Much more importantly**, every pulse shape shares the property of the **sinc** function that the value is zero at every nonzero multiple of the sample time $$T_s$$. This means that a sample pulse centered at $$t = 0$$ and would add nothing to the signal of a pulse that is sent $$t = T_s$$ later. For all signal pulses sent at the regular interval $$T_s$$, every one vanishes at $$t = 0$$ _except_ the one sent at $$t = 0$$. This results in no **intersymbol interference** (ISI). The **Nyquist ISI criterion** is a demand on the pulse shape $$h(nT_s)$$ that it have the property that
-$$ h(n T_s) = 1 \text{ if } n = 0 $$ and 0 if $$ n \ne 0$$.
+\begin{equation}
+   h(n T_s) = \begin{cases}
+   1 & n = 0 \\\
+   0 & n \ne 0
+   \end{cases}
+\end{equation}
 
 The **sinc** function,
 \begin{equation}
@@ -92,4 +97,3 @@ The **sinc** function,
 {:refdef: .mycap}
  Notice that the only nonzero contribution at $$t = 0$$ comes from the green pulse, whose amplitude there is 1.
  {: refdef}
-?
