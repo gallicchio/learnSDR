@@ -80,7 +80,8 @@ Why is this so great? Well, because when you multiply exponentials, you just add
 Put another way, complex multiplication rotates and stretches complex numbers.
 
 **Exercise:** If $$z_1 = 3 e^{i 30°}$$ and $$z_2 = 4 e^{i 60°}$$, what is $$z_1 z_2$$? Work it out first in polar form, then try it in rectangular $$(x + iy)$$ form. You'll see why we love the polar version!
-<details>
+
+<details markdown='block'>
 <summary markdown='span'> Click to expand </summary>
 
 $$z_1 z_2 = 12 e^{i 90°} = 12 i$$
@@ -106,4 +107,4 @@ Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red
 The period of the wave is 1 ms, so the frequency is 1 kHz.
 </details>
 
-
+[Lesson 3b](lesson03b.md)

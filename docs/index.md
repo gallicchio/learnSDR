@@ -1,6 +1,6 @@
 # Learning GNURadio 
 
-These pages accompany the videos that Jason is developing. The ones in bold are more elaborate
+These pages accompany the videos that Jason is developing. The ones in bold are more elaborate.
 
 - [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
 - [Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver](lesson02.md)
