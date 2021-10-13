@@ -3,7 +3,6 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ODU-PvH1_Hg " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
 When a radio wave bounces off a moving target, its frequency shifts. This shift is called the *Doppler effect*. The faster the target moves, the greater the frequency shift. Our goal in this project is to build a flow diagram in GNU Radio that will transmit a pure tone in the audible range, and then receive the shifted waves that have bounced from a hand or other object that is moved towards or away from the antenna.
 
 For speeds that are small compared to the speed of light $$c$$, the frequency of a wave that reflects from a surface moving at speed $$v$$ toward the transmitter is
