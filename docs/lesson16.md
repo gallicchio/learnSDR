@@ -34,3 +34,18 @@ There are a couple of challenges. First, the data we send to the Constellation M
 ## Questions
 
 1. The flow diagram uses the **arity** of the Constellation Object. What does that mean? What other blocks use this value?
+
+2. The eye diagrams below were obtained after changing a value on the flow diagram. What value was changed and what value does it have here?
+
+
+![alt text](figs/run/constellation-eye.png)
+
+## Problems
+
+- With the help of a slider to account for the different clock rates of the Pluto and RTL-SDR, we were able to successfully decode the BPSK data, but as illustrated in the figure above, the results weren't perfect. It was not possible to dynamically adjust the frequency shift to get rid of the slow drift that caused a portion of the signal to appear in the real part of the decoded signal and another in the imaginary part, despite our sending only real values. We will need to develop a method for removing the spectral drift automatically.
+
+- Even were we to perfectly correct for the frequency difference between the Pluto and RTL-SDR clocks, there would be an arbitrary phase difference between them. This difference means that we won't get a sample at the exact right place in the eye diagram and we will need to interpolate between measured values to recover the sent value.
+
+- We will also need to figure out where in the range from 0 to `sps` we need to sample to be at that place on the eye diagram where the values are ideally separated.
+
+We will address these issues in the next few lessons.
