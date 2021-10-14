@@ -31,7 +31,6 @@ The [flow diagram](figs/flow/pulse-shaping.png){: target='_blank'} the Prof. Jas
 
    4. Which pulse shape has greater bandwidth, the **root raised cosine** or the **raised cosine**? How significant is the difference?
 
-
    5. Explain the green trace in the figure below. ![](figs/run/RC-alpha-50.png)
 
-   6. About what value of $$\alpha$$ was used to produce the figure below? ![](figs/run/RC-bw-02.png)
+   6. About what value of $$\alpha$$ was used to produce the figure below? How can you tell? ![](figs/run/RC-bw-02.png)
