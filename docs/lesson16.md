@@ -30,3 +30,7 @@ There are a couple of challenges. First, the data we send to the Constellation M
 
 
 [Flow diagram](figs/flow/constellation.png){: target="flow"}
+
+## Questions
+
+1. The flow diagram uses the **arity** of the Constellation Object. What does that mean? What other blocks use this value?
