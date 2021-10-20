@@ -1,7 +1,8 @@
 # Learning GNURadio 
 
-These pages accompany the videos that Jason is developing. The ones in bold are more elaborate.
+The lessons in **bold** are more elaborate.
 
+- [Installation --- Instructions for installing GNURadio](installation.md)
 - [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
 - [Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver](lesson02.md)
 - **[Lesson 3a --- Complex Numbers in SDR](lesson03a.md)**
