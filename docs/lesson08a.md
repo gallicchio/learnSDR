@@ -32,7 +32,6 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 
 
 
-
 [Lesson 8 flow diagram](figs/flow/lesson08-flowdiagram.png)
 
 ## Things to Explore

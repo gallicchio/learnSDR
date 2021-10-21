@@ -15,11 +15,16 @@ If you pass a noisy signal, whose shape in the absence of noise we know, through
 
 The [flow diagram](figs/flow/pulse-shaping.png){: target='_blank'} the Prof. Jason describes in the video allows you to explore how the extra bandwidth parameter $$\alpha$$ in the raised cosine spectrum and filter affects the necessary bandwidth, pulse shapes, and eye diagrams. Figure 1 offers an illustration of how the **root raised cosine** shape _has_ intersymbol interference (ISI), but after passing through a matched filter it does _not_ have ISI.
 
-![RRC eye diagram](figs/run/RRC-eye-50.png) 
+<p class='center' markdown='0'>
+  <img src='figs/run/RRC-eye-50.png' alt='alt text' >
 
-![RC eye diagram](figs/run/RC-eye-50.png)
+  <img src='figs/run/RC-eye-50.png' alt='alt text' >
+</p>
 
+{:refdef: .mycap}
 **Figure 1** --- Eye diagrams for sending random binary digits using the **root raised cosine** shape (upper panel) and after passing the resulting signal through a **root raised cosine matched filter**.
+{: refdef}
+
 
 ## Questions
 
