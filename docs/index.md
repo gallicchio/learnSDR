@@ -19,10 +19,10 @@ The lessons in **bold** are more elaborate.
 - [Lesson 12 --- PSK (BPSK) Phase-Shift Keying](lesson12.md)
 - [Lesson 13 --- QPSK Naive with no Pulse Shaping](lesson13.md)
 - [Lesson 14 --- Pulse Shaping and Nyquist Criteria](lesson14.md)
-- [Lesson 15 --- Pulse Shaping Matched Filter](lesson15.md)
+- **[Lesson 15 --- Pulse Shaping Matched Filter](lesson15.md)**
 - [Lesson 16 --- Constellation Modulator](lesson16.md)
 - [Lesson 17 --- Frequency Locked Loop (FLL)](lesson17.md)
-- [Lesson 18 --- Symbol Timing Recovery and Synchronization](lesson18.md)
+- **[Lesson 18 --- Symbol Timing Recovery and Synchronization](lesson18.md)**
 - [Lesson 19 --- Carrier Phase Synchronization with a Costas Loop](lesson19.md)
 - [Lesson 20 --- Resolving the Phase Ambiguity and Differential Encoding](lesson20.md)
 - Lesson 21 --- Full PSK or QPSK modem with carrier and timing recovery

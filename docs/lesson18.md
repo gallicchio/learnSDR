@@ -47,7 +47,7 @@ So, we will take
 \begin{equation}
   e = \langle x \dot{x} \rangle
 \end{equation}
-to yield an error signal we can use to adjust the sample timing, where the angle brackets indicate an average. For this signal, the roughly horizontal paths that represent two consecutive symbols of the same value contribute nothing on average, but the two diagonal paths produce a signal that grows larger the farther from the correct timing we are and is positive when we need to move later and negative when we need to move earlier. Note, however, that **we need data that has transitions.** Without them, the error signal disappears.
+to yield an error signal we can use to adjust the sample timing, where the angle brackets indicate a time average. For this signal, the roughly horizontal paths that represent two consecutive symbols of the same value contribute nothing on average, but the two diagonal paths produce a signal that grows larger the farther from the correct timing we are and is positive when we need to move later and negative when we need to move earlier. Note, however, that **we need data that has transitions.** Without them, the error signal disappears.
 
 _It is not clear to me why $$\langle \mathrm{sign}(x) \dot{x} \rangle$$ should be linear with timing error, however, since the slope along the diagonal paths is roughly constant._
 

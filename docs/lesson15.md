@@ -23,7 +23,7 @@ The [flow diagram](figs/flow/pulse-shaping.png){: target='_blank'} the Prof. Jas
 
 ## Questions
 
-   1. At $$t = 0$$, 10, and 20 $$\mu$$s there are two possible amplitudes, $$+1$$ and $$-1$$, but in the intervals between these times there are many paths. Why is that?
+   1. At $$t = 0$$, 10, and 20 $$\mu$$s there are two possible amplitudes, +1 and --1, but in the intervals between these times there are many paths. Why is that?
 
    2. What would happen to the eye diagrams if you changed the input to come from a **Source Vector** with the value `(0,1,0,1)`? 
 
