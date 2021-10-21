@@ -22,7 +22,7 @@ The lessons in **bold** are more elaborate.
 - **[Lesson 15 --- Pulse Shaping Matched Filter](lesson15.md)**
 - [Lesson 16 --- Constellation Modulator](lesson16.md)
 - [Lesson 17 --- Frequency Locked Loop (FLL)](lesson17.md)
-- **[Lesson 18 --- Symbol Timing Recovery and Synchronization](lesson18.md)**
+- **[Lesson 18 --- Symbol Timing Recovery and Synchronization](lesson18.md)** 
 - [Lesson 19 --- Carrier Phase Synchronization with a Costas Loop](lesson19.md)
 - [Lesson 20 --- Resolving the Phase Ambiguity and Differential Encoding](lesson20.md)
 - Lesson 21 --- Full PSK or QPSK modem with carrier and timing recovery
@@ -39,6 +39,4 @@ The lessons in **bold** are more elaborate.
 - Lesson 34 --- GPS outside (slide Doppler by hand and see code correlation)
 - Lesson 35 --- MIMO Phased array of 2 antennas into a B210
 - Lesson 36 --- Direction Finding
-
-
 
