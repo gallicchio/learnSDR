@@ -61,14 +61,14 @@ Finally, since we only care about the magnitude of the values we receive, you ca
 ![ASK in operation](figs/run/ASK-running.png)
 </p>
 
-{:refdef: .mycap}
+<p class="mycap" markdown="1">
 The ASK flow diagram in operation.
-{: refdef}
+</p>
 
 
-{:refdef: .center}
+
 ![ASK in operation, bottom part](figs/run/ASK-running-2.png)
-{: refdef}
+
 
 
 

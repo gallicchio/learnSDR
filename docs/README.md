@@ -5,13 +5,12 @@ You can use a "\<details>" tag to create expandable tabs:
 <details>
 <summary markdown='span'> Click to expand </summary>
 
-Take a look a the raw markdown file for how to format the "\<details>" tag. 
+Take a look a the raw markdown file for how to format the "</details>" tag. 
 </details>
 
-To adjust the size of an image, you can use \'{: width="400px" height="400px"}\'
+To adjust the size of an image, you can use `style="width: 400px;"`.
 
 To center it,
-
-{:refdef: style="text-align: center;"}
+<p class="center" markdown="1">
 ![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
-{: refdef}
+</p>

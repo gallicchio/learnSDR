@@ -19,9 +19,9 @@ To develop an error signal we can use to home in on the correct timing, consider
 <img src="figs/timing-a.png" style="width:500px;">
 </p>
 
-{:refdef: .mycap}
+<p class="mycap" markdown="1">
 **Figure 1** --- Schematic illustration of the paths in an eye diagram for binary phase-shift keying. To keep bandwidth modest, each symbol extends many periods before and after the symbol we wish to transmit, which leads to many different paths for transition from the previous symbol at either --1 or +1 to the next (also at either --1 or +1).
-{: refdef}
+</p>
 
 Consider what happens if we sample a bit too early, as illustrated in Fig. 2. The product of the signal value $$x$$ and its time derivative $$\dot{x}$$ (the slope) is positive for both transition from --1 to +1 and from +1 to --1. If we take the average of $$x \dot{x}$$ across all paths, we will get a positive value that indicates we should shift our timing a bit later.
 
@@ -29,9 +29,9 @@ Consider what happens if we sample a bit too early, as illustrated in Fig. 2. Th
 <img src='figs/timing-b.png' alt='If we sample too early' style='width=500px;'>
 </p>
 
-{:refdef: .mycap}
+<p class="mycap" markdown="1">
 **Figure 2** --- When we sample too early (at the time indicated by the vertical dashed line), we can learn something from the two sloped paths that represent transitions from +1 to --1 and from --1 to +1. The product of the signal value $$x$$ and its time derivative $$\dot{x}$$ (the slope) is positive for **both types of transition**.
-{: refdef}
+</p>
 
 We can make a similar deduction for the case when we sample a bit too late, as illustrated in Fig. 3.
 
@@ -39,9 +39,9 @@ We can make a similar deduction for the case when we sample a bit too late, as i
 <img src='figs/timing-c.png' alt='If we sample too late' style='width=500px;'>
 </p>
 
-{:refdef: .mycap}
+<p class="mycap" markdown="1">
 **Figure 3** --- When we sample too early (at the time indicated by the vertical dashed line), we can learn something from the two sloped paths that represent transitions from +1 to --1 and from --1 to +1. The product $$x \dot{x}$$ is negative for **both types of transition**.
-{: refdef}
+</p>
 
 So, we will take
 \begin{equation}

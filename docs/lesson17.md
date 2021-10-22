@@ -9,10 +9,9 @@ To do this, we use a band-edge filter with a positive peak centered on where the
 
 <p class="center"><img src="figs/scale.png" alt="Band-edge filter" style="width:400px;"></p>
 
-
-{:refdef: .mycap}
+<p class="mycap" markdown="1">
 **Figure 1** --- The received spectrum in red is not centered around zero frequency. If we multiply by the blue filter and sum, we will get a large negative contribution from the left bump and essentially nothing from the right bump, since the received spectrum effectively vanishes there. The sum is thus negative, telling us that the red curve has been shifted to lower frequency compared to the desired symmetric arrangement.
-{: refdef}
+</p>
 
 
 ## Properties of the Frequency Locked Loop block
