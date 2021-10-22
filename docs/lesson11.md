@@ -24,7 +24,6 @@ Last time we used on-off keying as a way of modulating a carrier sinusoidal wave
 - Square pulses are incredibly inefficient and they're not the best for doing timing recovery--if you're on a plateau, how do you know whether you should be sampling a little earlier or a little later to hit the center of the symbol.
 - HW: For high TX attenuation and low RX gain, where does it get too noisy to cleanly distinguish levels? What can be done to the received digital signals to push that as far as possible (like averaging or filtering).
 
-
 </details>
 
 
@@ -68,8 +67,6 @@ The ASK flow diagram in operation.
 
 
 ![ASK in operation, bottom part](figs/run/ASK-running-2.png)
-
-
 
 
 ## Homework

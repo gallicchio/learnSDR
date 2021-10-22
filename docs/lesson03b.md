@@ -5,7 +5,11 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n9_N8KhuojM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-*Yes, but why do we care? Real electrical signals are **real**, aren't they?* Well, yes, they are. As you can verify from Euler's identity,
+<br>
+
+*Yes, but why do we care? Real electrical signals are **real**, aren't they?* 
+
+Well, yes, they are. As you can verify from Euler's identity, $$ e^{i \phi} = \cos\phi + i \sin\phi$$, we can express the cosine of $$\phi$$ as
 \begin{equation}
   \cos \phi = \frac{1}{2} (e^{i\phi} + e^{-i\phi})
 \end{equation}
