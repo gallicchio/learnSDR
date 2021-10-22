@@ -10,9 +10,9 @@ So far, we have thought of discrete bits of information as square pulses: 0 or 1
   <img src='figs/BPSK.png' alt='Binary phase-shift keying' style='width: 600px;'>
 </p>
 
-{:refdef: .mycap}
+<p class="mycap" markdown="1">
   **Figure 1** --- In binary phase-shift keying, a string of bits (zeros and ones) is mapped into the values +1 and --1.
-{: refdef}
+</p>
 
 
  Unfortunately, sharp transitions in time require enormous bandwidth in frequency, meaning that we make very inefficient use of a precious and finite resource. We now need to spend a bit of time exploring the relationship between signals in the time and frequency domains to see how we can effectively transmit binary information without wasting so much frequency bandwidth.
@@ -23,9 +23,9 @@ So far, we have thought of discrete bits of information as square pulses: 0 or 1
   <img src='figs/clean-sinc.png' alt='clean sinc' style='width: 600px;'>
 </p>
 
-{:refdef: }
+<p class="mycap" markdown="1">
 **Figure 2** --- On the left is a **sinc** function, which is the Fourier transform of a unit step impulse. On the right is the same **sinc** function, but this time represented on the logarithmic (decibel) scale. Notice that the frequency spectrum of the pulse has a great many side lobes which die off very slowly. 
-{: refdef}
+</p>
 
  
  The left figure shows the amplitude as a function of frequency $$f$$ shift with respect to the carrier frequency. The amplitude is a **sinc** function ($$\mathrm{sinc} \,\theta = \frac{\sin\theta}{\theta}$$). The right figure shows the power in decibels, illustrating the very large bandwidth associated with the sudden transitions in binary phase-shift keying.
@@ -59,9 +59,9 @@ The function $$\frac{\sin \theta}{\theta}$$ is called $$\mathrm{sinc}(\theta)$$.
   <img src='figs/sinc.png' alt='sinc function' style='width: 600px;'>
 </p>
 
-{:refdef: }
+<p class="mycap" markdown="1">
 **Figure 3a** --- The parameter $$\alpha$$ determines how rapidly the frequency profile transitions from 0 to 1.
-{: refdef}
+</p>
 
 This spectrum is very broad---it uses way more bandwidth $$\Delta f$$ than the sample period suggests should be necessary: $$\Delta f \approx \frac{1}{T_s}$$.
 
@@ -77,9 +77,9 @@ The solution is to make the edges not so sharp, which we can do using a _raised 
   <img src='figs/rc_of_f.png' alt='raised cosine' style='width: 100%;'>
 </p>
 
-{:refdef: }
+<p class="mycap" markdown="1">
 **Figure 3**  --- The parameter $$\alpha$$ determines how rapidly the frequency profile transitions from 0 to 1.
-{: refdef}
+</p>
 
 
 The **raised cosine** function takes a parameter $$\alpha$$ that describes how suddenly the transition is made: on the positive side it goes from $$\frac{1-\alpha}{2T}$$ to $$\frac{1+\alpha}{2T}$$, and symmetrically on the negative frequency side.
@@ -90,9 +90,9 @@ If we use the raised cosine spectra illustrated in the figure, what do the signa
   <img src='figs/raised-cosine.png' alt='Raised cosine pulse shapes' >
 </p>
 
-{:refdef: }
+<p class="mycap" markdown="1">
 **Figure 4** --- Raised cosine pulse shapes for several different values of $$\alpha$$.
-{: refdef}
+</p>
 
 As expected, the sharper the edge in the spectrum (i.e., the smaller $$\alpha$$), the wider the tails of the pulse in time.
 
@@ -116,8 +116,8 @@ The **sinc** function,
    <img src='figs/raised-cosine-alpha-10.png' alt='raised cosine pulses with alpha = 0.1' style='width: 400px;'>
  </p>
  
- {:refdef: }
+<p class="mycap" markdown="1">
  **Figure 5** ---  Raised cosine pulses satisfy the Nyquist ISI criterion. Notice that the only nonzero contribution at $$t = 0$$ comes from the green pulse, whose amplitude there is 1.
- {: refdef}
+</p>
  
 

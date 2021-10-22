@@ -12,9 +12,9 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 
 A very useful way to visualize this process is to represent complex numbers with their real part along the $$x$$ axis and their imaginary part along the $$y$$ axis. This same addition problem is illustrated in the following figure.
 
-{:refdef: style="text-align: center;"}
+<p class="center" markdown="0">
 ![Addition of complex numbers](figs/complex-addition.png){: width="400px" height="400px"}
-{: refdef}
+</p>
 
 
 
@@ -45,9 +45,9 @@ The product of the *lasts* yields a real number, since $$i^2=-1$$, so it helps t
 
 The polar form of a complex number uses the "length" of the number and its orientation angle with respect to the real axis to specify the number, rather than its real and imaginary components. To express the complex number $$4 + 3i$$ in polar form, examine the figure below.
 
-{:refdef: style="text-align: center;"}
+<p class="center" markdown="0">
 ![Polar form of complex numbers](figs/complex-polar.png){: width="400px" height="400px"}
-{: refdef}
+</p>
 
 Using the Pythagorean theorem, we can compute the length of the hypotenuse, which is the magnitude $$r$$ of the number:
 \begin{equation}
@@ -95,9 +95,9 @@ What does a signal of the form $$A e^{i\;2\pi f t}$$ look like? According to Eul
 \end{equation}
 In other words, the real part is a cosine wave with amplitude $$A$$ and frequency $$f$$. The imaginary part is a sine wave with the same amplitude and frequency. By default, GNU Radio shows the real part in blue and the imaginary part in red. So, a plot of a pure "cosine" wave, when passed to a **QT GUI Time Sink** appears as in the figure below.
 
-{:refdef: style="text-align: center;"}
-![Complex cosine wave in GNU Radio](figs/complex-cosine.png)
-{: refdef}
+<p class="center" markdown="0">
+<img src="figs/run/complex-cosine.png" alt="Complex cosine wave in GNU Radio">
+</p>
 
 
 Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red (imag) part starts at 0 and rises with increasing time. What is the frequency of this source?

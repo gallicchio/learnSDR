@@ -57,9 +57,9 @@ Finally, since we only care about the magnitude of the values we receive, you ca
 
 </details>
 
-{:refdef: .center}
+<p class="center" markdown="block">
 ![ASK in operation](figs/run/ASK-running.png)
-{: refdef}
+</p>
 
 {:refdef: .mycap}
 The ASK flow diagram in operation.

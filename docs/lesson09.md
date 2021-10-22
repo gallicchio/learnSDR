@@ -14,17 +14,18 @@ The PlutoSDR can transmit at higher frequencies than the RTL-SDR can receive. We
 <summary markdown='span'> Click to show the equipment list </summary>
 
 - Analog devices ADALM-PLUTO software-defined radio 
-{:refdef: .center}
-![Analog devices ADALM-PLUTO software-defined radio](figs/ADALM-Pluto.jpg)
-{: refdef}
+<p class='center' markdown='0'>
+  <img src='figs/ADALM-Pluto.jpg' alt='Analog devices ADALM-PLUTO software-defined radio'>
+</p>
+
 - RTL-SDR
 
-{:refdef: .center}
-![RTL-SDR](figs/RTL-SDR.png)
-{: refdef}
+<p class='center' markdown='0'>
+  <img src='figs/RTL-SDR.png' alt='RTL-SDR software-defined radio'>
+</p>
 
 </details>
- 
+
 
 ## Variables and Ranges
 

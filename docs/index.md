@@ -39,4 +39,3 @@ The lessons in **bold** are more elaborate.
 - Lesson 34 --- GPS outside (slide Doppler by hand and see code correlation)
 - Lesson 35 --- MIMO Phased array of 2 antennas into a B210
 - Lesson 36 --- Direction Finding
-
