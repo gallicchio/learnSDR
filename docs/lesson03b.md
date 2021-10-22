@@ -7,7 +7,7 @@
 
 <br>
 
-*Yes, but why do we care? Real electrical signals are **real**, aren't they?* 
+*Yes, but why do we care? Real electrical signals are **real**, aren't they?*
 
 Well, yes, they are. As you can verify from Euler's identity, $$ e^{i \phi} = \cos\phi + i \sin\phi$$, we can express the cosine of $$\phi$$ as
 \begin{equation}
