@@ -7,7 +7,7 @@ The lessons in **bold** are more elaborate.
 - [Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver](lesson02.md)
 - **[Lesson 3a --- Complex Numbers in SDR](lesson03a.md)**
 - **[Lesson 3b --- Negative Frequencies](lesson03b.md)**
-- [Lesson 4 --- What's Inside a Software-Defined Radio?](lesson04.md)
+- **[Lesson 4 --- What's Inside a Software-Defined Radio?](lesson04.md)**
 - [Lesson 5 --- On-Off Keying with Adafruit Keyfob 4-Button RF Remote Control](lesson05.md)
 - [Lesson 6 --- Sampling](lesson06.md)
 - [Lesson 7 --- Frequency Spectrum, Fourier Transform, and FFT](lesson07.md)
@@ -20,7 +20,7 @@ The lessons in **bold** are more elaborate.
 - [Lesson 13 --- QPSK Naive with no Pulse Shaping](lesson13.md)
 - [Lesson 14 --- Pulse Shaping and Nyquist Criteria](lesson14.md)
 - **[Lesson 15 --- Pulse Shaping Matched Filter](lesson15.md)**
-- [Lesson 16 --- Constellation Modulator](lesson16.md)
+- **[Lesson 16 --- Constellation Modulator](lesson16.md)**
 - [Lesson 17 --- Frequency Locked Loop (FLL)](lesson17.md)
 - **[Lesson 18 --- Symbol Timing Recovery and Synchronization](lesson18.md)** 
 - [Lesson 19 --- Carrier Phase Synchronization with a Costas Loop](lesson19.md)
