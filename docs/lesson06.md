@@ -58,6 +58,14 @@ If you have seen the spokes of a wagon wheel appear to move backward in a movie,
 
 **Question** --- A wagon wheel with 12 spokes and a diameter of 3 feet is filmed at 24 frames per second. How fast does the wagon need to be moving (and the wheel rolling) for the spokes to appear to rotate backward at one-tenth the rate that they are actually rotating forward?
 
+<details markdown='block'>
+<summary markdown='span'> Click to show answer </summary>
+
+About 17 ft/s.
+
+</details>
+
+
 ## Homework
 
  1. Start a new flow graph and use a complex signal source. Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative, as illustrated below.
