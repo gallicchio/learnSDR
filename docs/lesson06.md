@@ -60,4 +60,6 @@ If you have seen the spokes of a wagon wheel appear to move backward in a movie,
 
 ## Homework
 
- 1. Start a new flow graph and use a complex signal source. Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative.
+ 1. Start a new flow graph and use a complex signal source. Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative, as illustrated below.
+
+ [Open in a new window <img src="figs/sampling.png">](figs/sampling.png){:target="new_"}
