@@ -3,6 +3,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bV4oJTPlAeQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<!--
 Transmit a 100 MHz sine wave from a signal generator simultaneously into a real oscilloscope and a BNC with hooks.
 
 Tune the RTL-SDR to 100 MHz. You get a complex exponential out. Why not a real sinusoidal signal? What does this complex number mean? Understanding this is half the SDR battle.
@@ -17,4 +18,4 @@ You need to deal with these small oscillator mismatches when you use different h
 
 HW Check time signal at 25.000 MHz WWV North of Denver Colorado. Hmm. Need to use 1 MHz sample_rate because otherwise the bottom of the band is below the RTL-SDR limit.
 
- 
+-->

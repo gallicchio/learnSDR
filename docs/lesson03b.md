@@ -53,4 +53,4 @@ where $$3! = 3\times 2\times 1 = 6$$ and $$n! = n (n-1) (n-2) \cdots (2) (1)$$ i
     \begin{equation}
       e^{i\phi} = \cos\phi + i \sin\phi
     \end{equation}
-    by substituting $$i\phi$$ for $$x$$ in the Taylor series for the exponential, Eq. (\ref{eq:exposeries}).
+    by substituting $$i\phi$$ for $$x$$ in the Taylor series for the exponential, Eq. \eqref{eq:exposeries}.
