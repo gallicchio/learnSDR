@@ -68,6 +68,12 @@ About 17 ft/s.
 
 ## Homework
 
- 1. Start a new flow graph and use a complex signal source. Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative, as illustrated below.
+1. Start a new flow graph and use a complex signal source. Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative, as illustrated below.
 
- [Open in a new window <img src="figs/sampling.png">](figs/sampling.png){:target="new_"}
+[Open in a new window <img src="figs/sampling.png">](figs/sampling.png){:target="new_"}
+
+2. Investigate the role of the transition width of the **low-pass filter**. Does your computer support lowering it to 1 kHz? What happens if you raise it to 100 kHz?
+
+3. Investigate the effect of the **window** function in the **low-pass filter**, keeping a cutoff frequency of 500 kHz and a transition width of 10 kHz. Among **Hamming**, **Hann**, **Blackman**, **Rectangular** or **Kaiser**, which do a noticeably worse job?
+
+<!-- Rectangular and Hamming do worse than the others -->
