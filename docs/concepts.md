@@ -1,5 +1,9 @@
 # Key Concepts and Where They are Introduced
 
++ [Mathematics](#mathematics)
++ [Digital Signal Processing](#digital-signal-processing)
++ [GNU Radio Blocks](#gnu-radio-blocks)
+
 ## Mathematics
 
 + Sines and cosines are just shifted versions of one another: $$\cos(2\pi ft) = \sin(2 \pi ft + \pi/2)$$.
@@ -47,17 +51,47 @@ That is, the decibel expression for the *amplitude ratio* is ten times the negat
   P_2 / P_1 = 20 \log_{10} (A_2/A_1)
 \end{equation}
 amplitudes that differ by a factor of 10 In a GNU Radio flow diagram, a **QT Frequency Sink** shows the power in the signal it displays as a function of frequency using decibels.
-+ [A low-pass filter](lesson03b#low-pass){:target="_link"} transmits frequencies below a corner frequency without attenuation (nearly), but attenuates frequencies above the corner frequency more strongly the farther they are above the corner frequency. If you know something about resistors and capacitors, the circuit shown in Fig. 1 illustrates a simple low-pass filter.
++ [A low-pass filter](lesson03b#low-pass){:target="_link"} transmits frequencies below a corner frequency without attenuation (nearly), but attenuates frequencies above the corner frequency more strongly the farther they are above the corner frequency. If you know something about resistors and capacitors, the circuit shown in Fig. 2 illustrates a simple low-pass filter.
 
 <p class='center' markdown='0'>
   <img src='figs/low-pass-circuit.png' alt='low-pass circuit' style='width: 200px;'>
 </p>
 
-<p class='mycap' markdown='1' style="margin-left: 48px;">
-**Figure 1** --- Since a capacitor is a "short-circuit" at high frequency, high-frequency signals will be strongly attenuated. On the other hand, at low frequencies a capacitor is like an open circuit (it charges up to the applied voltage), so $$V_{\rm out} \approx V_{\rm in}$$ (meaning that the low-frequency signal passes through unattenuated).
+<p class='icap' markdown='1'>
+**Figure 2** --- Since a capacitor is a "short-circuit" at high frequency, high-frequency signals will be strongly attenuated. On the other hand, at low frequencies a capacitor is like an open circuit (it charges up to the applied voltage), so $$V_{\rm out} \approx V_{\rm in}$$ (meaning that the low-frequency signal passes through unattenuated). The corner frequency represents the dividing line between the two behaviors. It is given by $$f_{\rm corner} = \frac{1}{2\pi RC}$$.
 </p>
 
 
 ## GNU Radio Blocks
 
-+ blah 
+The complete list of blocks is available at [https://wiki.gnuradio.org/index.php/Category:Block_Docs](https://wiki.gnuradio.org/index.php/Category:Block_Docs){:target="_gnu"}.
+
+GNU Radio variables come in several different data types, which are indicated by the color of the tab that represents them on a flow diagram:
+
+  - orange: floating point
+  - blue: complex floating point
+  - green: integer
+  - purple: byte
+  - yellow: short (short integer)
+
++ **QT GUI blocks** display information graphically when the flow diagram runs. The blocks we use include:
+   - **QT GUI Range**: a slider that allows the user to adjust a value
+   - **QT GUI Time Sink**: a graph that displays one or more input signals as functions of time.
+   - **QT GUI Frequency Sink**: a graph that displays one or more input signals as functions of frequency on a decibel (logarithmic) scale.
+   - **QT GUI Constellation Sink**: a plot showing the real part of a signal on the <em>x</em> axis and the imaginary part on the <em>y</em> axis.
+    (sliders, time sinks, frequency sinks, constellation sinks, eye sinks)
++ **Variables** A variable definition declares a constant value of the specified numerical type
++ Translation (Chunks to Symbols, Repeat, Vector Source)
++ Arithmetic blocks
++ Include blocks
++ SDR inputs and outputs
++ Filters (High-pass, low-pass, interpolating, root raised cosine)
++ Signal Source
++ Repeat
++ Throttle --- used only in simulation graphs where no "real" signal is used from a hardware device.
++ AGC --- automatic gain control
++ FLL Band-Edge --- frequency-locked loop, used to correct for the (small) discrepancy between the clocks in different devices.
++ Constellation Modulator
++ Random Uniform Source
++ Symbol Sync
++ Costas
