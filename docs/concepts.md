@@ -2,19 +2,37 @@
 
 ## Mathematics
 
++ Sines and cosines are just shifted versions of one another: $$\cos(2\pi ft) = \sin(2 \pi ft + \pi/2)$$.
+<p class='center' markdown='0'>
+  <img src='figs/phases.png' alt='phases' style='width: 400px;'>
+</p>
+
+<p class='icap' markdown='1'>
+**Figure 1** --- A sine curve (blue) has the same shape as a cosine curve (red); it's just delayed by a quarter period. So, by adding a quarter period ($$\pi/2$$) to the argument of the sine function, we obtain the cosine function.
+</p>
+
 + The relationship between sines & cosines and complex exponentials [(Euler's identity)](lesson03a.md){:target="_link"}
 + Representing complex numbers in polar form greatly simplifies [complex multiplication](lesson03a#multiplying-complex-numbers-in-polar-form){:target="_link"}
-+ The product of two sinusoidal functions with frequencies $$f$$ and $$f_0$$ is [the sum of sinusoids at frequencies $$f+f_0$$ and $$f-f_0$$](lesson03b.md){:target="_link"}
++ The product of two sinusoidal functions with frequencies $$f$$ and $$f_0$$ is [the sum of sinusoids at frequencies $$f+f_0$$ and $$f-f_0$$](lesson03b.md){:target="_link"}.
+
 + Periodic signals with period $$T$$ may be expressed as a **Fourier series**:
 \begin{equation}\label{eq:Fourier-series}
-  f(t) = a_0 + \sum_{n=1}^{\infty} \bigg[ a_n \cos\bigg(\frac{2\pi n t}{T}\bigg) + b_n \sin\bigg(\frac{2\pi n t}{T}\bigg) \bigg]
+  V(t) = a_0 + \sum_{n=1}^{\infty} \bigg[ a_n \cos\bigg(\frac{2\pi n t}{T}\bigg) + b_n \sin\bigg(\frac{2\pi n t}{T}\bigg) \bigg]
 \end{equation}
 where the amplitude coefficients $$a_n$$ and $$b_n$$ can be determined by integration:
 \begin{align}
-  a_0 &= \frac{1}{T} \int_0^T f(t) \; dt \\\\  a_n &= \frac{2}{T} \int_0^T f(t) 
-  \cos\bigg(\frac{2\pi n t}{T}\bigg)\;dt \\\\ b_n &= \frac{2}{T} \int_0^T f(t)
+  a_0 &= \frac{1}{T} \int_0^T V(t) \; dt \\\\  a_n &= \frac{2}{T} \int_0^T V(t) 
+  \cos\bigg(\frac{2\pi n t}{T}\bigg)\;dt \\\\ b_n &= \frac{2}{T} \int_0^T V(t)
   \sin\bigg(\frac{2\pi n t}{T}\bigg)\;dt
 \end{align}
+See [Lesson 7](lesson07){:target="_link"} for lots more details.
+
++ Virtually any signal $$V(t)$$ that is a function of time $$t$$ may be expressed instead as a function of frequency using a **Fourier transform**:
+\begin{align}
+  \widetilde{V}(f) &= \int_{-\infty}^{\infty} V(t) e^{-i 2\pi f t}
+   \; dt \\\\ V(t) &= \int_{-\infty}^{\infty} \widetilde{V}(f) e^{i 2\pi f t} \; df
+\end{align}
+The key idea here is that any signal can be represented either as a function of time or a function of frequency. See [Lesson 7](lesson07){:target="_link"} for details.
 
 ## Digital Signal Processing
 
@@ -28,15 +46,15 @@ That is, the decibel expression for the *amplitude ratio* is ten times the negat
 \begin{equation}
   P_2 / P_1 = 20 \log_{10} (A_2/A_1)
 \end{equation}
-amplitudes that differ by a factor of 10 In a GNU Radio flow diagram, a **QT Frequency Sink** shows the power in the signal it displays as a function of frequency using decibels. For 
-+ [A low-pass filter](lesson03b#low-pass){:target="_link"} transmits frequencies below a corner frequency without attenuation (nearly), but attenuates frequencies above the corner frequency more strongly the farther they are above the corner frequency. If you know something about resistors and capacitors, the
+amplitudes that differ by a factor of 10 In a GNU Radio flow diagram, a **QT Frequency Sink** shows the power in the signal it displays as a function of frequency using decibels.
++ [A low-pass filter](lesson03b#low-pass){:target="_link"} transmits frequencies below a corner frequency without attenuation (nearly), but attenuates frequencies above the corner frequency more strongly the farther they are above the corner frequency. If you know something about resistors and capacitors, the circuit shown in Fig. 1 illustrates a simple low-pass filter.
 
 <p class='center' markdown='0'>
   <img src='figs/low-pass-circuit.png' alt='low-pass circuit' style='width: 200px;'>
 </p>
 
 <p class='mycap' markdown='1' style="margin-left: 48px;">
-**Figure n** --- Since a capacitor is a "short-circuit" at high frequency, high-frequency signals will be strongly attenuated. On the other hand, at low frequencies a capacitor is like an open circuit (it charges up to the applied voltage), so $$V_{\rm out} \approx V_{\rm in}$$ (meaning that the low-frequency signal passes through unattenuated).
+**Figure 1** --- Since a capacitor is a "short-circuit" at high frequency, high-frequency signals will be strongly attenuated. On the other hand, at low frequencies a capacitor is like an open circuit (it charges up to the applied voltage), so $$V_{\rm out} \approx V_{\rm in}$$ (meaning that the low-frequency signal passes through unattenuated).
 </p>
 
 
