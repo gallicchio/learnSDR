@@ -18,4 +18,4 @@ You need to deal with these small oscillator mismatches when you use different h
 
 HW Check time signal at 25.000 MHz WWV North of Denver Colorado. Hmm. Need to use 1 MHz sample_rate because otherwise the bottom of the band is below the RTL-SDR limit.
 
--->
+--> 

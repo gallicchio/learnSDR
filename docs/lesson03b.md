@@ -9,7 +9,11 @@
 
 *Yes, but why do we care? Real electrical signals are **real**, aren't they?*
 
-Well, yes, they are. As you can verify from Euler's identity, $$ e^{i \phi} = \cos\phi + i \sin\phi$$, we can express the cosine of $$\phi$$ as
+Well, yes, they are. As you can verify from **Euler's identity**, 
+\begin{equation}\label{eq:Euler}
+ e^{i \phi} = \cos\phi + i \sin\phi
+\end{equation}
+ we can express the cosine of $$\phi$$ as
 \begin{equation}
   \cos \phi = \frac{1}{2} (e^{i\phi} + e^{-i\phi})
 \end{equation}
@@ -22,7 +26,7 @@ When a software-defined radio *mixes* such a wave with a high-frequency carrier,
 \begin{equation}
   2\cos(2\pi f t) e^{-i 2\pi f_0 t} = [ e^{i\,2\pi (f-f_0) t} + e^{-i \,2\pi (f+f_0) t}]
 \end{equation}
-The first term oscillates at the difference frequency $$f - f_0$$. For frequencies $$f$$ close to the carrier frequency $$f_0$$, the difference frequency will be *much* lower. The second term oscillates at almost twice the carrier frequency. Passing the result through a **low-pass filter**, which strongly attenuates high frequencies, effectively removes the second term, leaving just $$ e^{i\,2\pi (f-f_0) t} $$, which is clearly a **complex sinusoidal signal**. Thus, the frequency shifting done by a software-defined radio necessarily generates complex signals.
+The first term oscillates at the difference frequency $$f - f_0$$, and the second oscillates at the sum frequency $$f + f_0$$. For frequencies $$f$$ close to the carrier frequency $$f_0$$, the difference frequency will be *much* lower than the sum frequency. The second term oscillates at almost twice the carrier frequency. Passing the result through a **low-pass filter**, which strongly attenuates high frequencies, effectively removes the second term, leaving just $$ e^{i\,2\pi (f-f_0) t} $$, which is clearly a **complex sinusoidal signal**. Thus, the frequency shifting done by a software-defined radio necessarily generates complex signals.
 
 ## Illustrations in GNU Radio
 

@@ -69,6 +69,8 @@ If you have learned about Taylor series, you can probably show that this is true
   z = r e^{i\phi}
 \end{equation}
 
+## Multiplying Complex Numbers in Polar Form
+ 
 Why is this so great? Well, because when you multiply exponentials, you just add the exponents. So, if we have numbers $$z_1 = r_1 e^{i \phi_1}$$ and $$z_2 = r_2 e^{i \phi_2}$$, their product is
 \begin{equation}
   z_1 \times z_2 = r_1 e^{i \phi_1} \times r_2 e^{i \phi_2} = r_1 r_2 e^{i(\phi_1+\phi_2)}
@@ -100,9 +102,10 @@ In other words, the real part is a cosine wave with amplitude $$A$$ and frequenc
 </p>
 
 
-Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red (imag) part starts at 0 and rises with increasing time. What is the frequency of this source?
+Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red (imag) part starts at 0 and rises with increasing time. **What is the frequency of this source?**
+
 <details>
-<summary markdown='span'> Click to expand </summary>
+<summary markdown='span'> Click to show the answer </summary>
 
 The period of the wave is 1 ms, so the frequency is 1 kHz.
 </details>
