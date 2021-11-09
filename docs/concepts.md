@@ -6,7 +6,14 @@
 
 ## Mathematics
 
-+ Sines and cosines are just shifted versions of one another: $$\cos(2\pi ft) = \sin(2 \pi ft + \pi/2)$$.
++ Sines and cosines are just shifted versions of one another: $$\cos(2\pi ft) = \sin(2 \pi ft + \pi/2)$$. The sum of a sine and a cosine with the same frequency may be expressed as either a sine or cosine with a suitable phase offset:
+\begin{equation}
+  A \cos(2\pi ft) + B \sin(2\pi f t) = C \cos(2\pi f t + \phi)
+\end{equation}
+where
+\begin{align}
+  C &= \sqrt{A^2 + B^2} \\\\ \tan\phi &= B/A
+\end{align}
 <p class='center' markdown='0'>
   <img src='figs/phases.png' alt='phases' style='width: 400px;'>
 </p>
@@ -15,9 +22,9 @@
 **Figure 1** --- A sine curve (blue) has the same shape as a cosine curve (red); it's just delayed by a quarter period. So, by adding a quarter period ($$\pi/2$$) to the argument of the sine function, we obtain the cosine function.
 </p>
 
-+ The relationship between sines & cosines and complex exponentials [(Euler's identity)](lesson03a.md){:target="_link"}
-+ Representing complex numbers in polar form greatly simplifies [complex multiplication](lesson03a#multiplying-complex-numbers-in-polar-form){:target="_link"}
-+ The product of two sinusoidal functions with frequencies $$f$$ and $$f_0$$ is [the sum of sinusoids at frequencies $$f+f_0$$ and $$f-f_0$$](lesson03b.md){:target="_link"}.
++ The relationship between sines & cosines and complex exponentials [(Euler's identity, Lesson 3a)](lesson03a.md){:target="_link"}
++ Representing complex numbers in polar form greatly simplifies [complex multiplication (Lesson 3a)](lesson03a#multiplying-complex-numbers-in-polar-form){:target="_link"}
++ The product of two sinusoidal functions with frequencies $$f$$ and $$f_0$$ is [the sum of sinusoids at frequencies $$f+f_0$$ and $$f-f_0$$ (Lesson 3b)](lesson03b.md){:target="_link"}.
 
 + Periodic signals with period $$T$$ may be expressed as a **Fourier series**:
 \begin{equation}\label{eq:Fourier-series}
@@ -36,7 +43,7 @@ See [Lesson 7](lesson07){:target="_link"} for lots more details.
   \widetilde{V}(f) &= \int_{-\infty}^{\infty} V(t) e^{-i 2\pi f t}
    \; dt \\\\ V(t) &= \int_{-\infty}^{\infty} \widetilde{V}(f) e^{i 2\pi f t} \; df
 \end{align}
-The key idea here is that any signal can be represented either as a function of time or a function of frequency. See [Lesson 7](lesson07){:target="_link"} for details.
+Both the time version $$V(t)$$ and the frequency version $$\widetilde{V}(f)$$ carry the complete information about the signal. See [Lesson 7](lesson07){:target="_link"} for details.
 
 ## Digital Signal Processing
 
@@ -64,16 +71,16 @@ amplitudes that differ by a factor of 10 In a GNU Radio flow diagram, a **QT Fre
 
 ## GNU Radio Blocks
 
-The complete list of blocks is available at [https://wiki.gnuradio.org/index.php/Category:Block_Docs](https://wiki.gnuradio.org/index.php/Category:Block_Docs){:target="_gnu"}.
+The complete list of blocks is available [on the GNU Radio page](https://wiki.gnuradio.org/index.php/Category:Block_Docs){:target="_gnu"}.
 
 GNU Radio variables come in several different data types, which are indicated by the color of the tab that represents them on a flow diagram:
 
-  - orange: floating point
   - blue: complex floating point
+  - orange: floating point
   - green: integer
-  - purple: byte
   - yellow: short (short integer)
-
+  - purple: byte
+ 
 + **QT GUI blocks** display information graphically when the flow diagram runs. The blocks we use include:
    - **QT GUI Range**: a slider that allows the user to adjust a value
    - **QT GUI Time Sink**: a graph that displays one or more input signals as functions of time.
@@ -88,6 +95,7 @@ GNU Radio variables come in several different data types, which are indicated by
 + Filters (High-pass, low-pass, interpolating, root raised cosine)
 + Signal Source
 + Repeat
++ Skip Head
 + Throttle --- used only in simulation graphs where no "real" signal is used from a hardware device.
 + AGC --- automatic gain control
 + FLL Band-Edge --- frequency-locked loop, used to correct for the (small) discrepancy between the clocks in different devices.
