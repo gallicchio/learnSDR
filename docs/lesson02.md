@@ -18,6 +18,8 @@ Dealing with the small and gradually changing difference between clock rates in 
 ## Homework
 
 ?
+
+
 <!--
 Transmit a 100 MHz sine wave from a signal generator simultaneously into a real oscilloscope and a BNC with hooks.
 
