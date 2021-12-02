@@ -9,7 +9,7 @@ The lessons in **bold** are more elaborate.
 - **[Lesson 3b --- Negative Frequencies](lesson03b.md)**
 - **[Lesson 4 --- What's Inside a Software-Defined Radio?](lesson04.md)**
 - [Lesson 5 --- On-Off Keying with Adafruit Keyfob 4-Button RF Remote Control](lesson05.md)
-- [Lesson 6 --- Sampling](lesson06.md)
+- **[Lesson 6 --- Sampling](lesson06.md)**
 - [Lesson 7 --- Frequency Spectrum, Fourier Transform, and FFT](lesson07.md)
 - **[Lesson 8a --- Transmit and Receive from a PlutoSDR](lesson08a.md)**
 - **[Lesson 8b --- Pluto Doppler RADAR](lesson08b.md)**

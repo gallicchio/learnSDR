@@ -99,7 +99,7 @@ GNU Radio variables come in several different data types, which are indicated by
   - **<span style='color:#0000cc;'>blue: complex floating point</span>**
   - **<span style='color:#ffaa00;'>orange: floating point</span>**
   - **<span style='color:#00aa00;'>green: integer</span>**
-  - **<span style='color:#ffff00;'>yellow: short integer</span>**
+  - **<span style='color:#dddd00;'>yellow: short integer</span>**
   - **<span style='color:#bb00bb;'>byte: byte</span>**
 
 Constant variable values may be declared in a **Variable** block. Adjustable values are typically represented with a **QT GUI Range** block. In either case, you set the variable type from the list shown above (although Range blocks cannot handle complex values).
