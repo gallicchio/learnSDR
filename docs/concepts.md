@@ -24,7 +24,7 @@ where
 </p>
 
 <p class='icap' markdown='1'>
-**Figure 1** --- A sine curve (blue) has the same shape as a cosine curve (red); it's just delayed by a quarter period. So, by adding a quarter period ($$\pi/2$$) to the argument of the sine function, we obtain the cosine function.
+**Figure 1** --- A sine curve (blue) has the same shape as a cosine curve (red); it's just delayed by a quarter period. So, by adding a quarter period ($$\pi/2$$) to the argument of the sine function, we obtain the cosine function. 
 </p>
 
 + The relationship between sines & cosines and complex exponentials [(Euler's identity, Lesson 3a)](lesson03a.md){:target="_link"}
