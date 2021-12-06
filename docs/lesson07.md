@@ -124,3 +124,5 @@ A common problem with discrete transforms is handling sinusoidal signals that "d
 1. Investigate the role of FFT size on the spillover of power into frequency bins other than the maximum when using the rectangular window function and also when using one of the window functions that goes smoothly to zero at the boundaries of the interval.
 
 2. It is proposed to avoid the broadening caused by window functions by sampling more frequently. Could this work? If so, how fine a sampling period would be required? If not, why not?
+
+3. Investigate a broad range of window functions by visiting [the Wikipedia page on window functions](https://en.wikipedia.org/wiki/Window_function).
