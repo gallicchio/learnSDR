@@ -6,6 +6,8 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 
 <!-- [ ![video](figs/lesson03video.jpg)](https://youtu.be/2BhuW1stMYo){:target="_blank"} -->
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2BhuW1stMYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 <b> Homework from the video </b>
 1. Look at a real cosine value. You should be able to add a complex conjugate of the cosine wave to the original cosine wave. 
@@ -17,26 +19,24 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 2. Examine the other waveforms that are options in the sources. Specifically, look at a square, a triangle, and a sawtooth graph of cosine. Take note of harmonics in the frequency graph of these waveforms. Make sure you can identify which type of harmonics each of these waveforms make in the frequency graph.
 3. Generate two complex exponential frequencies, multiply them together, and plot the result. You should see that the frequency is the sum of the two frequencies. Mathematically, this is
   \begin{equation}
-    e^(i2 π f_1 t) + e^(i2 π f_2 t) = e^(i2 π (f_1 + f_2) t)
+    e^{i2 π f_1 t} + e^{i2 π f_2 t} = e^{i2 π (f_1 + f_2) t}
   \end{equation}
   It should be easiest to see this effect when you make one of the frequencies quite small in comparison to the other.
 4. Multiply two real exponential frequencies, similar to what you did in Homework 3.
 5. Take a real cosine, and plot the following:
   \begin{equation}
-    cos(2 π f t)
+    \cos(2 π f t)
   \end{equation}
   \begin{equation}
-    abs(cos(2 π f t)
+    \abs(\cos(2 π f t)
   \end{equation}
   \begin{equation}
-    arctan(cos(2 π f t))
+    \arctan(\cos(2 π f t))
   \end{equation}
   Some useful functions for this homework are "Multiply Const", "Transcendental", and "Abs". You can also change the number of inputs into the QT Gui Frequency Sink and the QT GUI Time Sink in order to display multiple graphs at the same time. For Homework 5, you should need 3 inputs in both the time sink and the frequency sink: one for each equation.
   To multiply by pi, use the "import" block. Import the math module the same way you would in Python, and you can then call math.pi.
     
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2BhuW1stMYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 A very useful way to visualize this process is to represent complex numbers with their real part along the $$x$$ axis and their imaginary part along the $$y$$ axis. This same addition problem is illustrated in the following figure.
