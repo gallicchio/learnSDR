@@ -7,6 +7,33 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 <!-- [ ![video](figs/lesson03video.jpg)](https://youtu.be/2BhuW1stMYo){:target="_blank"} -->
 
 
+<b> Homework from the video </b>
+1. Look at a real cosine value. You should be able to add a complex conjugate of the cosine wave to the original cosine wave. 
+  Remember that
+  \begin{equation}
+    (a + bi) + (a - bi) = 2a
+  \end{equation}
+  where a is the real part of the cosine wave. Remember that the constellation graph should only have real values; the dot should never move in the i direction.
+2. Examine the other waveforms that are options in the sources. Specifically, look at a square, a triangle, and a sawtooth graph of cosine. Take note of harmonics in the frequency graph of these waveforms. Make sure you can identify which type of harmonics each of these waveforms make in the frequency graph.
+3. Generate two complex exponential frequencies, multiply them together, and plot the result. You should see that the frequency is the sum of the two frequencies. Mathematically, this is
+  \begin{equation}
+    e^(i2 π f_1 t) + e^(i2 π f_2 t) = e^(i2 π (f_1 + f_2) t)
+  \end{equation}
+  It should be easiest to see this effect when you make one of the frequencies quite small in comparison to the other.
+4. Multiply two real exponential frequencies, similar to what you did in Homework 3.
+5. Take a real cosine, and plot the following:
+  \begin{equation}
+    cos(2 π f t)
+  \end{equation}
+  \begin{equation}
+    abs(cos(2 π f t)
+  \end{equation}
+  \begin{equation}
+    arctan(cos(2 π f t))
+  \end{equation}
+    
+
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2BhuW1stMYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
