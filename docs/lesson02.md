@@ -3,7 +3,27 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bV4oJTPlAeQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Rather than using providing a radio-frequency signal by propagating radio waves through the air to a receiver, we will start our exploration by feeding a "pure" electronic signal from a function generator operating at 100.001 MHz into an RTL-SDR and plotting its output in both time and frequency.
+
+## Notes on the Video
+
+<b> Dictionary of GNU Radio Companion Terms </b>
+
+<i>RTL-SDR Source</i>: Uses a signal received from a RTL-SDR USB source, which should be connected to some antenna to receive a signal.
+
+<i>QT GUI Time Sink</i>: Plots a sequence of complex numbers coming out of the source
+
+<i>QT GUI Frequency Sink</i>: Plots the frequency of complex numbers coming out of the source
+
+<i>Variable</i>: Creates a variable with a name and a value, similar to instantiating a variable in Python. (<i>In the video, we instantiated samp_rate with value 1e6. 1e6, in this case, is meant for a signal of 1 mega Hertz (1 mHz); since the RTL-SDR source uses the variable samp_rate, it will be checking for some signal at a frequency of 1 mHZ.</i>)
+
+
+<b> When Writing a GNU Program with the RTL-SDR Source </b>
+1. Title your program in the 'Options' box at the top left of the screen
+2. Set your variable samp_rate to the frequency you are expecting to receive (a value of 1 means 1 Hertz)
+3. Place your RTL-SDR Source, a QT Time Sink, and a QT Frequency Sink
+
+<b> About the Video </b> 
+Rather than providing a radio-frequency signal by propagating radio waves through the air to a receiver, we will start our exploration by feeding a "pure" electronic signal from a function generator operating at 100.001 MHz into an RTL-SDR and plotting its output in both time and frequency.
 
 We will tell the RTL-SDR that the function generator is transmitting at 100 MHz and we will find that the signal that the RTL-SDR output has the difference frequency between the function generator (100.001 MHz) and the SDR's local oscillator frequency (100 MHz), which is a sinusoidal wave at 1 kHz.
 
@@ -16,9 +36,37 @@ You would think that if the function generator is tuned precisely to 100.000 MHz
 Dealing with the small and gradually changing difference between clock rates in different components of a radio system will occupy a significant portion of this course; we will need to develop methods to monitor and correct for slow drifts in both frequency and phase, so that we can extract meaningful information from signals transmitted "on the back" of radio-frequency carriers.
 
 ## Homework
+1. When frequency goes up, do the peaks of waves in the Time Sink get closer or farther apart?
 
-?
+<details markdown='block'>
+<summary markdown='span'> Click to expand </summary>
 
+The peaks should get **closer** together.
+</details>
+
+2. Which signal is real in the Time Sink: the blue or the red? Which sample are real numbers associated with in the Time Sink key? What sinusoidal function does represents it? What about the complex signal?
+
+<details markdown='block'>
+<summary markdown='span'> Click to expand </summary>
+
+The blue wave is the real wave. It is indicated by sample 1 - additionally, it is considered as a cosine wave. Inversely, the red wave represents the complex part of the signal. This is sample 2, and it's sinusoidal function is a sine function.
+</details>
+
+3. If we are looking to receive 100 mHz on our RTL-SDR Source, but the generator's clock is slightly different than the source's (which is often the case), what happens to the functions in our Time Sink when the generator is at exactly 100 mHz?
+
+<details markdown='block'>
+<summary markdown='span'> Click to expand </summary>
+
+The functions will very slowly oscillate.
+</details>
+
+4. When the signal generated is greater than the signal you are trying to receive, what do the Time and Frequency Sinks look like?
+
+<details markdown='block'>
+<summary markdown='span'> Click to expand </summary>
+
+The real signal oscillates before the complex signal in the Time Sink, and the peak on the Frequency sink lies above the value we're looking for.
+</details>
 
 <!--
 Transmit a 100 MHz sine wave from a signal generator simultaneously into a real oscilloscope and a BNC with hooks.
