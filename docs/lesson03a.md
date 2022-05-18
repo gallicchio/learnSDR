@@ -19,7 +19,7 @@ In general, a complex number has a real part and an imaginary part: $$z = x + iy
 2. Examine the other waveforms that are options in the sources. Specifically, look at a square, a triangle, and a sawtooth graph of cosine. Take note of harmonics in the frequency graph of these waveforms. Make sure you can identify which type of harmonics each of these waveforms make in the frequency graph.
 3. Generate two complex exponential frequencies, multiply them together, and plot the result. You should see that the frequency is the sum of the two frequencies. Mathematically, this is
   \begin{equation}
-    e^{i2 π f_1 t} + e^{i2 π f_2 t} = e^{i2 π (f_1 + f_2) t}
+    e^{i2 π f_1 t} x e^{i2 π f_2 t} = e^{i2 π (f_1 + f_2) t}
   \end{equation}
   It should be easiest to see this effect when you make one of the frequencies quite small in comparison to the other.
 4. Multiply two real exponential frequencies, similar to what you did in Homework 3.
