@@ -105,7 +105,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [120, 180.0]
+    coordinate: [88, 180.0]
     rotation: 0
     state: true
 - name: blocks_abs_xx_0
@@ -159,7 +159,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [406, 193]
+    coordinate: [312, 196.0]
     rotation: 0
     state: true
 - name: blocks_transcendental_0

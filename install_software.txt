@@ -1,0 +1,12 @@
+Installing Gnuradio under Ubuntu 21.04
+
+For the older Ubuntu 20.04, the iio packages for the PlutoSDR don't work properly, but GNUradio and the RTL-SDR should work. I don't know about Debian.
+
+Run the 3 commands below on a new Linux install. The first line downloads the latest list of available packages. The second line is like Windows Update. The third line installs gnuradio and all of the hardware packages.
+
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install gnuradio gqrx-sdr cubicsdr inspectrum hackrf hacktv soapysdr-module-all rtl-sdr gnss-sdr rtklib rtklib-qt libiio-dev libiio-utils python3-libiio flatpak limesuite multimon multimon-ng gpredict python3-orbit-predictor gr-osmosdr gr-limesdr gr-fosphor gr-iio
+
+Test GnuRadio by connecting an "RTL-SDR Source" to a "QT GUI Frequency Sink". You need to give the project an id other than "default" by double clicking the Options block. You should change samp_rate to 1 MHz by changing it to 1000000. Change "Ch0: Frequency (Hz)" to a loud FM radio station.
+

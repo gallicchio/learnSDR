@@ -1,0 +1,1641 @@
+options:
+  parameters:
+    author: jason
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: lesson28_LFSR_investigation
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: lesson28_LFSR_investigation
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 1e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: vector_size
+  id: variable
+  parameters:
+    comment: ''
+    value: 2**16-1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [560, 2092.0]
+    rotation: 0
+    state: true
+- name: analog_const_source_x_0
+  id: analog_const_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 924.0]
+    rotation: 0
+    state: true
+- name: analog_const_source_x_0_0
+  id: analog_const_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 388.0]
+    rotation: 0
+    state: true
+- name: analog_const_source_x_0_0_0
+  id: analog_const_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 1420.0]
+    rotation: 0
+    state: enabled
+- name: analog_const_source_x_0_0_0_0
+  id: analog_const_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [72, 1852.0]
+    rotation: 0
+    state: true
+- name: analog_const_source_x_1_0
+  id: analog_const_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [368, 2100.0]
+    rotation: 180
+    state: true
+- name: blocks_add_const_vxx_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: shift for plot
+    const: '2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [936, 756.0]
+    rotation: 0
+    state: true
+- name: blocks_add_const_vxx_0_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: shift for plot
+    const: '2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [936, 212.0]
+    rotation: 0
+    state: true
+- name: blocks_add_const_vxx_0_0_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: shift for plot
+    const: '2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [936, 1244.0]
+    rotation: 0
+    state: enabled
+- name: blocks_add_const_vxx_0_0_0_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: shift for plot
+    const: '2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [928, 1676.0]
+    rotation: 0
+    state: true
+- name: blocks_add_const_vxx_2
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 676.0]
+    rotation: 0
+    state: true
+- name: blocks_add_const_vxx_2_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 132.0]
+    rotation: 0
+    state: true
+- name: blocks_add_const_vxx_2_0_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 1164.0]
+    rotation: 0
+    state: enabled
+- name: blocks_add_const_vxx_2_0_0_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [256, 1596.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 732.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 924.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 388.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_0_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 1420.0]
+    rotation: 0
+    state: enabled
+- name: blocks_char_to_float_0_0_0_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 1852.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_0_0_0_0_1_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 2020.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_0_0_0_0_1_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [192, 2164.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_1
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 196.0]
+    rotation: 0
+    state: true
+- name: blocks_char_to_float_0_1_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 1228.0]
+    rotation: 0
+    state: enabled
+- name: blocks_char_to_float_0_1_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [744, 1660.0]
+    rotation: 0
+    state: true
+- name: blocks_delay_0
+  id: blocks_delay
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'GLFSR is shifted compared to Scrambler,
+
+      but by an amount that depends on
+
+      the degree and the polynomial'
+    delay: '7'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 720.0]
+    rotation: 0
+    state: true
+- name: blocks_delay_0_0
+  id: blocks_delay
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'GLFSR is shifted compared to Scrambler,
+
+      but by an amount that depends on
+
+      the degree and the polynomial'
+    delay: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 184.0]
+    rotation: 0
+    state: true
+- name: blocks_delay_0_0_0
+  id: blocks_delay
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'GLFSR is shifted compared to Scrambler,
+
+      but by an amount that depends on
+
+      the degree and the polynomial'
+    delay: 2**16-58452
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 1208.0]
+    rotation: 0
+    state: enabled
+- name: blocks_delay_0_0_0_0
+  id: blocks_delay
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'GLFSR is shifted compared to Scrambler,
+
+      but by an amount that depends on
+
+      the degree and the polynomial'
+    delay: 2**16-64865
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [592, 1632.0]
+    rotation: 0
+    state: true
+- name: blocks_float_to_char_0
+  id: blocks_float_to_char
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '.5'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 716.0]
+    rotation: 0
+    state: true
+- name: blocks_float_to_char_0_0
+  id: blocks_float_to_char
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '.5'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 180.0]
+    rotation: 0
+    state: true
+- name: blocks_float_to_char_0_0_0
+  id: blocks_float_to_char
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '.5'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 1212.0]
+    rotation: 0
+    state: enabled
+- name: blocks_float_to_char_0_0_0_0
+  id: blocks_float_to_char
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '.5'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 1644.0]
+    rotation: 0
+    state: true
+- name: blocks_float_to_complex_0_0
+  id: blocks_float_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [360, 2032.0]
+    rotation: 0
+    state: true
+- name: blocks_float_to_complex_1_0
+  id: blocks_float_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [344, 2176.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_conjugate_cc_0_0
+  id: blocks_multiply_conjugate_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: vector_size
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [976, 2096.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_const_vxx_0_0
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '[1/vector_size]*vector_size'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+    vlen: vector_size
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1416, 2076.0]
+    rotation: 0
+    state: true
+- name: blocks_stream_to_vector_0_0_0_0
+  id: blocks_stream_to_vector
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: vector_size
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [544, 2048.0]
+    rotation: 0
+    state: true
+- name: blocks_stream_to_vector_0_0_1
+  id: blocks_stream_to_vector
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: vector_size
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [536, 2184.0]
+    rotation: 0
+    state: true
+- name: blocks_throttle_0
+  id: blocks_throttle
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [736, 916.0]
+    rotation: 0
+    state: true
+- name: blocks_throttle_0_0
+  id: blocks_throttle
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [736, 372.0]
+    rotation: 0
+    state: true
+- name: blocks_throttle_0_0_0
+  id: blocks_throttle
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [736, 1404.0]
+    rotation: 0
+    state: enabled
+- name: blocks_throttle_0_0_0_0
+  id: blocks_throttle
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [728, 1836.0]
+    rotation: 0
+    state: true
+- name: blocks_vector_to_stream_0_0
+  id: blocks_vector_to_stream
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: vector_size
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1592, 2160.0]
+    rotation: 0
+    state: true
+- name: digital_glfsr_source_x_0
+  id: digital_glfsr_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: "Default for 10 is a shifted\nversion G1 LFSR: LFSR: x^10+x^3+1\nLooks\
+      \ like you need to subtract 1 from each power in the mask\nThis becomes 2**(10-1)\
+      \ + 2**(3-1).\nOr you could do it normally and then shift right by 1.\nThe difference\
+      \ between GLFSR and Scrambler LFSR \nis a shift, but the amount of shift depends\
+      \ on the polynomial.\nAlso, this outputs a float +1 and -1 and needs to be turned\
+      \ into 0s and 1s"
+    degree: '10'
+    mask: 2**(10-1) + 2**(3-1)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    seed: 2**10-1
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 684.0]
+    rotation: 0
+    state: true
+- name: digital_glfsr_source_x_0_0
+  id: digital_glfsr_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: "GLFSR feedback polynomial: x^3+x^2+1\nLooks like you need to subtract\
+      \ 1 from each power in the mask\nThis becomes 2**(3-1) + 2**(2-1).\nOr you could\
+      \ do it normally and then shift right by 1.\nThe difference between GLFSR and\
+      \ Scrambler LFSR \nis a shift, but the amount of shift depends on the polynomial.\n\
+      Also, this outputs a float +1 and -1 and needs to be turned into 0s and 1s"
+    degree: '3'
+    mask: 2**(3-1) + 2**(2-1)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    seed: 2**3-1
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 140.0]
+    rotation: 0
+    state: true
+- name: digital_glfsr_source_x_0_0_0
+  id: digital_glfsr_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: "GLFSR feedback polynomial: x^16+x^15+x^13+x^4+1\nLooks like you need\
+      \ to subtract 1 from each power in the mask\nThis becomes 2**(3-1) + 2**(2-1).\n\
+      Or you could do it normally and then shift right by 1.\nThe difference between\
+      \ GLFSR and Scrambler LFSR \nis a shift, but the amount of shift depends on\
+      \ the polynomial.\nAlso, this outputs a float +1 and -1 and needs to be turned\
+      \ into 0s and 1s"
+    degree: '16'
+    mask: 2**(16-1) + 2**(15-1) + 2**(13-1) + 2**(4-1)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    seed: 2**16-1
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 1172.0]
+    rotation: 0
+    state: enabled
+- name: digital_glfsr_source_x_0_0_0_0
+  id: digital_glfsr_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: "GLFSR feedback polynomial: x^16+x^14+x^13+x^11+1\nLooks like you need\
+      \ to subtract 1 from each power in the mask\nThis becomes 2**(3-1) + 2**(2-1).\n\
+      Or you could do it normally and then shift right by 1.\nThe difference between\
+      \ GLFSR and Scrambler LFSR \nis a shift, but the amount of shift depends on\
+      \ the polynomial.\nAlso, this outputs a float +1 and -1 and needs to be turned\
+      \ into 0s and 1s"
+    degree: '16'
+    mask: 2**(16-1) + 2**(14-1) + 2**(13-1) + 2**(11-1)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    seed: 2**16-1
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [72, 1604.0]
+    rotation: 0
+    state: true
+- name: digital_map_bb_0_0
+  id: digital_map_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    map: '[-1,1]'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [72, 2020.0]
+    rotation: 0
+    state: true
+- name: digital_map_bb_0_0_0
+  id: digital_map_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    map: '[-1,1]'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 2164.0]
+    rotation: 0
+    state: true
+- name: digital_scrambler_bb_1_0
+  id: digital_scrambler_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: "G1 LFSR: x^10+x^3+1\nFor the scrambler,\nlength really means length-1\n\
+      GPS documentation's definition \nof the bits is the opposite order"
+    len: 10-1
+    mask: 2**(10-10) + 2**(10-3)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    seed: 2**10-1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 908.0]
+    rotation: 0
+    state: enabled
+- name: digital_scrambler_bb_1_0_0
+  id: digital_scrambler_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'LFSR feedback polynomial: x^3+x^2+1
+
+      For the scrambler,
+
+      length really means length-1'
+    len: 3-1
+    mask: 2**(3-3) + 2**(3-2)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    seed: 2**3-1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 372.0]
+    rotation: 0
+    state: enabled
+- name: digital_scrambler_bb_1_0_0_0
+  id: digital_scrambler_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'LFSR feedback polynomial: x^16+x^15+x^13+x^4+1
+
+      For the scrambler,
+
+      length really means length-1'
+    len: 16-1
+    mask: 2**(16-16) + 2**(16-15) + 2**(16-13) + 2**(16-4)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    seed: 2**16-1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 1404.0]
+    rotation: 0
+    state: enabled
+- name: digital_scrambler_bb_1_0_0_0_0
+  id: digital_scrambler_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'LFSR feedback polynomial: x^16+x^14+x^13+x^11+1
+
+      For the scrambler,
+
+      length really means length-1'
+    len: 16-1
+    mask: 2**(16-16) + 2**(16-14) + 2**(16-13) + 2**(16-11)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    seed: 2**16-1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [256, 1836.0]
+    rotation: 0
+    state: enabled
+- name: fft_vxx_0_0_0
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: vector_size
+    forward: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'False'
+    type: complex
+    window: window.rectangular(vector_size)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [728, 2132.0]
+    rotation: 0
+    state: true
+- name: fft_vxx_0_1
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: vector_size
+    forward: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'False'
+    type: complex
+    window: window.rectangular(vector_size)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [736, 2004.0]
+    rotation: 0
+    state: true
+- name: fft_vxx_1_0
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: vector_size
+    forward: 'False'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'False'
+    type: complex
+    window: window.rectangular(vector_size)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1176, 2068.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: One Cycle of GLFSR 1
+    label10: Signal 10
+    label2: One Cycle of G1 LFSR
+    label3: One Cycle of G2 LFSR
+    label4: One Cycle of GLFSR 2
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '0'
+    marker10: '-1'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '2'
+    size: '1023'
+    srate: '1023'
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 828.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: One Cycle of GLFSR 1
+    label10: Signal 10
+    label2: One Cycle of G1 LFSR
+    label3: One Cycle of G2 LFSR
+    label4: One Cycle of GLFSR 2
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '0'
+    marker10: '-1'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '2'
+    size: 2**3-1
+    srate: 2**3-1
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 292.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_0_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: One Cycle of GLFSR 1
+    label10: Signal 10
+    label2: One Cycle of G1 LFSR
+    label3: One Cycle of G2 LFSR
+    label4: One Cycle of GLFSR 2
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '0'
+    marker10: '-1'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '2'
+    size: 2**16-1
+    srate: 2**16-1
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 1324.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_0_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: One Cycle of GLFSR 1
+    label10: Signal 10
+    label2: One Cycle of G1 LFSR
+    label3: One Cycle of G2 LFSR
+    label4: One Cycle of GLFSR 2
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '0'
+    marker10: '-1'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '2'
+    size: 2**16-1
+    srate: 2**16-1
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1064, 1756.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_1_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: FFT corr re between G1 and GLFSR1
+    label10: Signal 10
+    label2: FFT corr im between G1 and GLFSR1
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '0'
+    marker10: '-1'
+    marker2: '0'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: vector_size
+    srate: '1'
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1752, 2068.0]
+    rotation: 0
+    state: true
+
+connections:
+- [analog_const_source_x_0, '0', digital_scrambler_bb_1_0, '0']
+- [analog_const_source_x_0_0, '0', digital_scrambler_bb_1_0_0, '0']
+- [analog_const_source_x_0_0_0, '0', digital_scrambler_bb_1_0_0_0, '0']
+- [analog_const_source_x_0_0_0_0, '0', digital_scrambler_bb_1_0_0_0_0, '0']
+- [analog_const_source_x_1_0, '0', blocks_float_to_complex_0_0, '1']
+- [analog_const_source_x_1_0, '0', blocks_float_to_complex_1_0, '1']
+- [blocks_add_const_vxx_0, '0', qtgui_time_sink_x_0_0, '0']
+- [blocks_add_const_vxx_0_0, '0', qtgui_time_sink_x_0_0_0, '0']
+- [blocks_add_const_vxx_0_0_0, '0', qtgui_time_sink_x_0_0_0_0, '0']
+- [blocks_add_const_vxx_0_0_0_0, '0', qtgui_time_sink_x_0_0_0_0_0, '0']
+- [blocks_add_const_vxx_2, '0', blocks_float_to_char_0, '0']
+- [blocks_add_const_vxx_2_0, '0', blocks_float_to_char_0_0, '0']
+- [blocks_add_const_vxx_2_0_0, '0', blocks_float_to_char_0_0_0, '0']
+- [blocks_add_const_vxx_2_0_0_0, '0', blocks_float_to_char_0_0_0_0, '0']
+- [blocks_char_to_float_0, '0', blocks_add_const_vxx_0, '0']
+- [blocks_char_to_float_0_0, '0', blocks_throttle_0, '0']
+- [blocks_char_to_float_0_0_0, '0', blocks_throttle_0_0, '0']
+- [blocks_char_to_float_0_0_0_0, '0', blocks_throttle_0_0_0, '0']
+- [blocks_char_to_float_0_0_0_0_0, '0', blocks_throttle_0_0_0_0, '0']
+- [blocks_char_to_float_0_0_0_0_0_1_0, '0', blocks_float_to_complex_0_0, '0']
+- [blocks_char_to_float_0_0_0_0_0_1_0_0, '0', blocks_float_to_complex_1_0, '0']
+- [blocks_char_to_float_0_1, '0', blocks_add_const_vxx_0_0, '0']
+- [blocks_char_to_float_0_1_0, '0', blocks_add_const_vxx_0_0_0, '0']
+- [blocks_char_to_float_0_1_0_0, '0', blocks_add_const_vxx_0_0_0_0, '0']
+- [blocks_delay_0, '0', blocks_char_to_float_0, '0']
+- [blocks_delay_0_0, '0', blocks_char_to_float_0_1, '0']
+- [blocks_delay_0_0_0, '0', blocks_char_to_float_0_1_0, '0']
+- [blocks_delay_0_0_0_0, '0', blocks_char_to_float_0_1_0_0, '0']
+- [blocks_delay_0_0_0_0, '0', digital_map_bb_0_0, '0']
+- [blocks_float_to_char_0, '0', blocks_delay_0, '0']
+- [blocks_float_to_char_0_0, '0', blocks_delay_0_0, '0']
+- [blocks_float_to_char_0_0_0, '0', blocks_delay_0_0_0, '0']
+- [blocks_float_to_char_0_0_0_0, '0', blocks_delay_0_0_0_0, '0']
+- [blocks_float_to_complex_0_0, '0', blocks_stream_to_vector_0_0_0_0, '0']
+- [blocks_float_to_complex_1_0, '0', blocks_stream_to_vector_0_0_1, '0']
+- [blocks_multiply_conjugate_cc_0_0, '0', fft_vxx_1_0, '0']
+- [blocks_multiply_const_vxx_0_0, '0', blocks_vector_to_stream_0_0, '0']
+- [blocks_stream_to_vector_0_0_0_0, '0', fft_vxx_0_1, '0']
+- [blocks_stream_to_vector_0_0_1, '0', fft_vxx_0_0_0, '0']
+- [blocks_throttle_0, '0', qtgui_time_sink_x_0_0, '1']
+- [blocks_throttle_0_0, '0', qtgui_time_sink_x_0_0_0, '1']
+- [blocks_throttle_0_0_0, '0', qtgui_time_sink_x_0_0_0_0, '1']
+- [blocks_throttle_0_0_0_0, '0', qtgui_time_sink_x_0_0_0_0_0, '1']
+- [blocks_vector_to_stream_0_0, '0', qtgui_time_sink_x_1_1, '0']
+- [digital_glfsr_source_x_0, '0', blocks_add_const_vxx_2, '0']
+- [digital_glfsr_source_x_0_0, '0', blocks_add_const_vxx_2_0, '0']
+- [digital_glfsr_source_x_0_0_0, '0', blocks_add_const_vxx_2_0_0, '0']
+- [digital_glfsr_source_x_0_0_0_0, '0', blocks_add_const_vxx_2_0_0_0, '0']
+- [digital_map_bb_0_0, '0', blocks_char_to_float_0_0_0_0_0_1_0, '0']
+- [digital_map_bb_0_0_0, '0', blocks_char_to_float_0_0_0_0_0_1_0_0, '0']
+- [digital_scrambler_bb_1_0, '0', blocks_char_to_float_0_0, '0']
+- [digital_scrambler_bb_1_0_0, '0', blocks_char_to_float_0_0_0, '0']
+- [digital_scrambler_bb_1_0_0_0, '0', blocks_char_to_float_0_0_0_0, '0']
+- [digital_scrambler_bb_1_0_0_0_0, '0', blocks_char_to_float_0_0_0_0_0, '0']
+- [digital_scrambler_bb_1_0_0_0_0, '0', digital_map_bb_0_0_0, '0']
+- [fft_vxx_0_0_0, '0', blocks_multiply_conjugate_cc_0_0, '1']
+- [fft_vxx_0_1, '0', blocks_multiply_conjugate_cc_0_0, '0']
+- [fft_vxx_1_0, '0', blocks_multiply_const_vxx_0_0, '0']
+
+metadata:
+  file_format: 1
