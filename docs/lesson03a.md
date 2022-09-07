@@ -2,20 +2,26 @@
 
 Although a radio signal is inherently a real thing---the electric field has a real magnitude and direction at a given point in space and time---the frequency shifting inherent in radio inherently introduces complex numbers, as we will see. So, to prepare, let's review some basic properties of complex numbers.
 
-In general, a complex number has a real part and an imaginary part: $$z = x + iy$$, where $$x$$ and $$y$$ are real numbers and $$i = \sqrt{-1}$$. To add two complex numbers, just add the real parts and add the imaginary parts. For example, to add $$2+1i$$ and $$1 + 3i$$, add the real parts ($$2+1=3$$) and add the imaginary parts ($$1i + 3i = 4i$$). The result is $$3 + 4i$$.
+In general, a complex number has a real part and an imaginary part: 
+<p align="center"> $$z = x + iy$$, </p>
+where $$x$$ and $$y$$ are real numbers and $$i = \sqrt{-1}$$
+
+To add two complex numbers, just add the real parts and add the imaginary parts. For example, to add $$2+1i$$ and $$1 + 3i$$, add the real parts ($$2+1=3$$) and add the imaginary parts ($$1i + 3i = 4i$$). The result is $$3 + 4i$$.
 
 <!-- [ ![video](figs/lesson03video.jpg)](https://youtu.be/2BhuW1stMYo){:target="_blank"} -->
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2BhuW1stMYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<b> Homework from the video </b>
+______________________________________________________________________________________________________________________________________________________________
+
+# Homework from the video
 1. Look at a real cosine value. You should be able to add a complex conjugate of the cosine wave to the original cosine wave. 
   Remember that
   \begin{equation}
     (a + bi) + (a - bi) = 2a
   \end{equation}
-  where a is the real part of the cosine wave. Remember that the constellation graph should only have real values; the dot should never move in the i direction.
+  where a is the real part of the cosine wave. Remember that the constellation graph should only have real values; the dot should never move in the $$i$$ direction.
 2. Examine the other waveforms that are options in the sources. Specifically, look at a square, a triangle, and a sawtooth graph of cosine. Take note of harmonics in the frequency graph of these waveforms. Make sure you can identify which type of harmonics each of these waveforms make in the frequency graph.
 3. Generate two complex exponential frequencies, multiply them together, and plot the result. You should see that the frequency is the sum of the two frequencies. Mathematically, this is
   \begin{equation}
