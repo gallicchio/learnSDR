@@ -1,9 +1,9 @@
 # Lesson 3b --- Negative Frequencies
 
-<!-- [ ![video](figs/video/03-negative-frequencies.jpg)](https://youtu.be/n9_N8KhuojM){:target="_blank"} -->
+<!-- [ ![video](figs/video/03-negative-frequencies.jpg)](https://youtu.be/DDsteHP7sFg){:target="_blank"} -->
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/n9_N8KhuojM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DDsteHP7sFg " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
 
