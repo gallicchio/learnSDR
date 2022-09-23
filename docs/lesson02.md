@@ -1,7 +1,7 @@
 # Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver
 
 
-<iframe width="560" height="315" src="https://youtu.be/b6tmHRZhBKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/bV4oJTPlAeQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Notes on the Video
