@@ -30,6 +30,11 @@ As illustrated in Fig. 1, the software-defined radio has to manage two of these 
   z(t) = x(t) + i y(t) = e^{i 2\pi (f-f_0) t}
 \end{equation}
 
+
+## Bonus: Why Zero Intermediate Frequencey ("Zero IF" or "direct conversion")?
+
+The receiver described here is an example of "Zero Intermediate Frequency" architecture, where the roadie-frequency signal is mixed directly down to a low frequency around 0 Hz. This is in contrast to a Super-heterodyne receiver, which first mixes the radio-frequency signal to some per-determined intermediate frequency (see <a href="https://en.wikipedia.org/wiki/Intermediate_frequency#Examples">examples</a>, where optimized hardware narrow-band band-pass analog filters can then select the desired signal. This filtered signal is further mixed down to baseband (much lower audio frequencies). Why do this two-step process? It's hard to make a good, narrow analog filter whose center-frequency can be changed while keeping other properties constant. Most SDRs sacrifice this optimized analog performance for more flexibility in tuning range and bandwidth. For more details and a list of advantages and disadvantates, see <a href="https://www.rfwireless-world.com/Terminology/Zero-IF-Architecture-based-Transceiver.html">RF Wireless World's Zero IF Architecture</a>
+
 ## Homework
 
 For doing the homework exercises, you may find the following trigonometric identities helpful:
