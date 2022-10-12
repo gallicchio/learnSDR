@@ -1,0 +1,13 @@
+theme: jekyll-theme-minimal
+logo: /figs/gnuradio.png
+title: Learning SDR
+description: Harvey Mudd College
+show_downloads: false
+google_analytics:
+relative_links:
+  enabled:     true
+  collections: false
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  parse_block_html: true
