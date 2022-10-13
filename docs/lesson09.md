@@ -88,3 +88,6 @@ threshold: then keep 1 in N where N is sps
 - transmit other bit patterns
 - how fast can you go
 - how far away can you put the transmitter and receiver?
+
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+

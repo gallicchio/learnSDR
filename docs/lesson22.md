@@ -10,5 +10,5 @@ See also:
 
 [Gold code - Wikipedia](https://en.wikipedia.org/wiki/Gold_code)
 
-All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR]
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

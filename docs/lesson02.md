@@ -74,6 +74,8 @@ The plots will very slowly oscillate.
 The real signal reaches its maximum before the imaginary signal in the Time Sink, and the peak on the Frequency sink lies above the value we're looking for.
 </details>
 
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+
 <!--
 Transmit a 100 MHz sine wave from a signal generator simultaneously into a real oscilloscope and a BNC with hooks.
 

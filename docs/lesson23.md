@@ -14,7 +14,5 @@ A more sophisticated result with better fine-tuning of the carrier offset:
 
 ![GPS correlation and demodulation in operation](figs/run/GPS-running2.png)
 
-All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR]
-
-
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

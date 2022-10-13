@@ -22,3 +22,7 @@ a bit more here (including 18)
 We will analyze for the case of quadrature phase-shift keying (QPSK), where the constellation of points we transmit lie on the unit circle in the complex plane along the diagonals, at phase angles of 45°, 135°, 225°, and 315°. As the receiver clock drifts gradually with respect to the transmitter clock, the phase of the received symbols will rotate slowly around the unit circle. The job of the Costas loop is to monitor and correct for this gradual rotation.
 
 To manage this correction, the Costas loop needs to know the constellation of values that it is *supposed* to receive. For QPSK, they are the points with equal real and imaginary parts along the unit circle. When we measure something that doesn't have equal real and imaginary magnitudes, we know that we have rotated from the proper orientation. Assuming a perfect automatic gain control loop, the signal has unit magnitude and so only differs from the correct value by a pure rotation of $$e^{i\theta}$$ on the complex plane, where $$\theta$$ is the difference between the phase of the observed signal and the phase of the (nearest) constellation value.
+
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+
+

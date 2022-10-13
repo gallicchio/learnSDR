@@ -145,4 +145,7 @@ Note that the blue (real) part starts at 1 and is a cosine wave, whereas the red
 The period of the wave is 1 ms, so the frequency is 1 kHz.
 </details>
 
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+
 [Lesson 3b](lesson03b.md)
+

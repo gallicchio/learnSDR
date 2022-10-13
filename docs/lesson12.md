@@ -27,4 +27,6 @@ This one didn't work well.
 
 1. Square the incoming signal to adjust the slider and zero out the frequency difference. 
 
-Next time: adjusting . 
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+
+

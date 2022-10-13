@@ -7,3 +7,6 @@ Re-recording video
 * Organize and keep cords wrapped around things - as your work starts to grow bigger, it's harder to keep track of everything, so make sure you start out as organized as possible. Put labels on things, if you need to.
 
 Okay!
+
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+

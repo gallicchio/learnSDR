@@ -39,3 +39,7 @@ The [flow diagram](figs/flow/pulse-shaping.png){: target='_blank'} Prof. Jason d
    5. Explain the green trace in the figure below. ![](figs/run/RC-alpha-50.png)
 
    6. About what value of $$\alpha$$ was used to produce the figure below? How can you tell? ![](figs/run/RC-bw-02.png)
+
+All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+
+
