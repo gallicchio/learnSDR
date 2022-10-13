@@ -1,4 +1,4 @@
-# Lesson 20 --- GPS Reception
+# Lesson 23 --- GPS Reception
 
 I use an RTL-SDR and a cheap GPS antenna to see some some of the Global Positioning System (GPS) satellite transmissions.
 
