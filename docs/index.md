@@ -1,4 +1,6 @@
-# Learning GNURadio 
+# Learn SDR : Tutorials with Videos
+
+We use GNURadio softare along with [https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/](RTL-SDR) and [https://wiki.analog.com/university/tools/pluto](ADALM-PLUTO) hardware to explore the basics of digital communication.
 
 - [Installation --- Instructions for installing GNURadio](installation.md)
 - [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
