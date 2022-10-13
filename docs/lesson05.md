@@ -5,8 +5,8 @@
 
 <b> A Short Review of the Video </b>
 
-1. Name the program, set the samp_rate to 1 mHz, and insert the RTL-SDR Source, Time Sink, and Frequency Sink.
-2. Set the center frequency of the RTL-SDR Source to 315 mHz (marked as 'Ch0: Frequency (Hz)').
+1. Name the program, set the samp_rate to 1 MHz, and insert the RTL-SDR Source, Time Sink, and Frequency Sink.
+2. Set the center frequency of the RTL-SDR Source to 315 MHz (marked as 'Ch0: Frequency (Hz)').
 3. Connect the RTL-SDR Source block to both Sinks.
 4. Press run, and then experiment using the Adafruit Keyfob.
 

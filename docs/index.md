@@ -1,6 +1,6 @@
 # Learn SDR : Tutorials with Videos
 
-We use the [GNURadio](https://www.gnuradio.org/) softare along with [RTL-SDR](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) and [ADALM-PLUTO](https://wiki.analog.com/university/tools/pluto) hardware to explore the world of digital communication. We build up to a simple QPSK modem and rudimentary GPS reception.
+We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) and [ADALM-PLUTO](https://wiki.analog.com/university/tools/pluto) hardware to explore the world of digital communication. We build up to a simple QPSK modem and rudimentary GPS reception.
 
 - [Installation --- Instructions for installing GNURadio](installation.md)
 - [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
