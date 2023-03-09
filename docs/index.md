@@ -1,5 +1,7 @@
 # Learn SDR : Tutorials with Videos
 
+All GNURadio flowgraphs are at <https://github.com/gallicchio/learnSDR>
+
 We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) and [ADALM-PLUTO](https://wiki.analog.com/university/tools/pluto) hardware to explore the world of digital communication. We build up to a simple QPSK modem and rudimentary GPS reception.
 
 - [Installation --- Instructions for installing GNURadio](installation.md)
@@ -28,6 +30,7 @@ We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](h
 - [Lesson 21 --- Linear Feedback Shift Registers (LFSR)](lesson21.md)
 - [Lesson 22 --- GPS Gold Codes; Spread Spectrum; Code-division multiple access (CDMA)](lesson22.md)
 - [Lesson 23 --- GPS Reception](lesson23.md)
+- Absolute link to this index: <https://gallicchio.github.io/learnSDR>
 
 <!---
 - Lesson 20 --- Full PSK or QPSK modem with carrier and timing recovery
@@ -70,9 +73,4 @@ We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](h
 - [Borre et al; A Software-Defined GPS and Galileo Receiver](https://www.ocf.berkeley.edu/~marsy/resources/gnss/A%20Software-Defined%20GPS%20and%20Galileo%20Receiver.pdf) -- where I started. Talks about acquisition through Fourier correlation and feedback-loop tracking.
 - [Tsui; Fundamentals of GPS Receivers A Software Approach](https://www.addall.com/New/NewCompare.cgi?isbn=9780471706472) -- I think this is the second thing I read
 
-# Course Links
-
-All GNURadio flowgraphs are at <https://github.com/gallicchio/learnSDR>
-
-Back to top: <https://gallicchio.github.io/learnSDR>
 
