@@ -60,7 +60,7 @@ We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](h
 
 (sampling, noise, FIR filters, correlation and convolution, quadrature (complex) signals, and all Fourier techniques DFT, FFT)
 
-- [Smith; Scientist & Engineer's Guide](https://www.analog.com/en/education/education-library/scientist_engineers_guide.html#) -- online and in print. A very concrete start. My only criticism is that I wish he’d introduce complex numbers earlier.
+- [Smith; Scientist & Engineer's Guide to Digital Signal Processing](https://www.analog.com/en/education/education-library/scientist_engineers_guide.html#) -- online and in print. A very concrete start. My only criticism is that I wish he’d introduce complex numbers earlier.
 - [Lyons; Understanding DSP](https://www.addall.com/New/NewCompare.cgi?isbn=0137027419) -- another good self-study book with lots of figures.
 - [Oppenheim and Schafer; Discrete-Time Signal Processing](https://www.addall.com/New/NewCompare.cgi?isbn=0131988425) -- the standard textbook. Assumes more background and introduces mathy things like z-transforms too early, at least for our applications.
 - Learning DSP Illustrated: <https://dspillustrations.com/> (lots of little python examples)
