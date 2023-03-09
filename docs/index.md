@@ -29,7 +29,26 @@ We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](h
 - [Lesson 22 --- GPS Gold Codes; Spread Spectrum; Code-division multiple access (CDMA)](lesson22.md)
 - [Lesson 23 --- GPS Reception](lesson23.md)
 
-All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
+References:
+
+- Software Defined Radio (SDR) and Digital Communications Books:
+ - [Chaudhari; Wireless Communications from the Ground Up: An SDR Perspective](https://www.addall.com/New/NewCompare.cgi?isbn=9781729732236) -- The book I first used to understand tricky things like timing synchronization. Lots of pictures and intuition. Explains GNUradio blocks. I wish he wouldn’t avoid complex numbers, because it makes many things messy and opaque with lots of trig identities.
+ - [Rice; Digital Communications: A Discrete-Time Approach](https://www.amazon.com/Digital-Communications-Discrete-Time-Michael-Rice/dp/B08GVGCKCC) -- The second good book I read on this topic. A bit more mathy than Chaudhari, but good explanations. Introduces and uses complex notation. Many of my lessons are inspired by this book, including Symbol Timing Recovery and Carrier Phase Synchronization.
+ - [Collins et al; Software-Defined Radio for Engineers](https://www.analog.com/en/education/education-library/software-defined-radio-for-engineers.html) A free PDF from Analog Devices. Uses Pluto as an example, which is good, but isn’t as well written as the above.
+ - [Proakis; Digital Communications 5th Edition](https://www.addall.com/New/NewCompare.cgi?isbn=0072957166) Advanced and very mathy; proves optimality under certain conditions; only book here to really talk about FSK, MSK, GMSK and code-division multiple access (CDMA) with pseudo-random streams.
+ - PySDR: A Guide to SDR and DSP using Python (online book) <https://pysdr.org/>
+- Digital Signal Processing DSP Books (sampling, noise, FIR filters, correlation and convolution, quadrature (complex) signals, and all Fourier techniques DFT, FFT)
+ - [Smith; Scientist & Engineer's Guide](https://www.analog.com/en/education/education-library/scientist_engineers_guide.html#) -- online and in print. A very concrete start. My only criticism is that I wish he’d introduce complex numbers earlier.
+ - Lyons; Understanding DSP -- another good self-study book with lots of figures.
+ - Oppenheim and Schafer Discrete-Time Signal Processing -- the standard textbook. Assumes more background and introduces mathy things like z-transforms too early, at least for our applications.
+ - Learning DSP Illustrated: <https://dspillustrations.com/> (lots of little python examples)
+- Global Satellite Navigation Systems (GNSS) and GPS Books:
+ - Borre et al A Software-Defined GPS and Galileo Receiver -- where I started. Talks about acquisition through Fourier correlation and feedback-loop tracking.
+ - Tsui Fundamentals of GPS Receivers A Software Approach -- I think this is the second thing I read
+
+All GNURadio flowgraphs are at <https://github.com/gallicchio/learnSDR>
+
+Back to top: <https://gallicchio.github.io/learnSDR>
 
 <!---
 - Lesson 20 --- Full PSK or QPSK modem with carrier and timing recovery
