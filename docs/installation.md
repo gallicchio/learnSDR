@@ -2,7 +2,7 @@
 
 [GNU Radio](https://www.gnuradio.org) is a free, open-source radio ecosystem that runs primarily on Linux systems, although there are versions compiled for other operating systems.
 
-In 2022, we run GNURadio 3.10 on [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://www.releases.ubuntu.com/22.04/). After installing, rnu 
+In 2022, we run GNURadio 3.10 on [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://www.releases.ubuntu.com/22.04/). After installing, run 
 
   ```sudo apt-get install gnuradio rtl-sdr gqrx-sdr soapysdr-module-all```
 
