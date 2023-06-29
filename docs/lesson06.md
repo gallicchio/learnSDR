@@ -34,7 +34,7 @@ Clearly, there must be a minimum sampling rate if we are to have any hope of rep
 </p>
 
 <p class='mycap' markdown='1'>
-**Figure 3** --- A continuous signal sampled many times per cycle.
+**Figure 3** --- A continuous signal sampled only twice per cycle, demonstrating "unlucky" sample timing.
 </p>
 
 ## Undersampling
