@@ -4,7 +4,7 @@ This isn't exactly another lesson, but a demo of using python directly with the 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/olqedEtaVZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-The jupyter-lab notebook is at [https://github.com/gallicchio/learnSDR/SpectrumDemo.ipynb](https://github.com/gallicchio/learnSDR/SpectrumDemo.ipynb)
+The jupyter-lab notebook is at [https://github.com/gallicchio/learnSDR/blob/main/SpectrumDemo.ipynb](https://github.com/gallicchio/learnSDR/blob/main/SpectrumDemo.ipynb)
 
 ## My hardware
 
