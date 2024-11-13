@@ -29,11 +29,11 @@ We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](h
 - [Lesson 20 --- Resolving the Phase Ambiguity and Differential Encoding](lesson20.md)
 - [Lesson 21 --- Linear Feedback Shift Registers (LFSR)](lesson21.md)
 - [Lesson 22 --- GPS Gold Codes; Spread Spectrum; Code-division multiple access (CDMA)](lesson22.md)
-- [Lesson 23 --- GPS Reception](lesson23.md)
+- [Extra: Spectrum Analyzer Demo with USRP B210 or X310](SpectrumDemo.md)
 - Absolute link to this index: <https://gallicchio.github.io/learnSDR>
 
 <!---
-These lessons never got made:
+These lessons were planned, but have not yet been made:
 - Lesson 21 --- Full PSK or QPSK modem with carrier and timing recovery
 - Lesson 22 --- Example of decoding some widely-available PSK or QPSK signal from a satellite or something.
 - Lesson 23 --- Pluto transmit QPSK DVB-S2

@@ -4,15 +4,15 @@ This isn't exactly another lesson, but a demo of using python directly with the 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/olqedEtaVZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-The jupyter-lab notebook is at [https://github.com/gallicchio/learnSDR/blob/main/SpectrumDemo.ipynb](https://github.com/gallicchio/learnSDR/blob/main/SpectrumDemo.ipynb)
+The jupyter notebook is at [https://github.com/gallicchio/learnSDR/blob/main/SpectrumDemo.ipynb](https://github.com/gallicchio/learnSDR/blob/main/SpectrumDemo.ipynb)
 
 ## My hardware
 
 * I started development on the hardware I've got:
-    - USRP B210 USB 3.0: 70 MHz (or 50 MHz) - 6 GHz; (61.44MS/s quadrature) Gain: 0.0 to 76.0 step 1.0 dB; Analog BW: 0.2 - 56 MHz
-    - USRP X310 with TwinRX daughterboards: 10 MHz - 6 GHz; Gain: 0-93dB; Analog Bandwidth 80 MHz
-    - USRP X310 with UBX-160 daughterboards: 10 MHz - 6 GHz; Gain: 0.0 to 31.5 step 0.5 dB; Analog Bandwidth fixed at 160 MHz
-
+    - USRP *B210* USB 3.0: 70 MHz (or 50 MHz) - 6 GHz; (61.44MS/s quadrature) Gain: 0.0 to 76.0 step 1.0 dB; Analog BW: 0.2 - 56 MHz
+    - USRP *X310 with TwinRX* daughterboards: 10 MHz - 6 GHz; Gain: 0-93dB; Analog Bandwidth 80 MHz
+    - USRP *X310 with UBX-160* daughterboards: 10 MHz - 6 GHz; Gain: 0.0 to 31.5 step 0.5 dB; Analog Bandwidth fixed at 160 MHz
+* The video and jupyter notebook use the X310, but by commenting out X310-specific code and uncommenting B210 code, you can use the slower and less sensitive B210.
 
 ## Getting started on USRP X310 in general
 
