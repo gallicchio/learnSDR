@@ -4,7 +4,7 @@ I use an RTL-SDR and a cheap GPS antenna to see some some of the Global Position
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4YO1XSVMtqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-The GPS reference used to find the taps for the C/A code is [http://www.naic.edu/~phil/rfi/gps/AFD-070803-059-1.pdf].
+The GPS reference used to find the taps for the C/A code is <http://www.naic.edu/~phil/rfi/gps/AFD-070803-059-1.pdf>.
 
 GPS correlation and demodulation in operation:
 
