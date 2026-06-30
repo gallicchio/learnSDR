@@ -88,10 +88,10 @@ This topic includes sampling, noise, FIR filters, correlation and convolution, q
 
 # Hardware
 
-- [RTL-SDR v3 or v4 with Dipole Antenna Kit](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) (~$55) This is used from lesson 1 and used as the receiver in lessons where we have a seperate transmitter.
-- [Pluto SDR from Analog Devices](https://www.analog.com/en/resources/evaluation-hardware-and-software/evaluation-boards-kits/adalm-pluto.html). You can buy these from [Digikey](https://www.digikey.com/en/products/detail/analog-devices-inc/ADALM-PLUTO/6624230), [Mouser](https://www.mouser.com/c/?q=ADALM-PLUTO), or [Newark](https://www.newark.com/analog-devices/adalm-pluto/learning-module-plutosdr-3-8ghz/dp/49AK8158). (~230) This is for transmitting, starting in [Lesson 8](lesson08a.md). It's a great little platform that runs embedded Linux and uses basically the same chip as the USRP B200 and B210. I haven't tried clones that are sold on eBay or AliExpress.
-- [Adafruit Keyfob 4-Button RF Remote Control](https://www.adafruit.com/product/1095) ($7) Any similar RF remote would work, as long as you know its transmit frequency. This is used only briefly in Lesson 5.
-- [GPS Antenna with SMA](https://www.amazon.com/s?k=gps+active+antenna+sma) ($9) For [Lesson 23](lesson23.md). These contain an amplifier, which is powered by 3V to 5V going up the cable. The RTL-SDR can be configured to provide this voltage. The ~1.5 GHz signal comes back down to the RTL-SDR.
+- [RTL-SDR v3 or v4 with Dipole Antenna Kit](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) (~$55) --- This is used from lesson 1 and used as the receiver in lessons where we have a seperate transmitter.
+- [Pluto SDR from Analog Devices (ADALM-PLUTO)](https://www.analog.com/en/resources/evaluation-hardware-and-software/evaluation-boards-kits/adalm-pluto.html) (~230) --- You can buy these from [Digikey](https://www.digikey.com/en/products/detail/analog-devices-inc/ADALM-PLUTO/6624230), [Mouser](https://www.mouser.com/c/?q=ADALM-PLUTO), or [Newark](https://www.newark.com/analog-devices/adalm-pluto/learning-module-plutosdr-3-8ghz/dp/49AK8158). This is for transmitting, starting in [Lesson 8](lesson08a.md). It's a great little platform that runs embedded Linux and uses basically the same chip as the USRP B200 and B210. I haven't tried clones that are sold on eBay or AliExpress.
+- [Adafruit Keyfob 4-Button RF Remote Control](https://www.adafruit.com/product/1095) ($7) --- Any similar RF remote would work, as long as you know its transmit frequency. This is used only briefly in Lesson 5.
+- [GPS Antenna with SMA](https://www.amazon.com/s?k=gps+active+antenna+sma) ($9) --- For [Lesson 23](lesson23.md). These contain an amplifier, which is powered by 3V to 5V going up the cable. The RTL-SDR can be configured to provide this voltage. The ~1.5 GHz signal comes back down to the RTL-SDR.
 
 # Contact
 
