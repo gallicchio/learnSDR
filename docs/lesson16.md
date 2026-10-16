@@ -29,7 +29,6 @@ There are a couple of challenges. First, the data we send to the Constellation M
 4. On the receiving end, we need to correct for the difference in frequency between the transmitter and the receiver. For the moment, we will use a cosine source with a frequency that we can adjust with a slider. Besides using our usual sliders for `TX attenuation` and `RX gain`, we will use an **Automatic gain control** block to adjust the strength of the received signal before passing it through a matched root raised cosine filter to decode the data. Initially, we'll use a number of taps equal to `11*sps`, but you can investigate what happens if you use a different odd number of multiples of `sps`.
 
 
-[Flow diagram](figs/flow/constellation.png){: target="flow"}
 
 ## Questions
 
@@ -49,6 +48,27 @@ There are a couple of challenges. First, the data we send to the Constellation M
 - We will also need to figure out where in the range from 0 to `sps` we need to sample to be at that place on the eye diagram where the values are ideally separated.
 
 We will address these issues in the next few lessons.
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson16_Constellation_Modulator_Pluto_to_RTL.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson16_Constellation_Modulator_Pluto_to_RTL.grc)
+
+[![lesson16_Constellation_Modulator_Pluto_to_RTL flowgraph](figs/flow/lesson16_Constellation_Modulator_Pluto_to_RTL.png)](figs/flow/lesson16_Constellation_Modulator_Pluto_to_RTL.png){:target="_blank"}
+
+Running:
+
+[![lesson16_Constellation_Modulator_Pluto_to_RTL running](figs/run/lesson16_Constellation_Modulator_Pluto_to_RTL.png)](figs/run/lesson16_Constellation_Modulator_Pluto_to_RTL.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson16_Constellation_Plot.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson16_Constellation_Plot.grc)
+- [`lesson16hw_Constellation_Modulator_Pluto_to_RTL.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson16hw_Constellation_Modulator_Pluto_to_RTL.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

@@ -62,32 +62,36 @@ Pay attention to the colored background of parameters. If the background is gree
 5. Use a **Complex to Mag** block to convert the output of the **RTL-SDR** source into a real number representing its amplitude. Run the flow diagram and adjust the gains and attenuations to produce a signal that seems to faithfully reproduce the information you are aiming to broadcast. Then install a **Threshold** block to trigger when the signal makes a transition between the "0" state and the "1" state. You can set both the low and high threshold to the same value. Then, it is helpful to undo the *repeat* operation that we applied to the output of the vector source to produce the pure digital information that we aimed to transmit. Use a **Keep 1 in N** block with *N* set to the same value you used in the Repeat block and send the output to a time sink.
 
 
-[Lesson 10 flow diagram](figs/flow/lesson10-flowdiagram.png)
 
 ## Things to Explore
 
 Note: *Depending on your hardware, you may find that displaying all the plots causes errors. You may find that disabling ones that arise earlier in the chain that you are not observing frees up enough computing power to avoid the errors.*
 
-Plotting what you are sending and receiving on the same plot: can 
-
-Play with the transmission
-
-meaning of sending a constant
-
-OOK from Pluto to RTL-SDR
-
-Making data from various sources: list the data explicitly with a Vector Source
-sps = samples per symbol (sets 100 samples per symbol)
-
-How to convert from signal back to bits: amplitude of the complex number. Shows with a constellation plot.
-
-threshold: then keep 1 in N where N is sps
+- Sending a *constant* (a complex signal source at 0 Hz) is the same as sending an unmodulated carrier at `center_freq`. What does the RTL-SDR show then, and why is it not at exactly 0 Hz?
+- `sps` (samples per symbol) sets how many samples each bit lasts: 100 samples at 1 MS/s is 100 µs per bit, i.e. 10 kbit/s.
+- To get from the received signal back to bits: take the magnitude of the complex samples (the constellation plot shows why), threshold it, then keep one sample in every `sps`.
 
 ## Homework
 
 - transmit other bit patterns
 - how fast can you go
 - how far away can you put the transmitter and receiver?
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson09a_CW_tone_Pluto_to_RTL_SDR.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson09a_CW_tone_Pluto_to_RTL_SDR.grc)
+
+[![lesson09a_CW_tone_Pluto_to_RTL_SDR flowgraph](figs/flow/lesson09a_CW_tone_Pluto_to_RTL_SDR.png)](figs/flow/lesson09a_CW_tone_Pluto_to_RTL_SDR.png){:target="_blank"}
+
+Running: 20 kHz tone from the Pluto as seen by the RTL-SDR; the received peak is not at 20 kHz because the two clocks differ:
+
+[![lesson09a_CW_tone_Pluto_to_RTL_SDR running](figs/run/lesson09a_CW_tone_Pluto_to_RTL_SDR.png)](figs/run/lesson09a_CW_tone_Pluto_to_RTL_SDR.png){:target="_blank"}
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

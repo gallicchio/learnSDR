@@ -1,28 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
+    catch_exceptions: 'True'
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: rtl_sdr_HAM_NBFM
+    id: lesson01d_RTL_SDR_HAM_NBFM
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: rtl_sdr_HAM_NBFM
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -44,6 +41,18 @@ blocks:
     coordinate: [480, 67]
     rotation: 0
     state: true
+- name: audio_rate
+  id: variable
+  parameters:
+    comment: sound-card sample rate
+    value: 48e3
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [724, 12]
+    rotation: 0
+    state: enabled
 - name: rf_gain
   id: variable_qtgui_range
   parameters:
@@ -51,7 +60,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '1'
@@ -84,7 +93,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '144'
     step: '0.001'
@@ -105,7 +114,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '420'
     step: '0.001'
@@ -124,7 +133,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    audio_rate: '48000'
+    audio_rate: int(audio_rate)
     comment: ''
     max_dev: 5e3
     maxoutbuf: '0'
@@ -147,7 +156,7 @@ blocks:
     device_name: ''
     num_inputs: '1'
     ok_to_block: 'True'
-    samp_rate: '48000'
+    samp_rate: int(audio_rate)
   states:
     bus_sink: false
     bus_source: false
@@ -171,7 +180,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_ccf
     width: 50e3
-    win: firdes.WIN_HAMMING
+    win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
@@ -588,6 +597,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -606,7 +616,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -668,6 +678,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -686,7 +697,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -714,7 +725,7 @@ blocks:
     autoscale: 'False'
     average: '0.2'
     axislabels: 'True'
-    bw: 48e3
+    bw: audio_rate
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -748,6 +759,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -766,7 +778,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -1146,3 +1158,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

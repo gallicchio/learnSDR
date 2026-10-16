@@ -65,15 +65,15 @@ Both the time version $$V(t)$$ and the frequency version $$\widetilde{V}(f)$$ ca
 
 + Any signal in time may be represented as a superposition (sum) of sinusoidal functions of various frequencies; the Fourier transform maps the representation in time to the representation in frequency, and vice versa.
 + The power in a sinusoidal signal is proportional to the **square** of its **amplitude** (in volts, for example).
-+ Signals as a function of frequency are typically displayed using a logarithmic scale in **decibels**. Suppose signal 1 has amplitude $$A_1 = 1$$ and signal 2 has amplitude $$A_2 = 10^{-2}$$. We may express the strength of $$A_2$$ with respect to $$A_1$$ as $$A_2/A_1 = 0.01$$. In decibels, the amplitude ratio would be expressed
++ Signals as a function of frequency are typically displayed using a logarithmic scale in **decibels**. A decibel value is always a *ratio of powers*:
 \begin{equation}
-    \frac{A_2}{A_1} = -10 \log_{10} (0.01) = 20\text{ dB}
+    10 \log_{10} \frac{P_2}{P_1} \text{ dB}
 \end{equation}
-That is, the decibel expression for the *amplitude ratio* is ten times the negative base-10 logarithm of the amplitude ratio. Because the power in a signal is proportional to the *square of its amplitude*, the decibel expression for the power in signal 1 compared to signal 2 is
+Because the power in a signal is proportional to the *square of its amplitude*, the same ratio expressed in amplitudes is
 \begin{equation}
-  P_2 / P_1 = 20 \log_{10} (A_2/A_1)
+  10 \log_{10} \frac{P_2}{P_1} = 20 \log_{10} \frac{A_2}{A_1}
 \end{equation}
-amplitudes that differ by a factor of 10 In a GNU Radio flow diagram, a **QT Frequency Sink** shows the power in the signal it displays as a function of frequency using decibels.
+For example, if signal 2 has one hundredth the amplitude of signal 1 ($$A_2/A_1 = 0.01$$), it has one ten-thousandth the power, which is $$-40$$ dB. Amplitudes that differ by a factor of 10 differ by 20 dB; powers that differ by a factor of 10 differ by 10 dB, and a factor of 2 in power is about 3 dB. In a GNU Radio flow diagram, a **QT GUI Frequency Sink** shows the power in the signal as a function of frequency in decibels relative to a full-scale (amplitude 1) sinusoid.
 + [A low-pass filter](lesson03b#low-pass){:target="_link"} transmits frequencies below a corner frequency without attenuation (nearly), but attenuates frequencies above the corner frequency more strongly the farther they are above the corner frequency. If you know something about resistors and capacitors, the circuit shown in Fig. 2 illustrates a simple low-pass filter.
 
 <p class='center' markdown='0'>

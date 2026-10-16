@@ -1,28 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
+    catch_exceptions: 'True'
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: sampling
+    id: lesson06hw2_ComplexReSampling
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: sampling
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -39,7 +36,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: -2e6
     step: '1'
@@ -65,6 +62,20 @@ blocks:
     coordinate: [184, 12]
     rotation: 0
     state: enabled
+- name: upsample
+  id: variable
+  parameters:
+    comment: 'resampling factor used to draw the
+
+      "continuous" signal between the samples'
+    value: '10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [604, 12]
+    rotation: 0
+    state: enabled
 - name: analog_sig_source_x_0
   id: analog_sig_source_x
   parameters:
@@ -78,6 +89,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -95,7 +107,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    n: '10'
+    n: upsample
     type: complex
     vlen: '1'
   states:
@@ -106,12 +118,14 @@ blocks:
     rotation: 0
     state: true
 - name: blocks_throttle_0
-  id: blocks_throttle
+  id: blocks_throttle2
   parameters:
     affinity: ''
     alias: ''
     comment: ''
     ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
     maxoutbuf: '0'
     minoutbuf: '0'
     samples_per_second: samp_rate
@@ -130,11 +144,11 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    interp: '10'
+    interp: upsample
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_delay: '0'
-    taps: '[10,0,0,0,0,0,0,0,0,0]'
+    taps: '[upsample]+[0]*(upsample-1)'
     type: ccc
   states:
     bus_sink: false
@@ -159,7 +173,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_ccf
     width: 1e3
-    win: firdes.WIN_HAMMING
+    win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
@@ -199,7 +213,7 @@ blocks:
     comment: ''
     ctrlpanel: 'False'
     fc: '0'
-    fftsize: '1000'
+    fftsize: '1024'
     freqhalf: 'True'
     grid: 'False'
     gui_hint: ''
@@ -219,6 +233,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '2'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -237,7 +252,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -357,3 +372,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

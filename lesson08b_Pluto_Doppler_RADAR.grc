@@ -1,28 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: ''
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
+    catch_exceptions: 'True'
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
     id: lesson08b_Pluto_Doppler_RADAR
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: lesson08b_Pluto_Doppler_RADAR
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -75,7 +72,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '0.1'
@@ -89,11 +86,23 @@ blocks:
     coordinate: [801, 635]
     rotation: 0
     state: true
+- name: audio_rate
+  id: variable
+  parameters:
+    comment: sound-card sample rate
+    value: 48e3
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [804, 12]
+    rotation: 0
+    state: enabled
 - name: decimation
   id: variable
   parameters:
-    comment: ''
-    value: '50'
+    comment: from the SDR sample rate down to the sound-card rate
+    value: int(samp_rate/audio_rate)
   states:
     bus_sink: false
     bus_source: false
@@ -108,7 +117,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '0.01'
@@ -129,7 +138,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '0.001'
@@ -150,7 +159,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '1'
@@ -183,7 +192,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '-2000'
     step: '1'
@@ -204,7 +213,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '1'
@@ -231,6 +240,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -249,7 +259,7 @@ blocks:
     device_name: ''
     num_inputs: '1'
     ok_to_block: 'True'
-    samp_rate: '48000'
+    samp_rate: int(audio_rate)
   states:
     bus_sink: false
     bus_source: false
@@ -274,7 +284,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_ccf
     width: tone*pass_fractional_bandwidth
-    win: firdes.WIN_HAMMING
+    win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
@@ -299,7 +309,7 @@ blocks:
     samp_rate: samp_rate/decimation
     type: fir_filter_ccf
     width: tone*reject_fractional_bandwidth
-    win: firdes.WIN_HAMMING
+    win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
@@ -365,14 +375,18 @@ blocks:
     affinity: ''
     alias: ''
     attenuation1: tx_attenuation
-    auto_filter: 'True'
     bandwidth: '20000000'
     buffer_size: '32768'
     comment: ''
     cyclic: 'False'
     filter: ''
+    filter_source: '''Auto'''
+    fpass: '0'
     frequency: LO_freq
+    fstop: '0'
+    len_tag_key: ''
     samplerate: samp_rate
+    type: fc32
     uri: 192.168.2.1
   states:
     bus_sink: false
@@ -386,20 +400,24 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    auto_filter: 'True'
     bandwidth: '20000000'
     bbdc: 'True'
     buffer_size: '32768'
     comment: ''
     filter: ''
+    filter_source: '''Auto'''
+    fpass: '0'
     frequency: LO_freq
+    fstop: '0'
     gain1: '''manual'''
+    len_tag_key: ''
     manual_gain1: rx_gain
     maxoutbuf: '0'
     minoutbuf: '0'
     quadrature: 'True'
     rfdc: 'True'
     samplerate: samp_rate
+    type: fc32
     uri: 192.168.2.1
   states:
     bus_sink: false
@@ -424,7 +442,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_ccf
     width: tone/2
-    win: firdes.WIN_HAMMING
+    win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
@@ -484,6 +502,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -502,7 +521,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -564,6 +583,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -582,7 +602,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -624,7 +644,7 @@ blocks:
     comment: ''
     ctrlpanel: 'False'
     fc: '0'
-    fftsize: '16000'
+    fftsize: '16384'
     freqhalf: 'True'
     grid: 'False'
     gui_hint: ''
@@ -644,6 +664,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -662,7 +683,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -724,6 +745,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '1'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -742,7 +764,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -1062,3 +1084,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

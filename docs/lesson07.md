@@ -34,16 +34,16 @@ is the fastest frequency that we can represent. If the continuous signal has fre
 </p>
 
 <p class='mycap' markdown='1'>
-**Figure 2** --- If we sample more slowly than the Nyquist frequency, the true signal (shown in red) will appear to have a much lower frequency, as shown in the dashed green curve. This is called **aliasing**.
+**Figure 2** --- If we sample more slowly than the Nyquist rate, the true signal (shown in red) will appear to have a much lower frequency, as shown in the dashed green curve. This is called **aliasing**.
 </p>
 
 We will assume in the following that the signal *does not* have frequency components above the Nyquist frequency.
 
 For a real signal, we only need positive frequencies. With radio signals that are frequency shifted to lower frequencies by mixing with a high-frequency local oscillator, we need both positive and negative frequencies, as discussed in [Lesson 3b](lesson03b.md). In this case, the modes have the form
 \begin{equation}
-  e^{i 2\pi f_n t} \qquad\text{where}\qquad -\frac{1}{4T_s} \le f_k < \frac{1}{4 T_s}
+  e^{i 2\pi f_k t} \qquad\text{where}\qquad -\frac{1}{2T_s} \le f_k < \frac{1}{2 T_s}
 \end{equation}
-where $$k$$ is an integer mode "index". What defines how many modes there are and what frequencies they have?
+where $$k$$ is an integer mode "index" and $$1/(2T_s)$$ is the Nyquist frequency. What defines how many modes there are and what frequencies they have?
 
 Let's take a simple example where we sample N=8 times. That is, $$T = 8 T_s$$. For a mode to be periodic in this interval, it must go through an integer number of complete cycles. That is, we require
 \begin{equation}
@@ -65,11 +65,11 @@ Clearly, $$k=0$$ works and generates a constant function. Next we have $$k=\pm1,
 
 As Fig. 3 illustrates, $$k = N/2$$ yields exactly the same mode as $$k = -N/2$$. Therefore, the discrete frequencies yielded by the Fourier transform in this simple example are
 \begin{equation}
-  -4\frac{2\pi}{8T_s},-3\frac{2\pi}{8T_s},-2\frac{2\pi}{8T_s},-\frac{2\pi}{8T_s},0,\frac{2\pi}{8T_s},2\frac{2\pi}{8T_s},3\frac{2\pi}{8T_s}
+  \frac{-4}{8T_s},\frac{-3}{8T_s},\frac{-2}{8T_s},\frac{-1}{8T_s},0,\frac{1}{8T_s},\frac{2}{8T_s},\frac{3}{8T_s}
 \end{equation}
 or
 \begin{equation}
-  f_k = \frac{2 \pi k}{N T_s} \qquad -\frac{N}{2} \le k < \frac{N}{2}
+  f_k = \frac{k}{N T_s} \qquad -\frac{N}{2} \le k < \frac{N}{2}
 \end{equation}
 
 ## Power spectra
@@ -126,6 +126,26 @@ A common problem with discrete transforms is handling sinusoidal signals that "d
 2. It is proposed to avoid the broadening caused by window functions by sampling more frequently. Could this work? If so, how fine a sampling period would be required? If not, why not?
 
 3. Investigate a broad range of window functions by visiting [the Wikipedia page on window functions](https://en.wikipedia.org/wiki/Window_function).
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson07a_FrequencySpectrum.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson07a_FrequencySpectrum.grc)
+
+[![lesson07a_FrequencySpectrum flowgraph](figs/flow/lesson07a_FrequencySpectrum.png)](figs/flow/lesson07a_FrequencySpectrum.png){:target="_blank"}
+
+Running:
+
+[![lesson07a_FrequencySpectrum running](figs/run/lesson07a_FrequencySpectrum.png)](figs/run/lesson07a_FrequencySpectrum.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson07a_FrequencySpectrum_FFT_Window.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson07a_FrequencySpectrum_FFT_Window.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

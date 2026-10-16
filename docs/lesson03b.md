@@ -60,6 +60,29 @@ where $$3! = 3\times 2\times 1 = 6$$ and $$n! = n (n-1) (n-2) \cdots (2) (1)$$ i
     by substituting $$i\phi$$ for $$x$$ in the Taylor series for the exponential, Eq. \eqref{eq:exposeries}.
 
 
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson03hw1_complexPlot_Plus_Complex_Conjugate.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson03hw1_complexPlot_Plus_Complex_Conjugate.grc)
+
+[![lesson03hw1_complexPlot_Plus_Complex_Conjugate flowgraph](figs/flow/lesson03hw1_complexPlot_Plus_Complex_Conjugate.png)](figs/flow/lesson03hw1_complexPlot_Plus_Complex_Conjugate.png){:target="_blank"}
+
+Running: a cosine plus its complex conjugate is real:
+
+[![lesson03hw1_complexPlot_Plus_Complex_Conjugate running](figs/run/lesson03hw1_complexPlot_Plus_Complex_Conjugate.png)](figs/run/lesson03hw1_complexPlot_Plus_Complex_Conjugate.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson03hw2_plots_square_triangle.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson03hw2_plots_square_triangle.grc)
+- [`lesson03hw3_complexPlotsMultiplyComplexExponentials.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson03hw3_complexPlotsMultiplyComplexExponentials.grc)
+- [`lesson03hw4_complexPlotsMultiplyCosines.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson03hw4_complexPlotsMultiplyCosines.grc)
+- [`lesson03hw5_complexPlotsHarmonics.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson03hw5_complexPlotsHarmonics.grc)
+<!-- flowgraphs:end -->
+
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 
 

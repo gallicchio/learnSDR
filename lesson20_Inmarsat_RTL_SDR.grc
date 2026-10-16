@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: Inmarsat_RTL_SDR
+    id: lesson20_Inmarsat_RTL_SDR
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: GPS_RTL_SDR
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -54,6 +50,7 @@ blocks:
     const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
     dims: '1'
     normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
     precision: '8'
     rot_sym: '4'
     soft_dec_lut: None
@@ -73,6 +70,7 @@ blocks:
     const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
     dims: '1'
     normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
     precision: '8'
     rot_sym: '4'
     soft_dec_lut: None
@@ -189,6 +187,7 @@ blocks:
     ntaps: 11*sps*nfilts
     samp_rate: nfilts*samp_rate
     sym_rate: samp_rate/sps
+    value: ''
   states:
     bus_sink: false
     bus_source: false
@@ -241,6 +240,35 @@ blocks:
     coordinate: [224, 652.0]
     rotation: 0
     state: true
+- name: symbol_rate
+  id: variable
+  parameters:
+    comment: 'Inmarsat-C: 1200 symbols per second'
+    value: '1200'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [544, 12]
+    rotation: 0
+    state: enabled
+- name: ted_gain
+  id: variable
+  parameters:
+    comment: "Expected TED gain = slope of the timing-error S-curve, in error units\
+      \ per SAMPLE of timing offset.\nFor the Signal-times-Slope TED with root-raised-cosine\
+      \ pulses it is about\n    1.1 * alpha * (AGC reference)^2 / sps        (sps\
+      \ >= 8; about 0.8*alpha/sps at sps = 4)\nmeasured by simulation (Oct 2026).\
+      \ The AGC reference here is 1.\nGNU Radio's default of 1.0 is ~30x too big for\
+      \ this flowgraph, which makes the loop slow and badly under-damped."
+    value: 1.1*alpha/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [48, 1488.0]
+    rotation: 0
+    state: enabled
 - name: analog_agc_xx_1
   id: analog_agc_xx
   parameters:
@@ -274,6 +302,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -311,7 +340,7 @@ blocks:
       to allow FLL to sync'
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_items: int(samp_rate/int(samp_rate/1200/sps))
+    num_items: int(samp_rate/int(samp_rate/symbol_rate/sps))
     type: complex
     vlen: '1'
   states:
@@ -368,6 +397,7 @@ blocks:
 
       Loop Bandwidth: 2*math.pi/sps/100'
     filter_size: sps*2+1
+    improved_loop_filter: 'False'
     maxoutbuf: '0'
     minoutbuf: '0'
     rolloff: alpha
@@ -404,9 +434,9 @@ blocks:
     alias: ''
     comment: "Filterbank Arms: nfilts\nPFB MF Taps: rcc_taps\nChanged Maximum Deviation\
       \ to 0.1 because \nthe clocks aren't more off than 0.1 samples per symbol"
-    constellation: digital.constellation_bpsk().base()
+    constellation: constellation
     damping: '1.0'
-    loop_bw: '0.045'
+    loop_bw: '0.02'
     max_dev: '0.1'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -415,7 +445,7 @@ blocks:
     pfb_mf_taps: rcc_taps
     resamp_type: digital.IR_PFB_MF
     sps: sps
-    ted_gain: '1.0'
+    ted_gain: ted_gain
     ted_type: digital.TED_SIGNAL_TIMES_SLOPE_ML
     type: cc
   states:
@@ -446,7 +476,7 @@ blocks:
     beta: '6.76'
     comment: ''
     cutoff_freq: 10e3
-    decim: int(samp_rate/1200/sps)
+    decim: int(samp_rate/symbol_rate/sps)
     gain: '1'
     interp: '1'
     maxoutbuf: '0'
@@ -1060,7 +1090,7 @@ blocks:
     nconnections: '1'
     nrows: '256'
     offset: '[]'
-    samp_rate: '1200'
+    samp_rate: symbol_rate
     type: byte
     update_time: '0.10'
     x_end_value: '0.0'
@@ -2393,3 +2423,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

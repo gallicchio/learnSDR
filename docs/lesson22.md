@@ -10,5 +10,25 @@ See also:
 
 [Gold code - Wikipedia](https://en.wikipedia.org/wiki/Gold_code)
 
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson22_GPS_cacode_Gold_Code_LFSR.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson22_GPS_cacode_Gold_Code_LFSR.grc)
+
+[![lesson22_GPS_cacode_Gold_Code_LFSR flowgraph](figs/flow/lesson22_GPS_cacode_Gold_Code_LFSR.png)](figs/flow/lesson22_GPS_cacode_Gold_Code_LFSR.png){:target="_blank"}
+
+Running:
+
+[![lesson22_GPS_cacode_Gold_Code_LFSR running](figs/run/lesson22_GPS_cacode_Gold_Code_LFSR.png)](figs/run/lesson22_GPS_cacode_Gold_Code_LFSR.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson22_GPS_cacode_Gold_Code_LFSR_check_known_cacodes.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson22_GPS_cacode_Gold_Code_LFSR_check_known_cacodes.grc)
+<!-- flowgraphs:end -->
+
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

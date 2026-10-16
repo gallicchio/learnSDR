@@ -17,6 +17,23 @@ Perform the following experiments with the keyfob:
 2. Similarly, look at the frequencies. Hold the keyfob close to the antenna for this. Look at how many peaks their are on the frequency graph. Which buttons have more than one peak in dB of frequency? Why does this happen when the keyfob is held close to the antenna?
 3. Put in a constellation sink. Move the keyfob closer to and then away from the antenna while pressing a button. Do you notice anything interesting about the constellation pattern? Does the constellation change with different buttons pushed?
 
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson05b_RTL_SDR_315MHz_Remote_1M.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson05b_RTL_SDR_315MHz_Remote_1M.grc)
+
+[![lesson05b_RTL_SDR_315MHz_Remote_1M flowgraph](figs/flow/lesson05b_RTL_SDR_315MHz_Remote_1M.png)](figs/flow/lesson05b_RTL_SDR_315MHz_Remote_1M.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson05b_RTL_SDR_315MHz_Remote_1M_4plots_end_of_video.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson05b_RTL_SDR_315MHz_Remote_1M_4plots_end_of_video.grc)
+- [`lesson05b_RTL_SDR_315MHz_Remote_Audio.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson05b_RTL_SDR_315MHz_Remote_Audio.grc)
+<!-- flowgraphs:end -->
+
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 
 

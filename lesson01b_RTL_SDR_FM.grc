@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: RTL_SDR_FM
+    id: lesson01b_RTL_SDR_FM
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: Not titled yet
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -45,6 +41,18 @@ blocks:
     coordinate: [445, 63]
     rotation: 0
     state: true
+- name: audio_rate
+  id: variable
+  parameters:
+    comment: sound-card sample rate
+    value: 48e3
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [704, 12]
+    rotation: 0
+    state: enabled
 - name: samp_rate
   id: variable
   parameters:
@@ -83,7 +91,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    audio_decimation: int(samp_rate/LPF_decimation/48e3)
+    audio_decimation: int(samp_rate/LPF_decimation/audio_rate)
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -104,7 +112,7 @@ blocks:
     device_name: ''
     num_inputs: '1'
     ok_to_block: 'True'
-    samp_rate: '48000'
+    samp_rate: int(audio_rate)
   states:
     bus_sink: false
     bus_source: false
@@ -316,7 +324,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: 48e3
+    bw: audio_rate
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -629,7 +637,7 @@ blocks:
     name: '""'
     nconnections: '1'
     size: '1024'
-    srate: 48e3
+    srate: audio_rate
     stemplot: 'False'
     style1: '1'
     style10: '1'
@@ -1041,3 +1049,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

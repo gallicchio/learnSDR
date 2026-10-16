@@ -1,28 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
+    catch_exceptions: 'True'
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: pluto433HAM
+    id: lesson01d_pluto433HAM
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: pluto433HAM
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -39,7 +36,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '420'
     step: '0.001'
@@ -60,7 +57,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '88.1'
     step: '.2'
@@ -91,20 +88,24 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    auto_filter: 'True'
     bandwidth: '20000000'
     bbdc: 'True'
     buffer_size: '32768'
     comment: ''
     filter: ''
+    filter_source: '''Auto'''
+    fpass: '0'
     frequency: int(freqMHz*1e6)
+    fstop: '0'
     gain1: '''manual'''
+    len_tag_key: ''
     manual_gain1: '64'
     maxoutbuf: '0'
     minoutbuf: '0'
     quadrature: 'True'
     rfdc: 'True'
     samplerate: samp_rate
+    type: fc32
     uri: ''
   states:
     bus_sink: false
@@ -166,7 +167,7 @@ blocks:
     showports: 'False'
     type: complex
     update_time: '0.10'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
   states:
     bus_sink: false
     bus_source: false
@@ -180,3 +181,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

@@ -9,10 +9,10 @@
 The simplest radio signal to work with is a pure sinusoidal wave with no modulation (changes) in frequency or amplitude. I generate such a signal around 100 MHz with a signal generator, show it on an oscilloscope, and look at the data coming from the SDR tuned to 100 MHz. I make a few observations whose significance will be fully explained in the next few lessons.
 
 1. The data that comes out of the SDR is a sequence of complex numbers. We'll spend a lot of time explaining why this is and what it means.
-2. A plot of the real part of the complex numbers looks like a consine and a plot of the imaginary part of the numbers looks like a sine.
+2. A plot of the real part of the complex numbers looks like a cosine and a plot of the imaginary part of the numbers looks like a sine.
 3. The frequency of the real and imaginary sinusoids isn't at the absolute frequency of transmission of 100.010 MHz --- we don't sample fast enough to see that. Instead, it's at the difference between the frequency that the transmitter sends and the frequency that the receiver is tuned to. (100.010 MHz - 100.000 MHz = +10 kHz).
 4. A plot of the spectrum shows a peak not at the absolute frequency 100.010 MHz, but at the difference in frequencies of +10 kHz.
-5. If the transmitter then sends 99.990 MHz, a frequency 10 kHz lower than what the tranmistter is tuned to, it will show up as a negative frequency, -10 kHz, on the frequency spectrum. In the time-series plots, the imaginary part's sine wave has switched signs. Negative frequencies and the details of these complex numbers will be further explained in the next few lessons.
+5. If the transmitter then sends 99.990 MHz, a frequency 10 kHz lower than what the receiver is tuned to, it will show up as a negative frequency, -10 kHz, on the frequency spectrum. In the time-series plots, the imaginary part's sine wave has switched signs. Negative frequencies and the details of these complex numbers will be further explained in the next few lessons.
 
 Sines and cosines are both **sinusoids**; they differ only by a **phase**. The combination of both a sine wave and a cosine wave at a given frequency can always be represented either as two signals—the cosine part, which we identify as the _real_ part (or the _in-phase_ part) of the signal, and the sine part (or the _quadrature_ part) of the signal, which represents the imaginary part of the signal. In GNU Radio, the real part is represented by default with a <span style='color:blue;'>blue</span> curve and the imaginary part is represented with a <span style='color:red;'>red</span> curve.
 
@@ -25,12 +25,12 @@ Sines and cosines are both **sinusoids**; they differ only by a **phase**. The c
 
 <i>QT GUI Frequency Sink</i>: Plots the frequency of complex numbers coming out of the source
 
-<i>Variable</i>: Creates a variable with a name and a value, similar to instantiating a variable in Python. (<i>In the video, we instantiated samp_rate with value 1e6. 1e6, in this case, is meant for a signal of 1 Mega Hertz (1 MHz); since the RTL-SDR source uses the variable samp_rate, it will be checking for some signal at a frequency of 1 MHz.</i>)
+<i>Variable</i>: Creates a variable with a name and a value, similar to instantiating a variable in Python. (<i>In the video, we set samp_rate to 1e6, i.e. one million complex samples per second. This is the <b>sample rate</b> of the RTL-SDR, which sets how wide a slice of spectrum we see (1 MHz, centered on the tuned frequency); it is not the frequency we are listening to. That is set separately by the Ch0: Frequency field of the RTL-SDR Source.</i>)
 
 
 <b> When Writing a GNU Program with the RTL-SDR Source </b>
 1. Title your program in the 'Options' box at the top left of the screen
-2. Set your variable samp_rate to the frequency you are expecting to receive (a value of 1 means 1 Hertz)
+2. Set your variable samp_rate to the sample rate (1e6 = 1 MS/s is a good default for the RTL-SDR; it can go up to about 2.4e6) and set the RTL-SDR Source's Ch0: Frequency to the frequency you want to receive (a value of 1 means 1 Hertz)
 3. Place your RTL-SDR Source, a QT Time Sink, and a QT Frequency Sink
 
 
@@ -73,6 +73,23 @@ The plots will very slowly oscillate.
 
 The real signal reaches its maximum before the imaginary signal in the Time Sink, and the peak on the Frequency sink lies above the value we're looking for.
 </details>
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson02b_RTL_SDR_signal_generator.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson02b_RTL_SDR_signal_generator.grc)
+
+[![lesson02b_RTL_SDR_signal_generator flowgraph](figs/flow/lesson02b_RTL_SDR_signal_generator.png)](figs/flow/lesson02b_RTL_SDR_signal_generator.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson02a_signal_generator.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson02a_signal_generator.grc)
+- [`lesson02b_RTL_SDR_25MHz.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson02b_RTL_SDR_25MHz.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

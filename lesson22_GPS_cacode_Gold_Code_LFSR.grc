@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: GPS_cacode_Gold_Code_LFSR
+    id: lesson22_GPS_cacode_Gold_Code_LFSR
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: GPS_cacode_Gold_Code_LFSR
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -428,6 +424,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -447,6 +444,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -466,6 +464,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -485,6 +484,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -504,6 +504,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -523,6 +524,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -542,6 +544,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -561,6 +564,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -580,6 +584,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -599,6 +604,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -618,6 +624,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -637,6 +644,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -656,6 +664,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -675,6 +684,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -694,6 +704,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -713,6 +724,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -732,6 +744,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -751,6 +764,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -770,6 +784,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -789,6 +804,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1207,12 +1223,14 @@ blocks:
     rotation: 0
     state: true
 - name: blocks_throttle_0
-  id: blocks_throttle
+  id: blocks_throttle2
   parameters:
     affinity: ''
     alias: ''
     comment: ''
     ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
     maxoutbuf: '0'
     minoutbuf: '0'
     samples_per_second: samp_rate
@@ -1782,6 +1800,39 @@ blocks:
     coordinate: [1312, 1236.0]
     rotation: 0
     state: true
+- name: gps_taps_note
+  id: note
+  parameters:
+    alias: ''
+    comment: 'GPS C/A code: G2 taps for each satellite (IS-GPS-200, Table 3-Ia)
+
+      C/A = G1[10] xor G2[t1] xor G2[t2]   (delay n = tap n)
+
+      PRN 1: 2,6    PRN 2: 3,7    PRN 3: 4,8    PRN 4: 5,9
+
+      PRN 5: 1,9    PRN 6: 2,10   PRN 7: 1,8    PRN 8: 2,9
+
+      PRN 9: 3,10   PRN 10: 2,3   PRN 11: 3,4   PRN 12: 5,6
+
+      PRN 13: 6,7   PRN 14: 7,8   PRN 15: 8,9   PRN 16: 9,10
+
+      PRN 17: 1,4   PRN 18: 2,5   PRN 19: 3,6   PRN 20: 4,7
+
+      PRN 21: 5,8   PRN 22: 6,9   PRN 23: 1,3   PRN 24: 4,6
+
+      PRN 25: 5,7   PRN 26: 6,8   PRN 27: 7,9   PRN 28: 8,10
+
+      PRN 29: 1,6   PRN 30: 2,7   PRN 31: 3,8   PRN 32: 4,9
+
+      (All 32 verified against the IS-GPS-200 first-10-chip table, Oct 2026.)'
+    note: G2 taps for every GPS satellite
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [256, 410.0]
+    rotation: 0
+    state: enabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -2547,3 +2598,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

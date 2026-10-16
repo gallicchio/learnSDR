@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason, allie
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: lesson12_FSKhardware
+    id: lesson24_FSKhardware
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: lesson12_FSKhardware
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -338,6 +334,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -2179,3 +2176,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

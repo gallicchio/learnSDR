@@ -8,6 +8,8 @@ Link to the YouTube playlist: <https://www.youtube.com/watch?v=tj_9p_rXULM&list=
 
 We use the [GNURadio](https://www.gnuradio.org/) software along with [RTL-SDR](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) and [ADALM-PLUTO](https://wiki.analog.com/university/tools/pluto) hardware to explore the world of digital communication. We build up to a simple QPSK modem and rudimentary GPS reception.
 
+The videos were recorded with GNU Radio 3.8 in 2021. The flowgraphs in the repository have since been updated and re-tested with GNU Radio 3.10 (October 2026, Ubuntu 26.04 LTS); the blocks look the same, only a few parameters moved around. See [Installation](installation.md).
+
 - [Installation --- Instructions for installing GNURadio](installation.md)
 - [Lesson 1 --- FM broadcast receiver with RTL-SDR](lesson01.md)
 - [Lesson 2 --- Signal Generator as sine-wave transmitter and RTL-SDR receiver](lesson02.md)

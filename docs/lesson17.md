@@ -14,18 +14,35 @@ To do this, we use a band-edge filter with a positive peak centered on where the
 </p>
 
 
-## Properties of the Frequency Locked Loop block
+## Properties of the FLL Band-Edge block
 - samples per symbol: `sps`
-- filter rolloff factor: `alpha`
+- filter rolloff factor: `alpha` (must match the transmitter's root-raised-cosine `alpha`)
 - prototype filter size: `sps*2+1`
 - loop bandwidth: `2 * math.pi / sps / 100`
 
-[Flow diagram](figs/flow/FLL.png){: target='flow'}
+The loop bandwidth is in radians per *sample*. The FLL runs at the full sample rate (`sps` = 16 samples per symbol), so `2*math.pi/sps/100` means the loop averages over roughly 100 *symbols*. (An earlier version of this flowgraph used `/1000`, which locks ten times more slowly; the `/100` here is the same value used in Lessons 18--20.)
 
 ## Questions
 
-1. What happens if you change the FLL loop bandwidth by a factor of two?
+1. What happens if you change the FLL loop bandwidth by a factor of two? By a factor of ten?
+2. The FLL can only pull in an offset that is smaller than about half the symbol rate (here 62.5 kHz / 2). What happens if you use the `offset` slider to push the signal farther away than that?
 
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson17_FLL.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson17_FLL.grc)
+
+[![lesson17_FLL flowgraph](figs/flow/lesson17_FLL.png)](figs/flow/lesson17_FLL.png){:target="_blank"}
+
+Running: the FLL has centered the received spectrum:
+
+[![lesson17_FLL running](figs/run/lesson17_FLL.png)](figs/run/lesson17_FLL.png){:target="_blank"}
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

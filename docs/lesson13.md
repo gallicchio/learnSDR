@@ -11,6 +11,26 @@ Coding is the one's bit is at negative -1/sqrt(2) and two's bit is at positive 1
 
 ordering is Gray coding
 
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson13_QPSK_square_pulse.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson13_QPSK_square_pulse.grc)
+
+[![lesson13_QPSK_square_pulse flowgraph](figs/flow/lesson13_QPSK_square_pulse.png)](figs/flow/lesson13_QPSK_square_pulse.png){:target="_blank"}
+
+Running:
+
+[![lesson13_QPSK_square_pulse running](figs/run/lesson13_QPSK_square_pulse.png)](figs/run/lesson13_QPSK_square_pulse.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson13_old_modulation_sim.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson13_old_modulation_sim.grc)
+<!-- flowgraphs:end -->
+
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 
 

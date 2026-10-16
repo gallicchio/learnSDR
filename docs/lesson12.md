@@ -13,19 +13,29 @@ As before, we will use a **Vector Source** to supply a string of values, only th
 To convert this list of symbols into the values 1 and --1 that we will use to encode, use the **Chunks to Symbols** block and provide the values `(1,-1)` as the symbol table.
 
 
-make the offset range much smaller
-
-need to investigate ways to slowly adjust 
-
-This one didn't work well.
-
-[The finished flow diagram](figs/flow/BPSK-flowdiagram.png){:target="flow"}
+Because the Pluto and RTL-SDR clocks differ, the received constellation spins. In this lesson we cancel the frequency difference by hand with the `offset` slider (keep its range small, a few kHz, so the slider has enough resolution). Even so the two points slowly rotate, and we cannot tell which is "1" and which is "--1". The next lessons fix this properly with a frequency-locked loop (Lesson 17), a timing-recovery loop (Lesson 18), and a Costas loop (Lesson 19).
 
 
 
 ## Homework
 
 1. Square the incoming signal to adjust the slider and zero out the frequency difference. 
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson12_PSK_Pluto_to_RTL_SDR.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson12_PSK_Pluto_to_RTL_SDR.grc)
+
+[![lesson12_PSK_Pluto_to_RTL_SDR flowgraph](figs/flow/lesson12_PSK_Pluto_to_RTL_SDR.png)](figs/flow/lesson12_PSK_Pluto_to_RTL_SDR.png){:target="_blank"}
+
+Running:
+
+[![lesson12_PSK_Pluto_to_RTL_SDR running](figs/run/lesson12_PSK_Pluto_to_RTL_SDR.png)](figs/run/lesson12_PSK_Pluto_to_RTL_SDR.png){:target="_blank"}
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

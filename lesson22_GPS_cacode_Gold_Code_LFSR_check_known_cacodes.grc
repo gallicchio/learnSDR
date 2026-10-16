@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: GPS_cacode_Gold_Code_LFSR
+    id: lesson22_GPS_cacode_Gold_Code_LFSR_check_known_cacodes
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: GPS_cacode_Gold_Code_LFSR
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -91,6 +87,36 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [656, 1756.0]
+    rotation: 0
+    state: true
+- name: GPScacodes
+  id: epy_module
+  parameters:
+    alias: ''
+    comment: 'C/A codes computed here instead of
+
+      being read from GPScacodes.py'
+    source_code: "# GPS C/A (Gold) codes, generated from the two 10-stage LFSRs (see\
+      \ Lessons 21-22).\n# cacodes[prn] is a list of 1023 chips, +1/-1, for PRN 1..32\
+      \ (the same convention as the\n# old GPScacodes.py file: shift-register bit\
+      \ 1 -> +1, bit 0 -> -1).\nTAPS = {1: (2, 6), 2: (3, 7), 3: (4, 8), 4: (5, 9),\
+      \ 5: (1, 9), 6: (2, 10), 7: (1, 8), 8: (2, 9),\n        9: (3, 10), 10: (2,\
+      \ 3), 11: (3, 4), 12: (5, 6), 13: (6, 7), 14: (7, 8), 15: (8, 9), 16: (9, 10),\n\
+      \        17: (1, 4), 18: (2, 5), 19: (3, 6), 20: (4, 7), 21: (5, 8), 22: (6,\
+      \ 9), 23: (1, 3), 24: (4, 6),\n        25: (5, 7), 26: (6, 8), 27: (7, 9), 28:\
+      \ (8, 10), 29: (1, 6), 30: (2, 7), 31: (3, 8), 32: (4, 9)}\n\ndef cacode(prn):\n\
+      \    g1 = [1] * 10\n    g2 = [1] * 10\n    t1, t2 = TAPS[prn]\n    chips = []\n\
+      \    for _ in range(1023):\n        bit = g1[9] ^ g2[t1 - 1] ^ g2[t2 - 1]\n\
+      \        chips.append(2 * bit - 1)\n        f1 = g1[2] ^ g1[9]             \
+      \                      # G1 taps 3, 10\n        f2 = g2[1] ^ g2[2] ^ g2[5] ^\
+      \ g2[7] ^ g2[8] ^ g2[9]   # G2 taps 2, 3, 6, 8, 9, 10\n        g1 = [f1] + g1[:9]\n\
+      \        g2 = [f2] + g2[:9]\n    return chips\n\ncacodes = [None] + [cacode(prn)\
+      \ for prn in range(1, 33)]\n"
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [104, 108.0]
     rotation: 0
     state: true
 - name: analog_const_source_x_0
@@ -484,6 +510,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -503,6 +530,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -522,6 +550,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -541,6 +570,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -560,6 +590,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -579,6 +610,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -598,6 +630,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -617,6 +650,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -636,6 +670,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -655,6 +690,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -674,6 +710,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -693,6 +730,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -712,6 +750,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -731,6 +770,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -750,6 +790,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -769,6 +810,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -788,6 +830,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -807,6 +850,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -826,6 +870,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -845,6 +890,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -864,6 +910,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -883,6 +930,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -902,6 +950,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -921,6 +970,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -940,6 +990,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -959,6 +1010,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -978,6 +1030,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -997,6 +1050,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1016,6 +1070,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1035,6 +1090,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1054,6 +1110,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1073,6 +1130,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1092,6 +1150,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1111,6 +1170,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1130,6 +1190,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1149,6 +1210,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1168,6 +1230,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1187,6 +1250,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1206,6 +1270,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1225,6 +1290,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -1248,6 +1314,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: float
     vlen: '1'
   states:
@@ -1598,12 +1665,14 @@ blocks:
     rotation: 0
     state: true
 - name: blocks_throttle_0
-  id: blocks_throttle
+  id: blocks_throttle2
   parameters:
     affinity: ''
     alias: ''
     comment: ''
     ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
     maxoutbuf: '0'
     minoutbuf: '0'
     samples_per_second: samp_rate
@@ -1627,7 +1696,7 @@ blocks:
     repeat: 'True'
     tags: '[]'
     type: float
-    vector: cacodes[GPS_ID]
+    vector: GPScacodes.cacodes[GPS_ID]
     vlen: '1'
   states:
     bus_sink: false
@@ -2109,19 +2178,39 @@ blocks:
     coordinate: [1272, 1732.0]
     rotation: 0
     state: true
-- name: import_0
-  id: import
+- name: gps_taps_note
+  id: note
   parameters:
     alias: ''
-    comment: ''
-    imports: from GPScacodes import cacodes
+    comment: 'GPS C/A code: G2 taps for each satellite (IS-GPS-200, Table 3-Ia)
+
+      C/A = G1[10] xor G2[t1] xor G2[t2]   (delay n = tap n)
+
+      PRN 1: 2,6    PRN 2: 3,7    PRN 3: 4,8    PRN 4: 5,9
+
+      PRN 5: 1,9    PRN 6: 2,10   PRN 7: 1,8    PRN 8: 2,9
+
+      PRN 9: 3,10   PRN 10: 2,3   PRN 11: 3,4   PRN 12: 5,6
+
+      PRN 13: 6,7   PRN 14: 7,8   PRN 15: 8,9   PRN 16: 9,10
+
+      PRN 17: 1,4   PRN 18: 2,5   PRN 19: 3,6   PRN 20: 4,7
+
+      PRN 21: 5,8   PRN 22: 6,9   PRN 23: 1,3   PRN 24: 4,6
+
+      PRN 25: 5,7   PRN 26: 6,8   PRN 27: 7,9   PRN 28: 8,10
+
+      PRN 29: 1,6   PRN 30: 2,7   PRN 31: 3,8   PRN 32: 4,9
+
+      (All 32 verified against the IS-GPS-200 first-10-chip table, Oct 2026.)'
+    note: G2 taps for every GPS satellite
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [104, 108.0]
+    coordinate: [208, 794.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -2889,3 +2978,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

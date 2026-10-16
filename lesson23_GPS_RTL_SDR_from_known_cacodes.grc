@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: GPS_RTL_SDR
+    id: lesson23_GPS_RTL_SDR_from_known_cacodes
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: GPS_RTL_SDR
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -57,18 +53,37 @@ blocks:
     coordinate: [344, 12.0]
     rotation: 0
     state: enabled
+- name: chip_rate
+  id: variable
+  parameters:
+    comment: 'GPS C/A code: 1023 chips per millisecond'
+    value: 1.023e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [664, 12]
+    rotation: 0
+    state: enabled
 - name: doppler_shift
   id: variable_qtgui_range
   parameters:
-    comment: ''
+    comment: 'Satellite Doppler at L1 is up to about +/-5 kHz for a receiver on the
+      ground,
+
+      and the RTL-SDR clock adds 1.575 kHz per ppm of error (set Frequency Correction
+
+      if you know your dongle''s ppm). With Ncycles ms of coherent integration the
+
+      correlation peak is only 1/Ncycles kHz wide, so step through this slowly.'
     gui_hint: ''
     label: ''
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
-    start: -5e3
+    start: -10e3
     step: '50'
-    stop: 5e3
+    stop: 10e3
     value: '0'
     widget: counter_slider
   states:
@@ -123,6 +138,36 @@ blocks:
     coordinate: [424, 12.0]
     rotation: 0
     state: enabled
+- name: GPScacodes
+  id: epy_module
+  parameters:
+    alias: ''
+    comment: 'C/A codes computed here instead of
+
+      being read from GPScacodes.py'
+    source_code: "# GPS C/A (Gold) codes, generated from the two 10-stage LFSRs (see\
+      \ Lessons 21-22).\n# cacodes[prn] is a list of 1023 chips, +1/-1, for PRN 1..32\
+      \ (the same convention as the\n# old GPScacodes.py file: shift-register bit\
+      \ 1 -> +1, bit 0 -> -1).\nTAPS = {1: (2, 6), 2: (3, 7), 3: (4, 8), 4: (5, 9),\
+      \ 5: (1, 9), 6: (2, 10), 7: (1, 8), 8: (2, 9),\n        9: (3, 10), 10: (2,\
+      \ 3), 11: (3, 4), 12: (5, 6), 13: (6, 7), 14: (7, 8), 15: (8, 9), 16: (9, 10),\n\
+      \        17: (1, 4), 18: (2, 5), 19: (3, 6), 20: (4, 7), 21: (5, 8), 22: (6,\
+      \ 9), 23: (1, 3), 24: (4, 6),\n        25: (5, 7), 26: (6, 8), 27: (7, 9), 28:\
+      \ (8, 10), 29: (1, 6), 30: (2, 7), 31: (3, 8), 32: (4, 9)}\n\ndef cacode(prn):\n\
+      \    g1 = [1] * 10\n    g2 = [1] * 10\n    t1, t2 = TAPS[prn]\n    chips = []\n\
+      \    for _ in range(1023):\n        bit = g1[9] ^ g2[t1 - 1] ^ g2[t2 - 1]\n\
+      \        chips.append(2 * bit - 1)\n        f1 = g1[2] ^ g1[9]             \
+      \                      # G1 taps 3, 10\n        f2 = g2[1] ^ g2[2] ^ g2[5] ^\
+      \ g2[7] ^ g2[8] ^ g2[9]   # G2 taps 2, 3, 6, 8, 9, 10\n        g1 = [f1] + g1[:9]\n\
+      \        g2 = [f2] + g2[:9]\n    return chips\n\ncacodes = [None] + [cacode(prn)\
+      \ for prn in range(1, 33)]\n"
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [104, 108.0]
+    rotation: 0
+    state: true
 - name: analog_sig_source_x_0
   id: analog_sig_source_x
   parameters:
@@ -136,6 +181,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -278,7 +324,7 @@ blocks:
     repeat: 'True'
     tags: '[]'
     type: complex
-    vector: cacodes[GPS_ID]
+    vector: GPScacodes.cacodes[GPS_ID]
     vlen: '1'
   states:
     bus_sink: false
@@ -366,19 +412,6 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1200, 620.0]
-    rotation: 0
-    state: true
-- name: import_0
-  id: import
-  parameters:
-    alias: ''
-    comment: ''
-    imports: from GPScacodes import cacodes
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [104, 108.0]
     rotation: 0
     state: true
 - name: low_pass_filter_0
@@ -1074,7 +1107,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    decim: 1023*1000
+    decim: int(chip_rate)
     fbw: '0'
     interp: int(samp_rate)
     maxoutbuf: '0'
@@ -1475,3 +1508,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

@@ -49,29 +49,30 @@ Add an **RTL-SDR** block to receive the signal transmitted by the Pluto, along w
 Finally, since we only care about the magnitude of the values we receive, you can send the output of the RTL-SDR into a **Complex to Mag** block to extract the amplitude. Send the output of this to a time sink and also to a **Keep 1 in N** block to extract just one sample for each of the `sps` values that are sent. This should provide a faithful representation of the 4 magnitudes that encode the symbols.
 
 
-<details markdown='block'>
-<summary markdown='span'> The ASK flow diagram </summary>
-
-![ASK.grc flow diagram](figs/flow/ASK-flow.png)
-
-</details>
-
-<p class="center" markdown="block">
-![ASK in operation](figs/run/ASK-running.png)
-</p>
-
-<p class="mycap" markdown="1">
-The ASK flow diagram in operation.
-</p>
-
-
-
-![ASK in operation, bottom part](figs/run/ASK-running-2.png)
-
 
 ## Homework
 
 - For high transmitter attenuation and low signal gain, how weak can you make the received signal before you can no longer reliably distinguish the four levels?
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson11_ASK_Pluto_to_RTL_SDR.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson11_ASK_Pluto_to_RTL_SDR.grc)
+
+[![lesson11_ASK_Pluto_to_RTL_SDR flowgraph](figs/flow/lesson11_ASK_Pluto_to_RTL_SDR.png)](figs/flow/lesson11_ASK_Pluto_to_RTL_SDR.png){:target="_blank"}
+
+Running:
+
+[![lesson11_ASK_Pluto_to_RTL_SDR running](figs/run/lesson11_ASK_Pluto_to_RTL_SDR.png)](figs/run/lesson11_ASK_Pluto_to_RTL_SDR.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson11_ASK_Pluto_to_RTL_SDR_decode_attempt.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson11_ASK_Pluto_to_RTL_SDR_decode_attempt.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

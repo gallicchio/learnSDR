@@ -23,16 +23,15 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 
 | Parameter            | Value or Range                         |
 | ----------------     | --------------:                        |
-| sample rate          | 2.084 MS/s                             |
+| sample rate          | 2.084 MS/s (`samp_rate`; the lowest rate the Pluto supports without its decimating filter) |
 | tone frequency range | -100 kHz to 100 kHz, default of 50 kHz |
 | RX gain              | 0 to 70, default of 64                 |
 | RX gain mode         | manual                                 |
-| Pluto LO frequency   | 2.4 GHz                                |
+| Pluto LO frequency   | 2.4 GHz (`center_freq`)                |
 | TX attenuation       | 10 dB                                  |
 
 
 
-[Lesson 8 flow diagram](figs/flow/lesson08-flowdiagram.png)
 
 ## Things to Explore
 
@@ -41,6 +40,27 @@ Besides **QT GUI Range sliders**, **QT GUI Time Sinks**, and **QT GUI Frequency 
 - If you place your hand near the Pluto, does it change the observed frequency signal?
 - When the gain is high enough to cause noticeable distortion in the received signal, how do the distortions show up in the frequency plot (sink)?
 - What happens if you leave the TX frequency at 2.4 GHz, but you change the Rx frequency to 2.41 GHz?
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson08a_plutoTXRX.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson08a_plutoTXRX.grc)
+
+[![lesson08a_plutoTXRX flowgraph](figs/flow/lesson08a_plutoTXRX.png)](figs/flow/lesson08a_plutoTXRX.png){:target="_blank"}
+
+Running: the Pluto receiving its own 50 kHz tone at 2.4 GHz; the RX gain of 64 dB is enough to clip the received signal (middle plot):
+
+[![lesson08a_plutoTXRX running](figs/run/lesson08a_plutoTXRX.png)](figs/run/lesson08a_plutoTXRX.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson08_pluto915visualize.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson08_pluto915visualize.grc)
+- [`lesson08_Pluto_BandExplore.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson08_Pluto_BandExplore.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

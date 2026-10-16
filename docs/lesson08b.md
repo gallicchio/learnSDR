@@ -22,7 +22,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 ## Directions
 
-1. Audio cards typically have a maximum sampling rate of 48 kHz. We will design the SDR to sample at a multiple of this frequency, so that we can down-sample the output of the radio to produce an output at 48 kHz. Set the `samp_rate` to 2.4 MS/s so that when you decimate by a factor of 50 after filtering, you get 48 kHz.
+1. Sound cards typically run at 48 kHz. We will have the SDR sample at a multiple of this rate, so that we can decimate the output of the radio down to the sound-card rate. Set `samp_rate` to 2.4 MS/s and `audio_rate` to 48 kHz; the decimation is then `samp_rate/audio_rate` = 50.
 
 2. Set up four **QT GUI Range**s: `tone_freq`, `tx_gain`, `rx_gain`, and `audio_gain`. Defaults and ranges are shown in the tables below.
 
@@ -54,7 +54,7 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 | Parameter                 | Value or Range          |
 | -----------------         | ----------------------: |
-| LPF decimation            | 50                      |
+| LPF decimation            | `samp_rate/audio_rate` = 50 |
 | LPF cutoff frequency      | 2 * tone                |
 | LPF transition width      | 250 Hz                  |
 | LPF window                | Hamming                 |
@@ -67,7 +67,6 @@ so we ought to be able to hear this shift, provided that we can block out the mu
 
 
 
-[Lesson 9 flow diagram](figs/flow/lesson09-flowdiagram.png)
 
 ## Things to Explore
 
@@ -80,6 +79,22 @@ Note: *Depending on your hardware, you may find that displaying all the plots ca
 3. How does the LPF cutoff frequency affect the performance of your radio? Do you get a clearer signal with a smaller transition width on the BRF?
 
 4. Is it easier to hear the Doppler shifted frequencies, or see them in the frequency output of the BRF?
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson08b_Pluto_Doppler_RADAR.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson08b_Pluto_Doppler_RADAR.grc)
+
+[![lesson08b_Pluto_Doppler_RADAR flowgraph](figs/flow/lesson08b_Pluto_Doppler_RADAR.png)](figs/flow/lesson08b_Pluto_Doppler_RADAR.png){:target="_blank"}
+
+Running (nothing moving in front of the antennas):
+
+[![lesson08b_Pluto_Doppler_RADAR running](figs/run/lesson08b_Pluto_Doppler_RADAR.png)](figs/run/lesson08b_Pluto_Doppler_RADAR.png){:target="_blank"}
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

@@ -8,5 +8,25 @@ See also:
 
 [Linear-feedback shift register - Wikipedia](https://en.wikipedia.org/wiki/Linear-feedback_shift_register)
 
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson21_GPS_LFSR.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson21_GPS_LFSR.grc)
+
+[![lesson21_GPS_LFSR flowgraph](figs/flow/lesson21_GPS_LFSR.png)](figs/flow/lesson21_GPS_LFSR.png){:target="_blank"}
+
+Running:
+
+[![lesson21_GPS_LFSR running](figs/run/lesson21_GPS_LFSR.png)](figs/run/lesson21_GPS_LFSR.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson21_LFSR_investigation.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson21_LFSR_investigation.grc)
+<!-- flowgraphs:end -->
+
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

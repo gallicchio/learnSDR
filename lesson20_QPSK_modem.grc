@@ -1,28 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
+    catch_exceptions: 'True'
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: lesson21_QPSK_modem
+    id: lesson20_QPSK_modem
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: lesson21_QPSK_modem
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -64,6 +61,8 @@ blocks:
     comment: ''
     const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
     dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
     precision: '8'
     rot_sym: '4'
     soft_dec_lut: None
@@ -82,6 +81,8 @@ blocks:
     comment: ''
     const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
     dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
     precision: '8'
     rot_sym: '4'
     soft_dec_lut: None
@@ -100,6 +101,8 @@ blocks:
     comment: ''
     const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
     dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
     precision: '8'
     rot_sym: '4'
     soft_dec_lut: None
@@ -133,6 +136,7 @@ blocks:
     ntaps: 11*sps*nfilts
     samp_rate: nfilts*samp_rate
     sym_rate: samp_rate/sps
+    value: ''
   states:
     bus_sink: false
     bus_source: false
@@ -147,7 +151,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '1'
@@ -185,6 +189,23 @@ blocks:
     coordinate: [296, 76.0]
     rotation: 0
     state: true
+- name: ted_gain
+  id: variable
+  parameters:
+    comment: "Expected TED gain = slope of the timing-error S-curve, in error units\
+      \ per SAMPLE of timing offset.\nFor the Signal-times-Slope TED with root-raised-cosine\
+      \ pulses it is about\n    1.1 * alpha * (AGC reference)^2 / sps        (sps\
+      \ >= 8; about 0.8*alpha/sps at sps = 4)\nmeasured by simulation (Oct 2026).\
+      \ The AGC reference here is 1.\nGNU Radio's default of 1.0 is ~30x too big for\
+      \ this flowgraph, which makes the loop slow and badly under-damped."
+    value: 1.1*alpha/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [48, 1112.0]
+    rotation: 0
+    state: enabled
 - name: tx_attenuation
   id: variable_qtgui_range
   parameters:
@@ -192,7 +213,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '1'
@@ -417,6 +438,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samples_per_symbol: sps
+    truncate: 'False'
     verbose: 'False'
   states:
     bus_sink: false
@@ -452,6 +474,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
+    coding: digital.DIFF_DIFFERENTIAL
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -470,12 +493,13 @@ blocks:
     alias: ''
     comment: ''
     filter_size: sps*2+1
+    improved_loop_filter: 'False'
     maxoutbuf: '0'
     minoutbuf: '0'
     rolloff: alpha
     samps_per_sym: sps
     type: cc
-    w: 2*math.pi/sps/100/sps
+    w: 2*math.pi/sps/100
   states:
     bus_sink: false
     bus_source: false
@@ -494,7 +518,7 @@ blocks:
       \ M&M"
     constellation: constellation
     damping: '1.0'
-    loop_bw: '0.045'
+    loop_bw: '0.02'
     max_dev: '.1'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -503,7 +527,7 @@ blocks:
     pfb_mf_taps: rcc_taps
     resamp_type: digital.IR_PFB_MF
     sps: sps
-    ted_gain: '1.0'
+    ted_gain: ted_gain
     ted_type: digital.TED_SIGNAL_TIMES_SLOPE_ML
     type: cc
   states:
@@ -519,14 +543,18 @@ blocks:
     affinity: ''
     alias: ''
     attenuation1: tx_attenuation
-    auto_filter: 'True'
     bandwidth: int(samp_rate)
     buffer_size: '32768'
     comment: ''
     cyclic: 'False'
     filter: ''
+    filter_source: '''Auto'''
+    fpass: '0'
     frequency: int(center_freq)
+    fstop: '0'
+    len_tag_key: ''
     samplerate: int(samp_rate)
+    type: fc32
     uri: 192.168.2.1
   states:
     bus_sink: false
@@ -540,7 +568,9 @@ blocks:
   parameters:
     alias: ''
     comment: ''
-    imports: import math
+    imports: 'import math
+
+      from gnuradio import gr'
   states:
     bus_sink: false
     bus_source: false
@@ -692,6 +722,7 @@ blocks:
     minoutbuf: '0'
     name: '""'
     nconnections: '2'
+    norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
@@ -710,7 +741,7 @@ blocks:
     width7: '1'
     width8: '1'
     width9: '1'
-    wintype: firdes.WIN_BLACKMAN_hARRIS
+    wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
     ymin: '-140'
   states:
@@ -768,6 +799,12 @@ blocks:
     samp_rate: samp_rate
     type: byte
     update_time: '0.10'
+    x_end_value: '0.0'
+    x_label: '""'
+    x_start_value: '0.0'
+    y_end_value: '0.0'
+    y_label: '""'
+    y_start_value: '0.0'
     zmax: '1'
     zmin: '0'
   states:
@@ -825,6 +862,12 @@ blocks:
     samp_rate: samp_rate
     type: byte
     update_time: '0.10'
+    x_end_value: '0.0'
+    x_label: '""'
+    x_start_value: '0.0'
+    y_end_value: '0.0'
+    y_label: '""'
+    y_start_value: '0.0'
     zmax: '1'
     zmin: '0'
   states:
@@ -1611,3 +1654,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

@@ -1,29 +1,25 @@
 options:
   parameters:
+    alias: ''
     author: jason
     catch_exceptions: 'True'
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
     comment: ''
     copyright: ''
     description: ''
-    gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
     hier_block_src_path: '.:'
-    id: GPS_RTL_SDR
+    id: lesson23_GPS_RTL_SDR_calculateCA_shift
     max_nouts: '0'
     output_language: python
-    placement: (0,0)
     qt_qss_theme: ''
     realtime_scheduling: ''
     run: 'True'
     run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
     thread_safe_setters: ''
     title: GPS_RTL_SDR
-    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -66,6 +62,18 @@ blocks:
     coordinate: [24, 908.0]
     rotation: 0
     state: true
+- name: chip_rate
+  id: variable
+  parameters:
+    comment: 'GPS C/A code: 1023 chips per millisecond'
+    value: 1.023e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1004, 12]
+    rotation: 0
+    state: enabled
 - name: delay
   id: variable_qtgui_range
   parameters:
@@ -90,15 +98,22 @@ blocks:
 - name: doppler_shift
   id: variable_qtgui_range
   parameters:
-    comment: ''
+    comment: 'Satellite Doppler at L1 is up to about +/-5 kHz for a receiver on the
+      ground,
+
+      and the RTL-SDR clock adds 1.575 kHz per ppm of error (set Frequency Correction
+
+      if you know your dongle''s ppm). With Ncycles ms of coherent integration the
+
+      correlation peak is only 1/Ncycles kHz wide, so step through this slowly.'
     gui_hint: ''
     label: ''
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
-    start: -5e3
+    start: -10e3
     step: '50'
-    stop: 5e3
+    stop: 10e3
     value: '0'
     widget: counter_slider
   states:
@@ -177,8 +192,8 @@ blocks:
 - name: samp_rate
   id: variable
   parameters:
-    comment: ''
-    value: 1023e3*2
+    comment: two samples per chip
+    value: 2*chip_rate
   states:
     bus_sink: false
     bus_source: false
@@ -264,6 +279,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -287,6 +303,7 @@ blocks:
     offset: '0'
     phase: '3.141592653589793'
     samp_rate: samp_rate
+    showports: 'False'
     type: float
     waveform: analog.GR_SAW_WAVE
   states:
@@ -339,6 +356,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -358,6 +376,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -377,6 +396,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -396,6 +416,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -415,6 +436,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -434,6 +456,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -453,6 +476,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -472,6 +496,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -491,6 +516,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -510,6 +536,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -529,6 +556,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -548,6 +576,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -567,6 +596,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -586,6 +616,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -605,6 +636,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -624,6 +656,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -643,6 +676,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -662,6 +696,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -681,6 +716,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -700,6 +736,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: byte
     vlen: '1'
   states:
@@ -873,8 +910,8 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
-    interp: '2'
+    comment: samples per chip
+    interp: int(samp_rate/chip_rate)
     maxoutbuf: '0'
     minoutbuf: '0'
     type: complex
@@ -1188,6 +1225,39 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1376, 1700.0]
+    rotation: 0
+    state: enabled
+- name: gps_taps_note
+  id: note
+  parameters:
+    alias: ''
+    comment: 'GPS C/A code: G2 taps for each satellite (IS-GPS-200, Table 3-Ia)
+
+      C/A = G1[10] xor G2[t1] xor G2[t2]   (delay n = tap n)
+
+      PRN 1: 2,6    PRN 2: 3,7    PRN 3: 4,8    PRN 4: 5,9
+
+      PRN 5: 1,9    PRN 6: 2,10   PRN 7: 1,8    PRN 8: 2,9
+
+      PRN 9: 3,10   PRN 10: 2,3   PRN 11: 3,4   PRN 12: 5,6
+
+      PRN 13: 6,7   PRN 14: 7,8   PRN 15: 8,9   PRN 16: 9,10
+
+      PRN 17: 1,4   PRN 18: 2,5   PRN 19: 3,6   PRN 20: 4,7
+
+      PRN 21: 5,8   PRN 22: 6,9   PRN 23: 1,3   PRN 24: 4,6
+
+      PRN 25: 5,7   PRN 26: 6,8   PRN 27: 7,9   PRN 28: 8,10
+
+      PRN 29: 1,6   PRN 30: 2,7   PRN 31: 3,8   PRN 32: 4,9
+
+      (All 32 verified against the IS-GPS-200 first-10-chip table, Oct 2026.)'
+    note: G2 taps for every GPS satellite
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 418.0]
     rotation: 0
     state: enabled
 - name: low_pass_filter_0
@@ -1980,7 +2050,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: CA code resampled at 2.048 MHz
-    decim: 1023*1000
+    decim: int(chip_rate)
     fbw: '0'
     interp: int(samp_rate)
     maxoutbuf: '0'
@@ -2484,3 +2554,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.12.0

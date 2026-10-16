@@ -13,7 +13,7 @@ If you pass a noisy signal, whose shape in the absence of noise we know, through
 
 
 
-The [flow diagram](figs/flow/pulse-shaping.png){: target='_blank'} Prof. Jason describes in the video allows you to explore how the extra bandwidth parameter $$\alpha$$ in the raised cosine spectrum and filter affects the necessary bandwidth, pulse shapes, and eye diagrams. Figure 1 offers an illustration of how the **root raised cosine** shape _has_ intersymbol interference (ISI), but after passing through a matched filter it does _not_ have ISI.
+The [flow diagram](figs/flow/lesson15_pulse_shaping.png){: target='_blank'} Prof. Jason describes in the video allows you to explore how the extra bandwidth parameter $$\alpha$$ in the raised cosine spectrum and filter affects the necessary bandwidth, pulse shapes, and eye diagrams. Figure 1 offers an illustration of how the **root raised cosine** shape _has_ intersymbol interference (ISI), but after passing through a matched filter it does _not_ have ISI.
 
 <p class='center' markdown='0'>
   <img src='figs/run/RRC-eye-50.png' alt='alt text'>
@@ -39,6 +39,26 @@ The [flow diagram](figs/flow/pulse-shaping.png){: target='_blank'} Prof. Jason d
    5. Explain the green trace in the figure below. ![](figs/run/RC-alpha-50.png)
 
    6. About what value of $$\alpha$$ was used to produce the figure below? How can you tell? ![](figs/run/RC-bw-02.png)
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson15_pulse_shaping.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson15_pulse_shaping.grc)
+
+[![lesson15_pulse_shaping flowgraph](figs/flow/lesson15_pulse_shaping.png)](figs/flow/lesson15_pulse_shaping.png){:target="_blank"}
+
+Running, alpha = 0.5:
+
+[![lesson15_pulse_shaping running](figs/run/lesson15_pulse_shaping.png)](figs/run/lesson15_pulse_shaping.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson15hw_pulse_shaping.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson15hw_pulse_shaping.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

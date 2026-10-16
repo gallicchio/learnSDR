@@ -39,22 +39,22 @@ Clearly, there must be a minimum sampling rate if we are to have any hope of rep
 
 ## Undersampling
 
-The **Nyquist frequency** for a sinusoidal signal of frequency $$f$$ is $$f_{N} = 2 f$$, and the sampling theorem states that provided that
+The **Nyquist rate** for a sinusoidal signal of frequency $$f$$ is $$2 f$$, and the sampling theorem states that provided that
 \begin{equation}
-    \frac{1}{T_s} > f_N \qquad\text{or}\qquad
+    \frac{1}{T_s} > 2f \qquad\text{or}\qquad
     T_s < \frac{1}{2 f}
 \end{equation}
-we can achieve a perfect reproduction of the original continuous signal from the discrete samples. To illustrate what goes wrong when we don't sample at a frequency above the Nyquist frequency, consider Fig. 4, which shows that a faster signal that is sampled at less than twice per period actually appears like a significantly slower signal. We say that frequencies above the Nyquist frequency are **aliased** to frequencies below the Nyquist frequency.
+we can achieve a perfect reproduction of the original continuous signal from the discrete samples. Turned around, for a given sample rate $$f_s = 1/T_s$$ the highest frequency we can represent is the **Nyquist frequency** $$f_N = f_s/2$$. To illustrate what goes wrong when a signal is above the Nyquist frequency, consider Fig. 4, which shows that a faster signal that is sampled at less than twice per period actually appears like a significantly slower signal. We say that frequencies above the Nyquist frequency are **aliased** to frequencies below the Nyquist frequency.
 
 <p class='center' markdown='0'>
   <img src='figs/samp4.png' alt='aliasing from undersamplming' style='width: 400px;'>
 </p>
 
 <p class='mycap' markdown='1'>
-**Figure 4** --- If we sample more slowly than the Nyquist frequency, the true signal (shown in red) will appear to have a much lower frequency, as shown in the dashed green curve. This is called **aliasing**.
+**Figure 4** --- If we sample more slowly than the Nyquist rate, the true signal (shown in red) will appear to have a much lower frequency, as shown in the dashed green curve. This is called **aliasing**.
 </p>
 
-If you have seen the spokes of a wagon wheel appear to move backward in a movie, you have seen an illustration of aliasing. Suppose the movie were shot at 24 frames per second and that the while was rolling at just the right speed so that in 1/24 s, each spoke rotated into the position occupied by its neighbor in the previous frame. In that case, the spokes would appear not to move at all, which is akin to the situation illustrated in Fig. 3. If, on the other hand, in 1/24 s the whole rotates so that spokes almost make it to the position of their neighbor in the prior frame, but not quite, then it will appear as if the spokes are rotating slowly backward.
+If you have seen the spokes of a wagon wheel appear to move backward in a movie, you have seen an illustration of aliasing. Suppose the movie were shot at 24 frames per second and that the wheel was rolling at just the right speed so that in 1/24 s, each spoke rotated into the position occupied by its neighbor in the previous frame. In that case, the spokes would appear not to move at all, which is akin to the situation illustrated in Fig. 3. If, on the other hand, in 1/24 s the wheel rotates so that spokes almost make it to the position of their neighbor in the prior frame, but not quite, then it will appear as if the spokes are rotating slowly backward.
 
 **Question** --- A wagon wheel with 12 spokes and a diameter of 3 feet is filmed at 24 frames per second. How fast does the wagon need to be moving (and the wheel rolling) for the spokes to appear to rotate backward at one-tenth the rate that they are actually rotating forward?
 
@@ -68,7 +68,7 @@ About 17 ft/s.
 
 ## Homework
 
-1. Start a new flow graph and use a complex signal source. Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative, as illustrated below.
+1. Start a new flow graph and use a complex signal source. (In the flowgraphs, the factor by which the samples are interpolated to draw the "continuous" curve is the variable `upsample`.) Show that when you go too fast for the Nyquist-Shannon theorem to hold, the resulting frequency wraps around from positive to negative, as illustrated below.
 
 [Open in a new window <img src="figs/sampling.png">](figs/sampling.png){:target="new_"}
 
@@ -77,6 +77,28 @@ About 17 ft/s.
 3. Investigate the effect of the **window** function in the **low-pass filter**, keeping a cutoff frequency of 500 kHz and a transition width of 10 kHz. Among **Hamming**, **Hann**, **Blackman**, **Rectangular** or **Kaiser**, which do a noticeably worse job?
 
 <!-- Rectangular and Hamming do worse than the others -->
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson06a_RealSampling.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson06a_RealSampling.grc)
+
+[![lesson06a_RealSampling flowgraph](figs/flow/lesson06a_RealSampling.png)](figs/flow/lesson06a_RealSampling.png){:target="_blank"}
+
+Running:
+
+[![lesson06a_RealSampling running](figs/run/lesson06a_RealSampling.png)](figs/run/lesson06a_RealSampling.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson06b_ComplexSampling.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson06b_ComplexSampling.grc) --- Running
+- [`lesson06hw1_ComplexSampling.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson06hw1_ComplexSampling.grc)
+- [`lesson06hw2_ComplexReSampling.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson06hw2_ComplexReSampling.grc)
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 

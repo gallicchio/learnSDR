@@ -40,7 +40,7 @@ We can make a similar deduction for the case when we sample a bit too late, as i
 </p>
 
 <p class="mycap" markdown="1">
-**Figure 3** --- When we sample too early (at the time indicated by the vertical dashed line), we can learn something from the two sloped paths that represent transitions from +1 to --1 and from --1 to +1. The product $$x \dot{x}$$ is negative for **both types of transition**.
+**Figure 3** --- When we sample too late (at the time indicated by the vertical dashed line), the two sloped paths again agree: the product $$x \dot{x}$$ is negative for **both types of transition**.
 </p>
 
 So, we will take
@@ -73,8 +73,43 @@ To get the derivative, we could use a derivative filter
 To interpolate, we leverage the Nyquist-Shannon sampling theorem and upsample the signal by spacing each real value in $$r$$ with $$N - 1 = 31$$ zeros and then passing the result through an appropriate low-pass filter to produce the smoothed output. In fact, we'll generate a bank of $$N$$ filters, each designed to interpolate at a different place between the original samples of $$r$$. This is called a **polyphase filter bank**.
 
 
-[Flow diagram](figs/flow/polyphase.png){: target='flow'}
+## Loop settings of the Symbol Sync block
 
+| Parameter | Value | Why |
+| --- | --- | --- |
+| Timing error detector | *Signal times Slope (ML)* | the $$x \dot{x}$$ detector described above; works for BPSK and QPSK |
+| Samples per symbol | `sps` = 16 | |
+| Expected TED gain | `ted_gain` = `1.1*alpha/sps` (0.034 here) | see below |
+| Loop bandwidth | 0.02 | normalized to the symbol rate; the loop settles in about 200 symbols (3 ms here) |
+| Damping factor | 1.0 | critically damped |
+| Maximum deviation | 0.1 | the clock period may only wander by 0.1 samples from `sps`; the real clocks differ by parts per million, so this is generous. (The default of 1.5 lets the period estimate wander far more than any real clock error.) |
+| Output samples per symbol | 1 | one clean sample per symbol out |
+| Interpolating resampler | *Polyphase Filterbank, MF* with `rcc_taps` | the 32-arm root-raised-cosine filter bank does the matched filtering *and* the interpolation |
+
+**Expected TED gain.** The loop filter is designed assuming the error detector produces `ted_gain` units of error per *sample* of timing offset. Measuring the detector's S-curve in a simulation for root-raised-cosine pulses gives, to about 10%,
+\begin{equation}
+  \texttt{ted\_gain} \approx 1.1\,\alpha\,A^2 / \texttt{sps}
+\end{equation}
+where $$A$$ is the signal amplitude going in (the AGC just before this block sets it to its *reference*, 1.0). Like the FLL bandwidth, this is an expression in the flowgraph (`1.1*alpha/sps`), so it stays right when you change `alpha`, `sps` or the sample rate. It holds for `sps` of 8 and up (at `sps` = 4 the constant drops to about 0.8); QPSK is about 6% lower, which doesn't matter. GNU Radio's default of 1.0 is 30 times too large for this flowgraph: the loop then has 30 times less gain than designed, which makes it about 5 times slower and badly under-damped (it rings for hundreds of symbols). (The GNU Radio examples use a loop bandwidth of 0.045; with the gain set correctly, 0.02 gives the same settling time with less timing jitter, so that is what the flowgraphs use.)
+
+The **Skip Head** block before the Symbol Sync throws away the first second of samples so the FLL has already locked before the timing loop starts.
+
+
+
+
+
+
+<!-- flowgraphs:begin -->
+## Flowgraphs
+
+[`lesson18_SymbolSync.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson18_SymbolSync.grc)
+
+[![lesson18_SymbolSync flowgraph](figs/flow/lesson18_SymbolSync.png)](figs/flow/lesson18_SymbolSync.png){:target="_blank"}
+
+Running: after FLL, Symbol Sync and Costas loop the BPSK constellation (right) is two clean points:
+
+[![lesson18_SymbolSync running](figs/run/lesson18_SymbolSync.png)](figs/run/lesson18_SymbolSync.png){:target="_blank"}
+<!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)
 
