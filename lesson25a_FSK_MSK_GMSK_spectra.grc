@@ -1,0 +1,638 @@
+options:
+  parameters:
+    alias: ''
+    author: Claude (Oct 2026), in the style of the learnSDR lessons
+    catch_exceptions: 'True'
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_linking: dynamic
+    generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
+    hier_block_src_path: '.:'
+    id: lesson25a_FSK_MSK_GMSK_spectra
+    max_nouts: '0'
+    output_language: python
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    thread_safe_setters: ''
+    title: FSK, MSK, GMSK and QPSK spectra (simulation)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    state: enabled
+blocks:
+- name: bt
+  id: variable
+  parameters:
+    comment: Gaussian filter bandwidth x bit time (GSM uses 0.3)
+    value: '0.3'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 380
+    - 10
+    state: enabled
+- name: gauss_taps
+  id: variable
+  parameters:
+    comment: Gaussian pulse-shaping filter, 4 bits long
+    value: firdes.gaussian(1, sps, bt, 4*sps)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 520
+    - 10
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 1e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 190
+    - 10
+    state: enabled
+- name: sps
+  id: variable
+  parameters:
+    comment: samples per bit
+    value: '16'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 300
+    - 10
+    state: enabled
+- name: analog_frequency_modulator_fc_13
+  id: analog_frequency_modulator_fc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: '2-FSK, modulation index h = 1:
+
+      the two tones are 1 bit-rate apart.
+
+      phase advances by pi*h per bit'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    sensitivity: math.pi*1.0/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1300
+    - 150
+    state: enabled
+- name: analog_frequency_modulator_fc_14
+  id: analog_frequency_modulator_fc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'MSK = FSK with h = 0.5, the smallest h that
+
+      keeps the two tones orthogonal'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    sensitivity: math.pi*0.5/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1300
+    - 300
+    state: enabled
+- name: analog_frequency_modulator_fc_16
+  id: analog_frequency_modulator_fc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    sensitivity: math.pi*0.5/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1550
+    - 450
+    state: enabled
+- name: analog_random_source_x_17
+  id: analog_random_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    max: '256'
+    maxoutbuf: '0'
+    min: '0'
+    minoutbuf: '0'
+    num_samps: '10000'
+    repeat: 'True'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 650
+    state: enabled
+- name: analog_random_source_x_6
+  id: analog_random_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: random bytes
+    max: '256'
+    maxoutbuf: '0'
+    min: '0'
+    minoutbuf: '0'
+    num_samps: '10000'
+    repeat: 'True'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 250
+    state: enabled
+- name: blocks_add_const_vxx_9
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '-0.5'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 540
+    - 250
+    state: enabled
+- name: blocks_char_to_float_8
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 380
+    - 250
+    state: enabled
+- name: blocks_multiply_const_vxx_10
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: bits 0/1 -> -1/+1
+    const: '2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 700
+    - 250
+    state: enabled
+- name: blocks_repeat_11
+  id: blocks_repeat
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: rectangular bit pulses
+    interp: sps
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 860
+    - 250
+    state: enabled
+- name: blocks_throttle2_12
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1020
+    - 250
+    state: enabled
+- name: blocks_throttle2_19
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 560
+    - 650
+    state: enabled
+- name: blocks_unpack_k_bits_bb_7
+  id: blocks_unpack_k_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: one bit per byte
+    k: '8'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 200
+    - 250
+    state: enabled
+- name: digital_constellation_modulator_18
+  id: digital_constellation_modulator
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'QPSK at the same BIT rate:
+
+      2 bits per symbol, so 2*sps samples per symbol'
+    constellation: digital.constellation_qpsk().base()
+    differential: 'False'
+    excess_bw: '0.5'
+    log: 'False'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_symbol: 2*sps
+    truncate: 'False'
+    verbose: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 250
+    - 650
+    state: enabled
+- name: fir_filter_xxx_15
+  id: fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'GMSK: smooth the bit pulses with a Gaussian
+
+      filter before the FM, so the frequency
+
+      changes gently'
+    decim: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_delay: '0'
+    taps: gauss_taps
+    type: fff
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1300
+    - 450
+    state: enabled
+- name: import_4
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: 'import math
+
+      from gnuradio.filter import firdes'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 190
+    - 70
+    state: enabled
+- name: qtgui_freq_sink_x_20
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: 'FSK is wide; MSK is narrower; GMSK has no sidelobes;
+
+      QPSK (with 2 bits per symbol) is the narrowest'
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '4096'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: 2-FSK (h=1)
+    label10: ''''''
+    label2: MSK (h=0.5)
+    label3: GMSK (h=0.5, BT=0.3)
+    label4: QPSK (RRC, alpha=0.5)
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '"Spectra at the same bit rate"'
+    nconnections: '4'
+    norm_window: 'False'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: window.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1850
+    - 250
+    state: enabled
+- name: qtgui_time_sink_x_21
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: rectangular bits (FSK, MSK)
+    label10: Signal 10
+    label2: Gaussian-filtered bits (GMSK)
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"Instantaneous frequency (bits)"'
+    nconnections: '2'
+    size: '512'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1850
+    - 600
+    state: enabled
+connections:
+- - analog_frequency_modulator_fc_13
+  - '0'
+  - qtgui_freq_sink_x_20
+  - '0'
+- - analog_frequency_modulator_fc_14
+  - '0'
+  - qtgui_freq_sink_x_20
+  - '1'
+- - analog_frequency_modulator_fc_16
+  - '0'
+  - qtgui_freq_sink_x_20
+  - '2'
+- - analog_random_source_x_17
+  - '0'
+  - digital_constellation_modulator_18
+  - '0'
+- - analog_random_source_x_6
+  - '0'
+  - blocks_unpack_k_bits_bb_7
+  - '0'
+- - blocks_add_const_vxx_9
+  - '0'
+  - blocks_multiply_const_vxx_10
+  - '0'
+- - blocks_char_to_float_8
+  - '0'
+  - blocks_add_const_vxx_9
+  - '0'
+- - blocks_multiply_const_vxx_10
+  - '0'
+  - blocks_repeat_11
+  - '0'
+- - blocks_repeat_11
+  - '0'
+  - blocks_throttle2_12
+  - '0'
+- - blocks_throttle2_12
+  - '0'
+  - analog_frequency_modulator_fc_13
+  - '0'
+- - blocks_throttle2_12
+  - '0'
+  - analog_frequency_modulator_fc_14
+  - '0'
+- - blocks_throttle2_12
+  - '0'
+  - fir_filter_xxx_15
+  - '0'
+- - blocks_throttle2_12
+  - '0'
+  - qtgui_time_sink_x_21
+  - '0'
+- - blocks_throttle2_19
+  - '0'
+  - qtgui_freq_sink_x_20
+  - '3'
+- - blocks_unpack_k_bits_bb_7
+  - '0'
+  - blocks_char_to_float_8
+  - '0'
+- - digital_constellation_modulator_18
+  - '0'
+  - blocks_throttle2_19
+  - '0'
+- - fir_filter_xxx_15
+  - '0'
+  - analog_frequency_modulator_fc_16
+  - '0'
+- - fir_filter_xxx_15
+  - '0'
+  - qtgui_time_sink_x_21
+  - '1'
+metadata:
+  file_format: 1
+  grc_version: 3.10.12.0

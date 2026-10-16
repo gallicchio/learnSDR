@@ -38,6 +38,21 @@ The videos were recorded with GNU Radio 3.8 in 2021. The flowgraphs in the repos
 - [Lesson 23 --- GPS Reception](lesson23.md)
 - [Extra: Spectrum Analyzer Demo with USRP B210 or X310](SpectrumDemo.md)
 
+### Extra lessons without videos
+
+These were drafted in October 2026 with the help of an AI assistant, in the spirit of the lessons above, and tested on the same hardware. They are less polished than the video lessons; corrections are welcome.
+
+- [Lesson 24 --- Frequency-Shift Keying (FSK)](lesson24.md)
+- [Lesson 25 --- MSK and GMSK: FSK done efficiently](lesson25.md)
+- [Lesson 26 --- More bits per symbol: 8PSK and 16-QAM](lesson26.md)
+- [Lesson 27 --- Noise, SNR and the constellation (simulation)](lesson27.md)
+- [Lesson 28 --- Multipath and a simple adaptive equalizer (simulation)](lesson28.md)
+- [Lesson 29 --- Packets and the phase ambiguity: the preamble (simulation)](lesson29.md)
+- [Lesson 30 --- OFDM (simulation)](lesson30.md)
+- [Lesson 31 --- Chirps and FMCW radar (simulation)](lesson31.md)
+- [Lesson 32 --- Noise: what a receiver sees when nothing is there](lesson32.md)
+- [Lesson 33 --- Two antennas on a B210: phase difference and direction](lesson33.md)
+
 
 <!---
 These lessons were planned, but have not yet been made:

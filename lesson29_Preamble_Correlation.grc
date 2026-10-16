@@ -1,0 +1,807 @@
+options:
+  parameters:
+    alias: ''
+    author: Claude (Oct 2026), in the style of the learnSDR lessons
+    catch_exceptions: 'True'
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_linking: dynamic
+    generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
+    hier_block_src_path: '.:'
+    id: lesson29_Preamble_Correlation
+    max_nouts: '0'
+    output_language: python
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    thread_safe_setters: ''
+    title: Finding packets and fixing the phase ambiguity with a known preamble (simulation)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    state: enabled
+blocks:
+- name: alpha
+  id: variable
+  parameters:
+    comment: ''
+    value: '0.5'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 380
+    - 10
+    state: enabled
+- name: constellation
+  id: variable_constellation
+  parameters:
+    comment: ''
+    const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
+    dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
+    precision: '8'
+    rot_sym: '4'
+    soft_dec_lut: None
+    sym_map: '[0, 1, 3, 2]'
+    type: qpsk
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 700
+    - 10
+    state: enabled
+- name: freq_offset
+  id: variable_qtgui_range
+  parameters:
+    comment: fraction of the sample rate
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: '-0.01'
+    step: '0.0005'
+    stop: '0.01'
+    value: '0'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 470
+    state: enabled
+- name: nfilts
+  id: variable
+  parameters:
+    comment: ''
+    value: '32'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 470
+    - 10
+    state: enabled
+- name: noise_voltage
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: '0'
+    step: '0.01'
+    stop: '1'
+    value: '0.1'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 370
+    state: enabled
+- name: payload_len
+  id: variable
+  parameters:
+    comment: random payload symbols per packet
+    value: '100'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 300
+    state: enabled
+- name: preamble
+  id: variable
+  parameters:
+    comment: the same bits as QPSK symbols (all on the +45/-135 degree diagonal)
+    value: '[(b+1j*b)/np.sqrt(2) for b in preamble_bits]'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 230
+    state: enabled
+- name: preamble_bits
+  id: variable
+  parameters:
+    comment: 'a 13-chip Barker code, twice. Barker codes have
+
+      the smallest possible correlation sidelobes'
+    value: '[1,1,1,1,1,-1,-1,1,1,-1,1,-1,1, 1,1,1,1,1,-1,-1,1,1,-1,1,-1,1]'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 160
+    state: enabled
+- name: rcc_taps
+  id: variable
+  parameters:
+    comment: ''
+    value: firdes.root_raised_cosine(nfilts, nfilts*samp_rate, samp_rate/sps, alpha,
+      11*sps*nfilts)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 980
+    - 10
+    state: enabled
+- name: rrc_taps
+  id: variable
+  parameters:
+    comment: transmit pulse shape (Lesson 15)
+    value: firdes.root_raised_cosine(sps, samp_rate, samp_rate/sps, alpha, 11*sps)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1250
+    - 10
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 1e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 190
+    - 10
+    state: enabled
+- name: sps
+  id: variable
+  parameters:
+    comment: ''
+    value: '8'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 300
+    - 10
+    state: enabled
+- name: ted_gain
+  id: variable
+  parameters:
+    comment: see Lesson 18
+    value: 1.1*alpha/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 560
+    - 10
+    state: enabled
+- name: analog_agc_xx_22
+  id: analog_agc_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    gain: '1.0'
+    max_gain: '65536'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rate: 1e-4
+    reference: '1.0'
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1400
+    - 680
+    state: enabled
+- name: analog_random_source_x_16
+  id: analog_random_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    max: '4'
+    maxoutbuf: '0'
+    min: '0'
+    minoutbuf: '0'
+    num_samps: '10000'
+    repeat: 'True'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 760
+    state: enabled
+- name: blocks_complex_to_arg_27
+  id: blocks_complex_to_arg
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 2450
+    - 760
+    state: enabled
+- name: blocks_complex_to_mag_26
+  id: blocks_complex_to_mag
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 2450
+    - 600
+    state: enabled
+- name: blocks_multiply_const_vxx_29
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: phase / pi, to fit on the same plot
+    const: 1/math.pi
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 2620
+    - 860
+    state: enabled
+- name: blocks_stream_mux_18
+  id: blocks_stream_mux
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: one packet = preamble followed by payload
+    lengths: '[len(preamble), payload_len]'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 520
+    - 660
+    state: enabled
+- name: blocks_throttle2_20
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 960
+    - 660
+    state: enabled
+- name: blocks_vector_source_x_15
+  id: blocks_vector_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: the known preamble ...
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    tags: '[]'
+    type: complex
+    vector: preamble
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 620
+    state: enabled
+- name: channels_channel_model_21
+  id: channels_channel_model
+  parameters:
+    affinity: ''
+    alias: ''
+    block_tags: 'False'
+    comment: ''
+    epsilon: '1.0'
+    freq_offset: freq_offset
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    noise_voltage: noise_voltage
+    seed: '0'
+    taps: '[1.0]'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1140
+    - 660
+    state: enabled
+- name: digital_chunks_to_symbols_xx_17
+  id: digital_chunks_to_symbols_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: '... and random QPSK payload symbols'
+    dimension: '1'
+    in_type: byte
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    out_type: complex
+    symbol_table: constellation.points()/np.abs(constellation.points()[0])
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 250
+    - 760
+    state: enabled
+- name: digital_costas_loop_cc_24
+  id: digital_costas_loop_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'Lesson 19: locks, but at one of FOUR equally
+
+      good angles (0, 90, 180, 270 degrees)'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    order: constellation.arity()
+    use_snr: 'False'
+    w: 2*math.pi/100
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1900
+    - 680
+    state: enabled
+- name: digital_symbol_sync_xx_23
+  id: digital_symbol_sync_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: Lesson 18
+    constellation: constellation
+    damping: '1.0'
+    loop_bw: '0.02'
+    max_dev: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nfilters: nfilts
+    osps: '1'
+    pfb_mf_taps: rcc_taps
+    resamp_type: digital.IR_PFB_MF
+    sps: sps
+    ted_gain: ted_gain
+    ted_type: digital.TED_SIGNAL_TIMES_SLOPE_ML
+    type: cc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1600
+    - 660
+    state: enabled
+- name: fir_filter_xxx_25
+  id: fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'correlate with the preamble: an FIR filter whose taps are
+
+      the time-reversed conjugate preamble (Lesson 22 did the same
+
+      thing with FFTs). Output = 1 x e^(j*rotation) at a packet start'
+    decim: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_delay: '0'
+    taps: np.conj(preamble[::-1])/len(preamble)
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 2150
+    - 680
+    state: enabled
+- name: import_9
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: 'import math
+
+      import numpy as np
+
+      from gnuradio import gr
+
+      from gnuradio.filter import firdes'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 190
+    - 70
+    state: enabled
+- name: interp_fir_filter_xxx_19
+  id: interp_fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'root-raised-cosine pulse shaping (Lesson 15):
+
+      this plus the symbol mapping is what the
+
+      Constellation Modulator does inside'
+    interp: sps
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_delay: '0'
+    taps: rrc_taps
+    type: ccf
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 720
+    - 660
+    state: enabled
+- name: qtgui_const_sink_x_30
+  id: qtgui_const_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    grid: 'False'
+    gui_hint: ''
+    label1: after Costas loop
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    marker1: '0'
+    marker10: '0'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '0'
+    marker7: '0'
+    marker8: '0'
+    marker9: '0'
+    name: '"Received symbols"'
+    nconnections: '1'
+    size: '2048'
+    style1: '0'
+    style10: '0'
+    style2: '0'
+    style3: '0'
+    style4: '0'
+    style5: '0'
+    style6: '0'
+    style7: '0'
+    style8: '0'
+    style9: '0'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    xmax: '2'
+    xmin: '-2'
+    ymax: '2'
+    ymin: '-2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 2150
+    - 900
+    state: enabled
+- name: qtgui_time_sink_x_28
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: 'the phase at the peak is the Costas loop''s rotation:
+
+      0, +90, -90 or 180 degrees. Multiply the payload by
+
+      e^(-j phase) and the ambiguity is gone.'
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: '|correlation| (1 at each packet start)'
+    label10: Signal 10
+    label2: phase of correlation (degrees / 180)
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"Correlation with the preamble"'
+    nconnections: '2'
+    size: 2*(len(preamble)+payload_len)
+    srate: samp_rate/sps
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 2800
+    - 560
+    state: enabled
+connections:
+- - analog_agc_xx_22
+  - '0'
+  - digital_symbol_sync_xx_23
+  - '0'
+- - analog_random_source_x_16
+  - '0'
+  - digital_chunks_to_symbols_xx_17
+  - '0'
+- - blocks_complex_to_arg_27
+  - '0'
+  - blocks_multiply_const_vxx_29
+  - '0'
+- - blocks_complex_to_mag_26
+  - '0'
+  - qtgui_time_sink_x_28
+  - '0'
+- - blocks_multiply_const_vxx_29
+  - '0'
+  - qtgui_time_sink_x_28
+  - '1'
+- - blocks_stream_mux_18
+  - '0'
+  - interp_fir_filter_xxx_19
+  - '0'
+- - blocks_throttle2_20
+  - '0'
+  - channels_channel_model_21
+  - '0'
+- - blocks_vector_source_x_15
+  - '0'
+  - blocks_stream_mux_18
+  - '0'
+- - channels_channel_model_21
+  - '0'
+  - analog_agc_xx_22
+  - '0'
+- - digital_chunks_to_symbols_xx_17
+  - '0'
+  - blocks_stream_mux_18
+  - '1'
+- - digital_costas_loop_cc_24
+  - '0'
+  - fir_filter_xxx_25
+  - '0'
+- - digital_costas_loop_cc_24
+  - '0'
+  - qtgui_const_sink_x_30
+  - '0'
+- - digital_symbol_sync_xx_23
+  - '0'
+  - digital_costas_loop_cc_24
+  - '0'
+- - fir_filter_xxx_25
+  - '0'
+  - blocks_complex_to_arg_27
+  - '0'
+- - fir_filter_xxx_25
+  - '0'
+  - blocks_complex_to_mag_26
+  - '0'
+- - interp_fir_filter_xxx_19
+  - '0'
+  - blocks_throttle2_20
+  - '0'
+metadata:
+  file_format: 1
+  grc_version: 3.10.12.0
