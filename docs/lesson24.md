@@ -1,6 +1,6 @@
 # Lesson 24 --- Frequency-Shift Keying (FSK)
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 (The flowgraph is Jason's from 2022; only this page is new.)
 
@@ -10,10 +10,15 @@ The receiver is equally simple: the **Quadrature Demod** block outputs the phase
 
 The price is bandwidth: two tones 20 kHz apart switching every 100 µs use far more spectrum than the 10 kbit/s deserve. Lesson 25 makes FSK efficient.
 
+## 4-FSK
+
+`lesson24b_4FSK_Pluto_to_RTL.grc` sends two bits per symbol by using *four* tones, at −3, −1, +1 and +3 times the deviation (this is how FLEX pagers and DMR hand-held radios work). The transmitter is the same VCO; the receiver is the same FM demodulator, now followed by a **DC Blocker** that removes the Pluto/RTL-SDR frequency error automatically, and the demodulated signal has four levels: look at the histogram and the stacked "eyes". A slicer would need three thresholds instead of one.
+
 ## Things to try
 
 - Reduce `fsk_deviation_hz` until the demodulator can no longer tell the tones apart. The ratio deviation / bit rate is the *modulation index* $$h$$; here $$h = 2$$.
 - Pagers (POCSAG) and AX.25 packet radio are 2-FSK at 1200 bit/s; with an RTL-SDR and the `multimon-ng` program you can decode real ones.
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs
@@ -25,6 +30,10 @@ The price is bandwidth: two tones 20 kHz apart switching every 100 µs use far m
 Running: 2-FSK from the Pluto, demodulated by the RTL-SDR; the top trace is the sliced bits:
 
 [![lesson24_FSKhardware running](figs/run/lesson24_FSKhardware.png)](figs/run/lesson24_FSKhardware.png){:target="_blank"}
+
+Other flowgraphs for this lesson:
+
+- [`lesson24b_4FSK_Pluto_to_RTL.grc`](https://github.com/gallicchio/learnSDR/blob/main/lesson24b_4FSK_Pluto_to_RTL.grc) --- 4-FSK over the air: four demodulated levels, four histogram peaks, stacked eyes
 <!-- flowgraphs:end -->
 
 All GNURadio flowgraphs are at [https://github.com/gallicchio/learnSDR](https://github.com/gallicchio/learnSDR)

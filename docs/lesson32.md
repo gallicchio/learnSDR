@@ -1,6 +1,6 @@
 # Lesson 32 --- What a receiver sees when nothing is there: noise
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 (The two flowgraphs are Jason's from 2021; only this page is new.)
 
@@ -14,6 +14,7 @@ Disconnect the antenna and a receiver still produces samples: noise, from the th
 
 - Compare the floor with the antenna connected and disconnected. If it rises with the antenna, your environment (or the antenna's own pick-up) dominates and more gain would not help.
 - With the Pluto, set the gain to 0, 30 and 70 dB and note the floor each time. Where does the slope become 1 dB per dB?
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs

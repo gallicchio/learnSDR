@@ -1,6 +1,6 @@
 # Lesson 28 --- Multipath and a simple adaptive equalizer (simulation)
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 Indoors, a radio signal arrives several times: directly, and via reflections from walls and furniture a little later. The receiver sees the sum. This flowgraph builds the simplest such channel from blocks you know: the signal plus a copy **Delay**ed by `echo_delay` samples and scaled by `echo_amplitude`.
 
@@ -13,6 +13,7 @@ The fix is an **equalizer**: an FIR filter that approximately undoes the channel
 - `echo_delay` = 8 (exactly one symbol) with amplitude 0.9: the hardest case. Then 16.
 - The CMA `step_size` is a loop bandwidth: too small and it never converges, too large and the taps jitter. Try 0.0005 and 0.02.
 - OFDM (Lesson 30) is the other way of dealing with multipath.
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs

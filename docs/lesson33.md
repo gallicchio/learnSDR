@@ -1,6 +1,6 @@
 # Lesson 33 --- Two antennas, one clock: phase difference and direction
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 A USRP B210 has two receivers that share one local oscillator and one sample clock. Tune both to the same frequency and the only difference between what they see is the geometry: a wave arriving from an angle $$\theta$$ off broadside reaches the second antenna a distance $$d\sin\theta$$ later, which at wavelength $$\lambda$$ is a phase difference of $$2\pi d \sin\theta/\lambda$$. Measure the phase difference and you know the direction. Two antennas give one angle; many give a map --- that is an interferometer (see the radio-interferometry slides in this repository) or, run backwards, a phased-array transmitter.
 
@@ -14,6 +14,7 @@ The phase difference also contains a fixed offset from cable lengths and the B21
 - Swap the antennas' cables: the phase changes sign.
 - Why does the phase become meaningless when the antennas are more than $$\lambda/2$$ apart? (The same aliasing as Lesson 6, in space instead of time.)
 - The B210's two channels can also *transmit* coherently: beam forming.
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs

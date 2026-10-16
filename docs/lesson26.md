@@ -1,6 +1,6 @@
 # Lesson 26 --- More bits per symbol: 8PSK and 16-QAM
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 QPSK sends 2 bits per symbol. If the symbol rate (and so the bandwidth, Lesson 14) is fixed, the only way to send faster is to use more constellation points: **8PSK** has 8 points on the circle (3 bits per symbol), **16-QAM** has a 4×4 grid with three different amplitudes (4 bits per symbol), 64-QAM a 8×8 grid, and so on up to the 1024-QAM of cable modems and Wi-Fi 6.
 
@@ -18,6 +18,7 @@ An **error vector** chain at the bottom (received symbol minus ideal symbol, ave
 - Raise `tx_attenuation` until the 16-QAM clusters merge, note the SNR; switch to QPSK and do the same.
 - 8PSK with the Costas loop set to order 8 also works; try replacing the Constellation Receiver to see.
 - Why does 16-QAM, unlike PSK, not have a constant envelope? Look at the transmitted time signal.
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs

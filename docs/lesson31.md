@@ -1,6 +1,6 @@
 # Lesson 31 --- Chirps and FMCW radar (simulation)
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 Lesson 8b measured *speed* from the Doppler shift of a tone. To measure *distance* you need to know *when* the echo arrived, and a tone has no "when". A **chirp** --- a tone whose frequency sweeps linearly, here from $$-B/2$$ to $$+B/2$$ every `chirp_period` --- does. The transmitter is Lesson 24's **VCO** driven by a sawtooth.
 
@@ -18,6 +18,7 @@ The second, weaker peak in the spectrum comes from the part of each period where
 - Shorten `chirp_period`: the beat frequency grows (steeper slope); the sawtooth-wrap peak grows too.
 - LoRa uses the same chirps for *communication*: each symbol is a chirp with a different starting frequency, and the receiver de-chirps and takes an FFT exactly as here.
 - With a Pluto you can do this over the air (Lesson 8b's TX/RX), but with its 20 MHz maximum bandwidth you would only resolve 7.5 m.
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs

@@ -1,6 +1,6 @@
 # Lesson 25 --- MSK and GMSK: FSK done efficiently
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 Lesson 24's FSK switches between two tones $$\pm h/(2T_b)$$ away from the carrier, where $$T_b$$ is the bit time and $$h$$ is the modulation index. Two things make it wasteful: the tones are far apart, and the frequency jumps abruptly at every bit edge, which splatters power far from the carrier (Lesson 14 again: sharp edges in time mean wide spectra).
 
@@ -16,6 +16,7 @@ Lesson 24's FSK switches between two tones $$\pm h/(2T_b)$$ away from the carrie
 
 - In 25a, change `bt` to 0.5 and to 10 (which is just MSK). Change the FSK branch's $$h$$ to 2, the value Lesson 24 used.
 - In 25b, lower `tx_attenuation` until the eye closes. How does the bit error rate compare with BPSK (Lesson 18) at the same power? (FM demodulation "throws away" about 3 dB.)
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs

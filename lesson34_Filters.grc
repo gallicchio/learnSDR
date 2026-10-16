@@ -1,0 +1,629 @@
+options:
+  parameters:
+    alias: ''
+    author: Claude (Oct 2026), in the style of the learnSDR lessons
+    catch_exceptions: 'True'
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_linking: dynamic
+    generate_options: qt_gui
+    generator_class_name: PythonQtGuiGenerator
+    generator_module: gnuradio.grc.workflows.python_qt_gui
+    hier_block_src_path: '.:'
+    id: lesson34_Filters
+    max_nouts: '0'
+    output_language: python
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    thread_safe_setters: ''
+    title: 'Filters: low-pass, high-pass, band-pass, transition width and decimation
+      (simulation)'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    state: enabled
+blocks:
+- name: cutoff
+  id: variable_qtgui_range
+  parameters:
+    comment: where the filter starts to roll off (Hz)
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: 10e3
+    step: 1e3
+    stop: 450e3
+    value: 100e3
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 160
+    state: enabled
+- name: decimation
+  id: variable
+  parameters:
+    comment: keep one sample in 10 after the filter
+    value: '10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 900
+    state: enabled
+- name: ntaps
+  id: variable
+  parameters:
+    comment: how long the low-pass filter is
+    value: len(firdes.low_pass(1, samp_rate, cutoff, transition))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 360
+    state: enabled
+- name: ntaps_label
+  id: variable_qtgui_label
+  parameters:
+    comment: 'every output sample costs this many multiplications;
+
+      halve the transition width and watch it double'
+    formatter: None
+    gui_hint: ''
+    label: '"Low-pass filter length (taps)"'
+    type: int
+    value: ntaps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 430
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 1e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 190
+    - 10
+    state: enabled
+- name: transition
+  id: variable_qtgui_range
+  parameters:
+    comment: 'how fast it rolls off (Hz). Narrower = more taps = more CPU:
+
+      number of taps is roughly 4 * samp_rate / transition'
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: 2e3
+    step: 1e3
+    stop: 200e3
+    value: 50e3
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 260
+    state: enabled
+- name: analog_noise_source_x_7
+  id: analog_noise_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: 'white noise: every frequency equally present,
+
+      so the output spectrum IS the filter response'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    noise_type: analog.GR_GAUSSIAN
+    seed: '0'
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 10
+    - 560
+    state: enabled
+- name: band_pass_filter_11
+  id: band_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: 'complex taps: keeps cutoff < f < cutoff+100k
+
+      (positive frequencies only - a real-tap filter
+
+      would also keep the negative-frequency image)'
+    decim: '1'
+    gain: '1'
+    high_cutoff_freq: cutoff+100e3
+    interp: '1'
+    low_cutoff_freq: cutoff
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_ccc
+    width: transition
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 500
+    - 720
+    state: enabled
+- name: blocks_throttle2_8
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 250
+    - 560
+    state: enabled
+- name: high_pass_filter_10
+  id: high_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: keeps |f| > cutoff
+    cutoff_freq: cutoff
+    decim: '1'
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_ccf
+    width: transition
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 500
+    - 560
+    state: enabled
+- name: import_2
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: from gnuradio.filter import firdes
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 190
+    - 70
+    state: enabled
+- name: low_pass_filter_14
+  id: low_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: 'decimating filter: the cutoff must be below the NEW
+
+      Nyquist frequency samp_rate/decimation/2, or the part
+
+      above it folds back (aliases, Lesson 6). The filter only
+
+      computes the outputs it keeps, so this costs 1/10 the CPU'
+    cutoff_freq: samp_rate/decimation/2*0.8
+    decim: decimation
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_ccf
+    width: samp_rate/decimation/2*0.2
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 500
+    - 900
+    state: enabled
+- name: low_pass_filter_9
+  id: low_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: keeps |f| < cutoff
+    cutoff_freq: cutoff
+    decim: '1'
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_ccf
+    width: transition
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 500
+    - 400
+    state: enabled
+- name: qtgui_freq_sink_x_12
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '0.1'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '4096'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: unfiltered noise
+    label10: ''''''
+    label2: low-pass
+    label3: high-pass
+    label4: band-pass (complex)
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '"Filter responses (white noise in)"'
+    nconnections: '4'
+    norm_window: 'False'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: window.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 800
+    - 400
+    state: enabled
+- name: qtgui_freq_sink_x_15
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate/decimation
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: 'the same noise, now only 100 kHz wide,
+
+      at a tenth of the sample rate'
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: 100 kS/s
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '"After decimation by 10"'
+    nconnections: '1'
+    norm_window: 'False'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: window.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 800
+    - 900
+    state: enabled
+- name: qtgui_freq_sink_x_17
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate*3/2
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: 'the noise still occupies 1 MHz; the extra
+
+      500 kHz is empty, which is the sign of a good resampler'
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: 1.5 MS/s
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '"After resampling by 3/2"'
+    nconnections: '1'
+    norm_window: 'False'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: window.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 800
+    - 1100
+    state: enabled
+- name: rational_resampler_xxx_16
+  id: rational_resampler_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: 'rational resampler: x3 up, /2 down = 1.5 MS/s.
+
+      Internally: insert zeros, low-pass, keep 1 in 2,
+
+      all done as one polyphase filter'
+    decim: '2'
+    fbw: '0'
+    interp: '3'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    taps: '[]'
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 500
+    - 1100
+    state: enabled
+connections:
+- - analog_noise_source_x_7
+  - '0'
+  - blocks_throttle2_8
+  - '0'
+- - band_pass_filter_11
+  - '0'
+  - qtgui_freq_sink_x_12
+  - '3'
+- - blocks_throttle2_8
+  - '0'
+  - band_pass_filter_11
+  - '0'
+- - blocks_throttle2_8
+  - '0'
+  - high_pass_filter_10
+  - '0'
+- - blocks_throttle2_8
+  - '0'
+  - low_pass_filter_14
+  - '0'
+- - blocks_throttle2_8
+  - '0'
+  - low_pass_filter_9
+  - '0'
+- - blocks_throttle2_8
+  - '0'
+  - qtgui_freq_sink_x_12
+  - '0'
+- - blocks_throttle2_8
+  - '0'
+  - rational_resampler_xxx_16
+  - '0'
+- - high_pass_filter_10
+  - '0'
+  - qtgui_freq_sink_x_12
+  - '2'
+- - low_pass_filter_14
+  - '0'
+  - qtgui_freq_sink_x_15
+  - '0'
+- - low_pass_filter_9
+  - '0'
+  - qtgui_freq_sink_x_12
+  - '1'
+- - rational_resampler_xxx_16
+  - '0'
+  - qtgui_freq_sink_x_17
+  - '0'
+metadata:
+  file_format: 1
+  grc_version: 3.10.12.0

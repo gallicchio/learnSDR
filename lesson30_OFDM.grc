@@ -744,8 +744,8 @@ blocks:
     width8: '1'
     width9: '1'
     ylabel: Amplitude
-    ymax: '1'
-    ymin: '-1'
+    ymax: '256'
+    ymin: '0'
     yunit: '""'
   states:
     bus_sink: false

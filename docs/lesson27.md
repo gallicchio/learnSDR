@@ -1,6 +1,6 @@
 # Lesson 27 --- Noise, SNR and what the constellation tells you (simulation)
 
-> **No video for this lesson.** Lessons 24--33 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
+> **No video for this lesson.** Lessons 24--38 were drafted in October 2026 with the help of an AI assistant (Claude) in the spirit of the lessons above, and tested on the same RTL-SDR / PlutoSDR / B210 setup. They are less polished than the video lessons; corrections and pull requests are welcome.
 
 Every lesson so far used strong signals. This one adds controlled noise in simulation so you can see what the receiver chain of Lessons 16--19 does as the signal-to-noise ratio drops.
 
@@ -18,6 +18,7 @@ The receiver is the usual AGC → Symbol Sync → Costas loop. The bottom chain 
 - Doubling `noise_voltage` costs 6 dB. Check it with the meter.
 - Add a frequency offset of 0.002 (2 kHz): the FLL is not in this flowgraph, so the Costas loop has to pull it in on its own. How far can you go?
 - The estimate reads a little low at high SNR because the loops themselves add jitter; compare with the formula.
+
 
 <!-- flowgraphs:begin -->
 ## Flowgraphs
